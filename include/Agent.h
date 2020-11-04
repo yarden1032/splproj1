@@ -5,17 +5,17 @@
 
 class Agent{
 public:
-    Agent( Session &session);
-   // Agent();
-
+   /// Agent(Session &session);
+Agent (int sestempl);
     virtual void act()=0;
 private:
-    Session& session;
+   // Session &session;
+   int sestempl;
 };
 
 class ContactTracer: public Agent{
 public:
-    ContactTracer(Session& session);
+    ContactTracer(int session);
 
     virtual void act();
 };
@@ -23,8 +23,7 @@ public:
 
 class Virus: public Agent{
 public:
-    Virus(Session &session, int nodeInd);
-
+    Virus(int nodeInd, int &session);
 
 
 

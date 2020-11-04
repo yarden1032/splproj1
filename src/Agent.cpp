@@ -5,40 +5,42 @@
 using namespace std;
 
 
-/*Agent::Agent(){
-    session(6);
+Agent::Agent(int sestempl){ //constructor not empty
+sestempl=44;
+    class Virus: public Agent{
+        Virus(int sestempl, int nodeInd, int &session) : Agent(sestempl) {
+            session=nodeInd;
+            nodeInd=6;
+        }
+    };
 
-}*/ //Constructor empty
-Agent::Agent(Session & session) : session(session) {//constructor not empty
-            this->session = session;
-
+    class ContactTracer: public Agent{
+    public:
+        ContactTracer(int sestempl, int session) : Agent(sestempl) {
+            sestempl=0;
+            session=55;
         }
 
-void act() {
-
+        virtual void act();
+    };
 }
 
-/*class Virus: public Agent {
-    Virus::Agent(int nodeInd, Session &session) {
-        nodeInd=0;
-        this->session = session;
+/*void printAgent(vector<int> adj[], int V)
+{
+    for (int v = 0; v < V; ++v)
+    {
+        cout << "\n Adjacency list of vertex "
+             << v << "\n head ";
+        for (auto x : adj[v])
+            cout << "-> " << x;
+        printf("\n");
     }
-};*/
-
-/*Virus::Virus(Session &session, int nodeInd) : Agent(session), nodeInd(0) {
-nodeInd=0;
-
-
-}*/
-
-Virus::Virus(Session &session,  int nodeInd) : Agent(session), nodeInd(0) {
-
 }
+*/
 
 
 
 
-ContactTracer::ContactTracer(Session &session) : Agent(session) {
 
 
-}
+

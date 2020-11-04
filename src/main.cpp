@@ -1,30 +1,46 @@
 #include <iostream>
-//#include "../cmake-build-debug-coverage/Session.h"
+#include <fstream>
+#include "../include/Session.h"
 #include <string>
 #include "../include/Graph.h"
 #include <vector>
+#include <regex>
+#include "../include/json.hpp"
 
 using namespace std;
-
+using json = nlohmann::json;
 int main(int argc, char** argv) {
     cout << argc << endl;
 
+    std::string st=*argv;
+  // st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
+  //  st=(st+"/config1.json");
+    cout << st << endl;
         if (argc != 2) {
             cout << "usage cTrace <config_path>" << endl;
-           // std::string path=argv[1];
+
             vector<std::vector<int>> vec;
-            for (int i = 0; i <5; i++){
+
+            for (int a = 0; a <5; a++){
                 vector <int>* vecy= new vector<int>();
                 vec.push_back(*vecy);
                 for (int j= 0; j < 5; j++)
                 {
 
-                    vec[i].push_back((1));
+                    vec[a].push_back((1));
                 }
             }
+            std::fstream file(st);
+            json j;
+            file >>j;
+            std::string s=j.at("graph");
+            cout <<s<<endl;
 
             Graph* g=new Graph (vec);
+            Session* sessi =new Session (*argv,vec);
 
+
+            ///Session sess(argv*);
          //   Graph g(vec);
 
 

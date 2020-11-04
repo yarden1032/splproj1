@@ -17,20 +17,18 @@ Session::Session() {
 
 
 } //Constructor empty
-Session::Session(const string &path) { //constructor not empty
-    treeType=(Cycle); /////// only for test need to change
-     int a = 5;
-     Session *sesi();
-    //sesi=&this;
-     Virus agi();
-    Virus  *agipoint;
-
-
-
-
-    //   std::vector<Agent*> agents;
-
+Session::Session(const string &path,std::vector<std::vector<int>> gr) { //constructor not empty
+    treeType = (Cycle); /////// only for test need to change
+    Graph *gg = new Graph(gr);
+   // g(*gg);
 }
+
+
+
+
+//   std::vector<Agent*> agents;
+
+
 
 TreeType Session::getTreeType() const {
     return Root;
@@ -44,7 +42,7 @@ void Session::simulate() {
 
 }
 
-void Session::addAgent(const Agent &agent) {}
+//void Session::addAgent(const Agent &agent) {}
 
 void Session::enqueueInfected(int) {}
 
