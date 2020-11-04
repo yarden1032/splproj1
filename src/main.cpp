@@ -13,8 +13,8 @@ int main(int argc, char** argv) {
     cout << argc << endl;
 
     std::string st=*argv;
-  // st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
-  //  st=(st+"/config1.json");
+   st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
+    st=(st+"/config1.json");
     cout << st << endl;
         if (argc != 2) {
             cout << "usage cTrace <config_path>" << endl;
