@@ -1,0 +1,3 @@
+/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/splproj1.dir
+/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
