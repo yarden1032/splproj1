@@ -1,33 +1,57 @@
 //
 // Created by Milky on 02/11/2020.
 //
+using namespace std;
 #include "../include/Session.h"
 #include <iostream>
-using namespace std;
-Session::Session():g(),treeType(),agents(){} //Constructor empty
-Session::Session(const std::string& path):g(),treeType(),agents(){ //constructor not empty
+#include "../include/Agent.h"
 
 
-//    this->treeType= nullptr;
-    std::vector<Agent*> agents;
+Session::Session() {
+
+    treeType = Cycle; /////// only for test need to change
+    int a = 5;
+   // Virus* vivi= new Virus();
+
+  //  agents.push_back(new Virus(*this, a));
+
+
+} //Constructor empty
+Session::Session(const string &path) { //constructor not empty
+    treeType=(Cycle); /////// only for test need to change
+     int a = 5;
+     Session *sesi();
+    //sesi=&this;
+     Virus agi();
+    Virus  *agipoint;
+
+
+
+
+    //   std::vector<Agent*> agents;
 
 }
-void simulate() {
+
+TreeType Session::getTreeType() const {
+    return Root;
+}
+
+int Session::dequeueInfected() {
+    return 0;
+}
+
+void Session::simulate() {
 
 }
 
-void addAgent(const Agent& agent){}
+void Session::addAgent(const Agent &agent) {}
 
-void enqueueInfected(int){}
-
-
-
-int dequeueInfected(){}
+void Session::enqueueInfected(int) {}
 
 
-TreeType getTreeType() {
 
-  //  return treeType;
-}
-void setGraph(const Graph& graph){}
+
+
+
+void Session::setGraph(const Graph &graph) {}
 

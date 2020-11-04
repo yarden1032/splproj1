@@ -5,31 +5,36 @@
 #include <string>
 #include "Graph.h"
 
+#include "Agent.h"
 class Agent;
+    enum TreeType {
+        Cycle,
+        MaxRank,
+        Root
+    };
 
-enum TreeType{
-    Cycle,
-    MaxRank,
-    Root
-};
+    class Session {
+    public:
+        Session();
 
-class Session{
-public:
-    Session();
-    Session(const std::string& path);
+        Session(const std::string &path);
 
-    void simulate();
-    void addAgent(const Agent& agent);
-    void setGraph(const Graph& graph);
+        void simulate();
 
-    void enqueueInfected(int);
-    int dequeueInfected();
-    TreeType getTreeType() const;
+        void addAgent(const Agent &agent);
 
-private:
-    Graph g;
-    TreeType treeType;
-    std::vector<Agent*> agents;
-};
+        void setGraph(const Graph &graph);
+
+        void enqueueInfected(int);
+
+        int dequeueInfected();
+
+        TreeType getTreeType() const;
+
+    private:
+        Graph g;
+        TreeType treeType;
+        std::vector<Agent *> agents;
+    };
 
 #endif

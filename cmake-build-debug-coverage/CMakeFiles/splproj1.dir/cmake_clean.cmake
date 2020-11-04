@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/splproj1.dir/src/main.cpp.o"
+  "CMakeFiles/splproj1.dir/src/Agent.cpp.o"
+  "CMakeFiles/splproj1.dir/src/Virus.cpp.o"
+  "CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o"
   "splproj1.pdb"
   "splproj1"
 )

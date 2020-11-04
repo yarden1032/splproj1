@@ -84,6 +84,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/tmp/tmp.c5RtcnDezT/src/Agent.cpp">
+			<Option target="splproj1"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.c5RtcnDezT/src/ContactTracer.cpp">
+			<Option target="splproj1"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.c5RtcnDezT/src/Virus.cpp">
+			<Option target="splproj1"/>
+		</Unit>
 		<Unit filename="/tmp/tmp.c5RtcnDezT/src/main.cpp">
 			<Option target="splproj1"/>
 		</Unit>
