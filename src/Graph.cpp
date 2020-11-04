@@ -42,6 +42,9 @@ bool Graph::isInfected(int nodeInd)
     int indexj= nodeInd%edges.size();
     if ((edges[indexi])[indexj]==1)
     return true;
+    else
+        return false;
+
 
 }
 
