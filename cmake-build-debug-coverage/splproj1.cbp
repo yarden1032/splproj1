@@ -87,10 +87,10 @@
 		<Unit filename="/tmp/tmp.c5RtcnDezT/src/Agent.cpp">
 			<Option target="splproj1"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.c5RtcnDezT/src/ContactTracer.cpp">
+		<Unit filename="/tmp/tmp.c5RtcnDezT/src/Graph.cpp">
 			<Option target="splproj1"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.c5RtcnDezT/src/Virus.cpp">
+		<Unit filename="/tmp/tmp.c5RtcnDezT/src/Session.cpp">
 			<Option target="splproj1"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.c5RtcnDezT/src/main.cpp">
