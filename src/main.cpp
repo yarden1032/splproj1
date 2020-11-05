@@ -41,7 +41,18 @@ int main(int argc, char** argv) {
             std::string s=j.dump();
             if(j.contains("graph"))
             cout <<"yes"<<endl;
-            std::string s2=j.at("tree");
+            std::string stree=j.at("tree");
+            json j2=j.at("graph");
+            if(j2.is_array())
+            {
+                cout <<"yes"<<endl;
+            }
+            std::string s2=j2.dump();
+
+            for (json::iterator it = j2.begin(); it != j2.end(); ++it) {
+                std::cout << *it << '\n';
+            }
+
             //cout <<s<<endl;
             //cout <<s2<<endl;
 
