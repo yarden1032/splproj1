@@ -14,7 +14,11 @@ int main(int argc, char** argv) {
 
     std::string st=*argv;
    st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
+ // st=st.replace(0,1,"");
+    st=("/tmp/tmp.c5RtcnDezT/cmake-build-debug");
     st=(st+"/config1.json");
+
+ //   st=("C:/Users/Milky/CLionProjects/splproj1/cmake-build-debug/config1.json");
     cout << st << endl;
         if (argc != 2) {
             cout << "usage cTrace <config_path>" << endl;
@@ -30,11 +34,14 @@ int main(int argc, char** argv) {
                     vec[a].push_back((1));
                 }
             }
-            std::fstream file(st);
+
+            std::ifstream i(st);
             json j;
-            file >>j;
-            std::string s=j.at("graph");
+            i >>j;
+            std::string s=j.dump();
+          //  std::string s2=j.("graph");
             cout <<s<<endl;
+            cout <<s2<<endl;
 
             Graph* g=new Graph (vec);
             Session* sessi =new Session (*argv,vec);
