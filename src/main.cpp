@@ -34,7 +34,6 @@ int main(int argc, char** argv) {
                     vec[a].push_back((1));
                 }
             }
-
             std::ifstream i(st);
             json j;
             i >>j;
