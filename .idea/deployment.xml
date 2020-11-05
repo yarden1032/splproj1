@@ -2,69 +2,14 @@
 <project version="4">
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="BGU (af631d36-bb9c-42c3-879f-4ad63e1c869c)">
+      <paths name="Remote Host (af800a56-5bd7-41a6-aa51-b703ff1ee658)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.DmhPfXCpP3" local="$PROJECT_DIR$" />
+            <mapping deploy="/tmp/tmp.ZlYUIHmcr2" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
           </excludedPaths>
-        </serverdata>
-      </paths>
-      <paths name="Remote GDB Server (0330c3bc-876d-459c-bd39-dbb3942a6490)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="Remote Host (29431628-d83c-4545-b3b2-9eef707dd5a4)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="Remote Host (947d2a98-98e6-4c19-9ac3-48ec0eadc8ff)">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/tmp/tmp.c5RtcnDezT" local="$PROJECT_DIR$" />
-          </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-coverage" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-coverage" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
-          </excludedPaths>
-        </serverdata>
-      </paths>
-      <paths name="WSL (a25a7126-5fab-4dd7-8aaa-f4945acad07a)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSL (c2f5ce5a-5eec-4614-8a93-c609e54629fe)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSL-2 (fbacf8da-3176-47b2-b1ce-4dbadc5bb19b)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="wsl3 (4a2c74ec-844e-49d8-8c48-8dd50d1ff181)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
         </serverdata>
       </paths>
     </serverData>
