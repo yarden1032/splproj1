@@ -39,9 +39,11 @@ int main(int argc, char** argv) {
             json j;
             i >>j;
             std::string s=j.dump();
-          //  std::string s2=j.("graph");
-            cout <<s<<endl;
-            cout <<s2<<endl;
+            if(j.contains("graph"))
+            cout <<"yes"<<endl;
+            std::string s2=j.at("tree");
+            //cout <<s<<endl;
+            //cout <<s2<<endl;
 
             Graph* g=new Graph (vec);
             Session* sessi =new Session (*argv,vec);
