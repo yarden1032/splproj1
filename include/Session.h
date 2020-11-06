@@ -34,6 +34,7 @@ class Agent;
         Graph g;
         TreeType treeType;
      //   std::vector<Agent *> agents;
+     // TREE OBJECT maybe? TODO: to understand that
     };
 
 #endif
