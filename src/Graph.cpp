@@ -4,7 +4,9 @@
 using namespace std;
 
 //Graph::Vector(): {std::vector<std::vector<int>> matrix(0)}
-Graph::Graph(){} //Constructor empty
+Graph::Graph(){
+
+} //Constructor empty
 Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
 
 

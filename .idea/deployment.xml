@@ -12,6 +12,16 @@
           </excludedPaths>
         </serverdata>
       </paths>
+      <paths name="bgu (cd4e0c67-6a22-4598-bf4a-b97c63cabc5b)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.yrCmIp69t9" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
     </serverData>
   </component>
 </project>
