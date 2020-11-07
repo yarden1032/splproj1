@@ -15,8 +15,9 @@ class Agent;
 
     class Session {
     public:
-        Session();
 
+        Session(); //empty constructor
+        Session(const Session &aSession);// copy constructor
         Session(const std::string &path);
         void simulate();
 
@@ -27,9 +28,8 @@ class Agent;
         void enqueueInfected(int);
 
         int dequeueInfected();
-
         TreeType getTreeType() const;
-
+         Graph getGraph() const;
     private:
         Graph g;
         TreeType treeType;

@@ -60,10 +60,10 @@ int main(int argc, char** argv) {
         /// Graph* g=new Graph (vec);
 */
         if (argc != 2) {
-            Session *sessi = new Session(*argv);
+          //  Session *sessi = new Session(*argv);
+           cout <<argv[1]<<endl;
 
-
-            // Session sess(argv*);
+             Session sess(*argv);
             //   Graph g(vec);
 
 

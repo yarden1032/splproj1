@@ -1,8 +1,9 @@
 //This is implementation of class Graph
 #include "../include/Graph.h"
 #include <iostream>
+#include <vector>
 using namespace std;
-
+#include <vector>
 //Graph::Vector(): {std::vector<std::vector<int>> matrix(0)}
 Graph::Graph(){
 
@@ -30,6 +31,8 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
     }
 
 }
+
+
 
 /*void printGraph(vector<int> adj[], int V)
 {
@@ -71,6 +74,10 @@ for(int i=0;i<infected_nodes.size();i++)
 }
 
 
+ vector<vector<int>> Graph::getEdges ()
+{
+    return edges;
+}
 
 
 

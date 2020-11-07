@@ -2,11 +2,14 @@
 // Created by Milky on 02/11/2020.
 //
 using namespace std;
+#include "../include/Graph.h"
 #include "../include/Session.h"
 #include <iostream>
 #include "../include/Agent.h"
 #include <fstream>
 #include "../include/json.hpp"
+//#include "../config1.JSON"
+
 using json = nlohmann::json;
 #include <vector>
 Session::Session() {
@@ -15,7 +18,7 @@ Session::Session() {
 
 
 } //Constructor empty
-Session::Session(const string &path) { //constructor not empty
+Session::Session(const string &path):treeType (Cycle) { //constructor not empty
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
     st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
@@ -28,7 +31,7 @@ Session::Session(const string &path) { //constructor not empty
     i >>j;
     ///Here we read the Json
 
-    ///No we use the graph json and get it as string and convert to vector
+    ///Now we use the graph json and get it as string and convert to vector
 
     json j2=j.at("graph");
     string graphST= j2.dump();
@@ -76,64 +79,85 @@ Session::Session(const string &path) { //constructor not empty
         /////// Read the tree type
         treeType = Cycle; //Just for default for making sure.
         json jTreeType=j.at("tree");
-        if (jTreeType.dump()=="M")
+    cout <<  jTreeType.dump() << endl;
+        if (jTreeType.dump().at(1)=='M')
         {
             treeType = MaxRank;
         }
-        if (jTreeType.dump()=="C")
+        if (jTreeType.dump().at(1)=='C')
         {
             treeType = Cycle;
         }
-        if (jTreeType.dump()=="R")
+        if (jTreeType.dump().at(1)=='R')
         {
-            treeType = Cycle;
+            treeType = Root;
         }
 
-        /*Dont use it
-        /*if(tempindex==0) {
-        vec[0][indexi]=graphST.at
-        }*/
-
-
-
-
-  /*  for (int a = 0; a <5; a++){
-        vector <int>* vecy= new vector<int>();
-        vec.push_back(*vecy);
-        for (int j= 0; j < 5; j++)
-        {
-
-            vec[a].push_back((1));
-        }
-        */
-    //   std::vector<Agent*> agents;
 
 
     //TODO: We need to add here Agents
     ///I will write here down the Agents read - we need to add the agents then we can use the read from here - test only after Agents writing
-
+    int interator; //For Agents === the initial place of the Agents
+    string AgeString ; //For Agents === the type of Agent
     json jAgents =j.at("agents");
     for (json::iterator it = jAgents.begin(); it != jAgents.end(); ++it) {
-        std::cout << it.key() << " : " << it.value() << "\n";
-    }
-        indexi = 0;
-        indexj = 0;
-
-
-
-
-
-
+         interator = it.value()[1];
+        AgeString=it.value()[0];
     }
 
 
+///Finish constraction - be advised the changes here to agents
+
+    /////   std::vector<Agent*> agents;
+
+
+    }
+
+
+////////We also need here copy constructor
+Session::Session(const Session &aSession)// copy constructor - shellow one
+/*{
+--this is start of deep construction - only if we need it - continue
+    vector<std::vector<int>> vec;
+    int maxsize = aSession.getGraph().getEdges().size();
+
+
+    for ( int i = 0; i <maxsize ; i++) {
+        vector<int> *vecy = new vector<int>();
+        vec.push_back(*vecy);
+        for (int j = 0; j < aSession.getGraph().getEdges()[i].size(); j++) {
+            int a=aSession.getGraph().getEdges()[i][j];
+            vec[i].push_back((a));
+        }
+    }
+    g=*(new Graph (vec));
+        }*/
+{
+    g=*(new Graph(aSession.getGraph()));
+    treeType=aSession.getTreeType();
+}
+/**
+Session::Session(const string &path) {
+
+
+
+
+
+}
+
+*/
+
+ Graph Session::getGraph() const {
+
+    return g;
+}
 
 
 
 
 
 TreeType Session::getTreeType() const {
-    return Root;
+    return treeType;
 }
 
 int Session::dequeueInfected() {

@@ -10,9 +10,12 @@ public:
    Graph(); /// Please notice - I added it manually
     void infectNode(int nodeInd);
     bool isInfected(int nodeInd);
+     std::vector<std::vector<int>> getEdges();
 private:
     std::vector<std::vector<int>> edges;
     std::vector<int> infected_nodes;
+
+
 };
 
 #endif
