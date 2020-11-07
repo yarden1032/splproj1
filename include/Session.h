@@ -17,7 +17,7 @@ class Agent;
     public:
         Session();
 
-        Session(const std::string &path,std::vector<std::vector<int>> );
+        Session(const std::string &path);
         void simulate();
 
         void addAgent(const Agent &agent);
