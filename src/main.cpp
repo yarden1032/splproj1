@@ -10,7 +10,6 @@
 using namespace std;
 using json = nlohmann::json;
 int main(int argc, char** argv) {
-    cout << argc << endl;
 /*
     std::string st = *argv;
     st = st.replace(st.find("/splproj1"), sizeof("/splproj1") - 1, "");
@@ -58,7 +57,7 @@ int main(int argc, char** argv) {
 
 
         /// Graph* g=new Graph (vec);
-*/
+
         if (argc != 2) {
           //  Session *sessi = new Session(*argv);
            cout <<argv[1]<<endl;
@@ -71,7 +70,19 @@ int main(int argc, char** argv) {
             //    Session sess(path ); ///
             return 0;
         }
+
+        */
 //         Session sess(argv[1]);
         // sess.simulate();
+
+
+
+
+    if(argc != 2){
+        cout << "usage cTrace config1.JSON" << endl;
         return 0;
+    }
+    Session sess(argv[1]);
+    sess.simulate();
+    return 0;
     }

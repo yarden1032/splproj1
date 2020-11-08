@@ -5,31 +5,28 @@
 
 class Agent{
 public:
-   /// Agent(Session &session);
-Agent (int sestempl);
-    virtual void act()=0;
-private:
-   // Session &session;
-   int sestempl;
+    Agent();
+
+    virtual void act(Session& session)=0;
 };
 
 class ContactTracer: public Agent{
 public:
-    ContactTracer(int session);
+    ContactTracer();
 
-    virtual void act();
+    virtual void act(Session& session);
 };
 
 
 class Virus: public Agent{
 public:
-    Virus(int nodeInd, int &session);
+    Virus(int nodeInd);
 
-
-
-    virtual void act();
+    virtual void act(Session& session);
 private:
     const int nodeInd;
 };
 
 #endif
+
+///Notice this is the new Agent file

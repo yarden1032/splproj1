@@ -74,6 +74,7 @@ for(int i=0;i<infected_nodes.size();i++)
 }
 
 
+
  vector<vector<int>> Graph::getEdges ()
 {
     return edges;
