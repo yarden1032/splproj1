@@ -21,7 +21,7 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
             edges[i].push_back(((matrix[i])[j]));
         }
     }
-
+/*
         for (int i = 0; i < matrix.size(); i++){
             for (int j= 0; j < matrix[i].size();  j++)
             {
@@ -29,7 +29,7 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
                 edges[i].push_back((matrix[i])[j]);
             }
     }
-
+*/
 }
 
 
