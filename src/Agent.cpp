@@ -3,7 +3,7 @@
 #include "../include/Session.h"
 #include <iostream>
 using namespace std;
-/*
+
 
 Agent::Agent(int sestempl){ //constructor not empty
 sestempl=44;

@@ -2,7 +2,7 @@
 #define AGENT_H_
 #include "../include/Session.h"
 #include <vector>
-/*
+
 class Agent{
 public:
     Agent();
@@ -26,7 +26,7 @@ public:
 private:
     const int nodeInd;
 };
-*/
+
 #endif
 
 ///Notice this is the new Agent file
