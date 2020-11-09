@@ -21,11 +21,11 @@ class Agent;
         Session(const std::string &path);
         void simulate();
 
-        void addAgent(const Agent &agent);
+        void addAgent(Agent *agent);
    //     Session operator()(Session ss);
         void setGraph(const Graph &graph);
-        Session operator()(int ss);
-        void enqueueInfected(int);
+      //  Session operator()(int ss);
+        void enqueueInfected(int nodeInd);
 
         int dequeueInfected();
         TreeType getTreeType() const;
@@ -33,7 +33,7 @@ class Agent;
     private:
         Graph g;
         TreeType treeType;
-     //   std::vector<Agent *> agents;
+        std::vector<Agent *> agents;
      // TREE OBJECT maybe? TODO: to understand that
     };
 

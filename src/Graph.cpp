@@ -47,11 +47,14 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
 }
 */
 void Graph::infectNode(int nodeInd)
-{/*
-    int indexi= nodeInd/edges.size();
-    int indexj= nodeInd%edges.size();
-    (edges[indexi])[indexj]=1;*/
-
+{
+    for (int i= 0; infected_nodes.size();i++)
+    {
+        if (infected_nodes[i]==nodeInd)
+        {
+            return;
+        }
+    }
 infected_nodes.push_back(nodeInd);
 }
 bool Graph::isInfected(int nodeInd)
@@ -65,11 +68,12 @@ bool Graph::isInfected(int nodeInd)
 
 */
 
-for(int i=0;i<infected_nodes.size();i++)
+for(int i=0;i<infected_nodes.size();i++){
     if (infected_nodes[i]==nodeInd)
     {
         return true;
     }
+}
     return false;
 }
 

@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/splproj1.dir/src/Graph.cpp.o"
   "CMakeFiles/splproj1.dir/src/Session.cpp.o"
   "CMakeFiles/splproj1.dir/src/Agent.cpp.o"
+  "CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o"
+  "CMakeFiles/splproj1.dir/src/Virus.cpp.o"
   "splproj1.pdb"
   "splproj1"
 )

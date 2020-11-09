@@ -3,38 +3,79 @@
 #include "../include/Session.h"
 #include <iostream>
 using namespace std;
+Agent::Agent() {
+///We need to complete
 
 
-Agent::Agent(int sestempl){ //constructor not empty
-sestempl=44;
-    class Virus: public Agent{
-        Virus(int sestempl, int nodeInd, int &session) : Agent(sestempl) {
-            session=nodeInd;
-            nodeInd=6;
-        }
-    };
 
-    class ContactTracer: public Agent{
-    public:
-        ContactTracer(int sestempl, int session) : Agent(sestempl) {
-            sestempl=0;
-            session=55;
-        }
 
-        virtual void act();
-    };
+}
+
+void act(Session& session){
+///We need to complete
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//constructor not empty
+class Virus: public Agent{
+    Virus(int sestempl, int nodeInd, int &session) : Agent(sestempl) {
+        session=nodeInd;
+        nodeInd=6;
+    }
+};
+/* Destructor: "deep delete"
+
+Agent::~Agent()
+{
+    clear();
+}
+
+void Agent::clear()
+{
+    while (head_ != nullptr) {
+        removeFirst();
+    }
+}
+
+class ContactTracer: public Agent{
+public:
+    ContactTracer(int sestempl, int session) : Agent(sestempl) {
+        sestempl=0;
+        session=55;
+    }
+
+    virtual void act();
+};
 }
 
 /*void printAgent(vector<int> adj[], int V)
 {
-    for (int v = 0; v < V; ++v)
-    {
-        cout << "\n Adjacency list of vertex "
-             << v << "\n head ";
-        for (auto x : adj[v])
-            cout << "-> " << x;
-        printf("\n");
-    }
+for (int v = 0; v < V; ++v)
+{
+    cout << "\n Adjacency list of vertex "
+         << v << "\n head ";
+    for (auto x : adj[v])
+        cout << "-> " << x;
+    printf("\n");
+}
 }
 */
 

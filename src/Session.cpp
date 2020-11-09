@@ -23,13 +23,14 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
     std::string st=path;
     st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
 
-
+//TODO:We need to confirm the right arguments in the end - if we can, to do so from IDE and not to wait
     st = ("/tmp/tmp.c5RtcnDezT/cmake-build-debug");
     st=(st+"/config1.json");
     std::ifstream i(st);
     json j;
     i >>j;
     ///Here we read the Json
+
 
     ///Now we use the graph json and get it as string and convert to vector
 
@@ -95,27 +96,31 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
 
 
 
-    //TODO: We need to add here Agents
+    //TODO: We need to add here Agents - Finished but we maybe need to add here.
     ///I will write here down the Agents read - we need to add the agents then we can use the read from here - test only after Agents writing
     int interator; //For Agents === the initial place of the Agents
-    string AgeString ; //For Agents === the type of Agent
+    string ageString ; //For Agents === the type of Agent
     json jAgents =j.at("agents");
     for (json::iterator it = jAgents.begin(); it != jAgents.end(); ++it) {
          interator = it.value()[1];
-        AgeString=it.value()[0];
+        ageString=it.value()[0];
+        if (ageString =="V")
+        {
+            agents.push_back(new Virus (interator));
+        }
+        else {
+            agents.push_back(new ContactTracer());
+        }
     }
-
 
 ///Finish constraction - be advised the changes here to agents
 
-    /////   std::vector<Agent*> agents;
-
-
-    }
+            /////   std::vector<Agent*> agents;;
+}
 
 
 ////////We also need here copy constructor
-Session::Session(const Session &aSession)// copy constructor - shellow one
+Session::Session(const Session &aSession)// copy constructor - shallow one
 /*{
 --this is start of deep construction - only if we need it - continue
     vector<std::vector<int>> vec;
@@ -136,13 +141,8 @@ Session::Session(const Session &aSession)// copy constructor - shellow one
     g=*(new Graph(aSession.getGraph()));
     treeType=aSession.getTreeType();
 }
-/**
+/* Not sure if we need it
 Session::Session(const string &path) {
-
-
-
-
-
 }
 
 */
@@ -158,24 +158,40 @@ Session::Session(const string &path) {
 
 TreeType Session::getTreeType() const {
     return treeType;
+
 }
 
 int Session::dequeueInfected() {
+
     return 0;
+    //TODO: finish
 }
 
 void Session::simulate() {
-
+//TODO: finish
 }
 
-//void Session::addAgent(const Agent &agent) {}
-
-void Session::enqueueInfected(int) {}
+void Session::addAgent(Agent *agent) {
 
 
+    agents.push_back((Agent *const) agent);
+
+
+     //TODO: finish - I don't sure if we need more here and if it's ok
+ }
+
+void Session::enqueueInfected(int nodeInd) { //add to infected and we also check if we need to do so
+
+     g.infectNode(nodeInd);
+    //TODO: finish
+ }
 
 
 
 
-void Session::setGraph(const Graph &graph) {}
+
+
+void Session::setGraph(const Graph &graph) {
+    //TODO: finish
+ }
 
