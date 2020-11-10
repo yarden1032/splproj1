@@ -87,11 +87,44 @@ for(int i=0;i<infected_nodes.size();i++){
 {
     return edges;
 }
+
+
+ vector<vector<int>> Graph::getEdges  () const
+{
+    return edges;
+}
+
 std::vector<int> Graph::getinfected_nodes(){
 
     return  infected_nodes;
 }
 
 
+Graph & Graph::operator=(const Graph &aGraph) //TODO: Finished but need to be tested
+{
+    // check for "self assignment" and do nothing in that case
 
+    int size= aGraph.getEdges().size();
+    if (this == &aGraph) {
+        return *this;
+    }
+    for (int i = 0; i <size; i++){
+
+        if (i<=edges.size())
+        {
+            edges.push_back(*new vector<int>);
+        }
+        for (int j = 0; j <size; j++){
+            edges[i][j]=aGraph.getEdges()[i][j];
+    }
+        if (edges.size()>aGraph.getEdges().size())
+        {
+            edges.resize(aGraph.getEdges().size());
+        }
+        edges[i].resize(aGraph.getEdges()[i].size());
+    }
+
+    return *this;
+
+}
 

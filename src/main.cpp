@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
         cout << "usage cTrace config1.JSON" << endl;
         return 0;
     }
-    Session sess(*argv); // there is a difference
+    Session sess(argv[1]); // there is a difference
     sess.simulate();
     return 0;
     }

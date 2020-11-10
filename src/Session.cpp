@@ -93,7 +93,7 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
 
 
 
-    //TODO: We need to add here Agents - Finished but we maybe need to add here.
+    //// We need to add here Agents - Finished but we maybe need to add here. -finished
     ///I will write here down the Agents read - we need to add the agents then we can use the read from here - test only after Agents writing
     int interator; //For Agents === the initial place of the Agents
     string ageString ; //For Agents === the type of Agent
@@ -242,7 +242,8 @@ int Session::dequeueInfected() {
     int last =g.getinfected_nodes()[g.getinfected_nodes().size()-1];
     g.getinfected_nodes().pop_back(); // we maybe have issue with the order
     return last;
-    //TODO: finish
+    //TODO: finish - not sure if this is it
+
 }
 
 void Session::simulate() {
@@ -280,7 +281,7 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
 
                 //create of first CC
                 cc[v]= * new std::vector<int> ;
-                DFSUtil(v, visited,cc);
+                DFS_helper(v, visited,cc);
 
               //  cout << "\n";  //Delete
             }
@@ -297,7 +298,7 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
 
 
 
-void Session::DFSUtil(int v, bool visited[],std::vector<std::vector<int>> cc)
+void Session::DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc)
 {
     // Mark the current node as visited and print it
     visited[v] = true;
@@ -309,7 +310,7 @@ void Session::DFSUtil(int v, bool visited[],std::vector<std::vector<int>> cc)
 
     for (int i=0;i<g.getEdges()[i].size(); ++i)
         if (!visited[i])
-            DFSUtil(i, visited,cc);
+            DFS_helper(i, visited,cc);
 }
 
 
@@ -335,6 +336,11 @@ void Session::enqueueInfected(int nodeInd) { //add to infected and we also check
 
 void Session::setGraph(const Graph &graph) {
 
+    g(graph);
+    }
+
     //TODO: finish
  }
+
+
 

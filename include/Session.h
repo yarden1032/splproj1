@@ -41,14 +41,16 @@ class Agent;
         TreeType treeType;
         std::vector<Agent *> agents;
      // TREE OBJECT maybe? TODO: to understand that
-     void Session::DFSUtil(int v, bool visited[])
+     void Session::DFS_helper(int v, bool visited[])
         void Session::clear();
         bool Session::is_ConnectedCopOk();
 
 
-        void DFSUtil(int i, bool *pBoolean,std::vector<std::vector<int>> cc);
+        void DFS_helper(int i, bool *pBoolean,std::vector<std::vector<int>> cc);
 
         void clear();
+
+        void DFS_helper(int v, bool *visited, vector <vector<int>> cc);
     };
 
 #endif

@@ -12,14 +12,12 @@ public:
     bool isInfected(int nodeInd);
     std::vector<int> getinfected_nodes();
      std::vector<std::vector<int>> getEdges();
+    Graph & operator=(const Graph &aGraph);
+     std::vector<std::vector<int>> getEdges  () const ;
 private:
     std::vector<std::vector<int>> edges;
     std::vector<int> infected_nodes;
 
-
-    void DFSUtil(int v, bool *visited);
-
-    void DFSUtil(int v, bool *visited);
 };
 
 #endif
