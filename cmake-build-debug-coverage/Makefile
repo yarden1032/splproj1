@@ -231,6 +231,33 @@ src/Session.cpp.s:
 	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Session.cpp.s
 .PHONY : src/Session.cpp.s
 
+src/Tree.o: src/Tree.cpp.o
+
+.PHONY : src/Tree.o
+
+# target to build an object file
+src/Tree.cpp.o:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tree.cpp.o
+.PHONY : src/Tree.cpp.o
+
+src/Tree.i: src/Tree.cpp.i
+
+.PHONY : src/Tree.i
+
+# target to preprocess a source file
+src/Tree.cpp.i:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tree.cpp.i
+.PHONY : src/Tree.cpp.i
+
+src/Tree.s: src/Tree.cpp.s
+
+.PHONY : src/Tree.s
+
+# target to generate assembly for a file
+src/Tree.cpp.s:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tree.cpp.s
+.PHONY : src/Tree.cpp.s
+
 src/Virus.o: src/Virus.cpp.o
 
 .PHONY : src/Virus.o
@@ -306,6 +333,9 @@ help:
 	@echo "... src/Session.o"
 	@echo "... src/Session.i"
 	@echo "... src/Session.s"
+	@echo "... src/Tree.o"
+	@echo "... src/Tree.i"
+	@echo "... src/Tree.s"
 	@echo "... src/Virus.o"
 	@echo "... src/Virus.i"
 	@echo "... src/Virus.s"

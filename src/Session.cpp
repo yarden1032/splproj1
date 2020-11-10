@@ -1,6 +1,4 @@
-//
-// Created by Milky on 02/11/2020.
-//
+
 using namespace std;
 #include "../include/Graph.h"
 #include "../include/Session.h"
@@ -9,16 +7,17 @@ using namespace std;
 #include <fstream>
 #include "../include/json.hpp"
 //#include "../config1.JSON"
-
+#include <list>
 using json = nlohmann::json;
 #include <vector>
-Session::Session() {
-
-
-
-
-} //Constructor empty
+//session::Session() { } //Constructor empty
 Session::Session(const string &path):treeType (Cycle) { //constructor not empty
+
+
+
+
+
+
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
     st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
@@ -71,8 +70,6 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
 
             indexi++;
         }
-
-
 
     }
         g=*(new Graph (vec));
@@ -140,12 +137,92 @@ Session::Session(const Session &aSession)// copy constructor - shallow one
 {
     g=*(new Graph(aSession.getGraph()));
     treeType=aSession.getTreeType();
+    agents=(aSession.agents);
 }
 /* Not sure if we need it
 Session::Session(const string &path) {
 }
 
 */
+
+Session::~Session()
+{
+    clear();
+}
+void Session::clear()
+{
+
+    for(int i=0;i<=agents.size();i++) {
+        delete agents[i];
+    }
+    agents.clear();
+    //TODO: destructor to treeType - we have issue
+
+    //Delete graph
+
+    for (int i = 0; i <g.getEdges().size(); i++){
+        for (int j= 0; j < g.getEdges().size(); j++)
+        {
+
+            delete &((g.getEdges()[i])[j]);
+        }
+        delete[] &g.getEdges()[i];
+    }
+    g.getEdges().clear();
+
+}
+
+
+/*
+Session* Session::copy(const string &path ){
+
+
+}*/
+
+Session& Session::operator=(const Session &other)
+{
+    // check for "self assignment" and do nothing in that case
+    if (this == &other) {
+        return *this;
+    }
+    clear();
+
+
+     g= *new Graph (other.getGraph());
+    treeType=other.treeType;
+
+
+    for(int i=0;i<=other.agents.size();i++) {
+        agents.push_back(other.agents[i]); //TODO: We maybe have problem here, we maybe copy the poiters themself - recheck if we have issue - We need a specific test for that
+    }
+    //agents =*new Agent (other.getAgents());//We have issue here
+    // return this List
+    return *this;
+}
+
+// Move Constructor
+Session::Session( Session&& other)
+        : g(other.g), agents(other.agents),treeType(other.treeType)
+{
+    other.clear();
+}
+// Move Assignment
+Session& Session::operator=(Session &&other)
+{
+    if (this != &other)
+    {
+        clear();
+        g = other.g;
+        agents = other.agents;
+        treeType= other.treeType;
+
+        other.clear();
+
+
+    }
+
+    return *this;
+}
 
  Graph Session::getGraph() const {
 
@@ -156,20 +233,85 @@ Session::Session(const string &path) {
 
 
 
-TreeType Session::getTreeType() const {
+TreeType Session::getTreeType() const  {
     return treeType;
 
 }
 
 int Session::dequeueInfected() {
-
-    return 0;
+    int last =g.getinfected_nodes()[g.getinfected_nodes().size()-1];
+    g.getinfected_nodes().pop_back(); // we maybe have issue with the order
+    return last;
     //TODO: finish
 }
 
 void Session::simulate() {
 //TODO: finish
+//method to find CC in the graph
+//kind of while
+bool stop_sim=true;
+while (stop_sim)
+{
+for(int i=0;i<agents.size();i++)
+    {
+        Session& session(*this);
+       agents[i]->act(session); //make sure memory is ok here
+
+    }
+    stop_sim=is_ConnectedCopOk();
 }
+
+}
+bool Session::is_ConnectedCopOk() //TODO: change names and continue
+
+{
+    std::vector<std::vector<int>> cc;
+
+    //line of something
+        // Mark all the vertices as not visited
+        bool* visited = new bool[g.getEdges().size()];
+        for (int v = 0; v < g.getEdges().size(); v++)
+            visited[v] = false;
+
+        for (int v = 0; v < g.getEdges().size(); v++) {
+            if (visited[v] == false) {
+                // print all reachable vertices
+                // from v
+
+                //create of first CC
+                cc[v]= * new std::vector<int> ;
+                DFSUtil(v, visited,cc);
+
+              //  cout << "\n";  //Delete
+            }
+        }
+        delete[] visited;
+// now we have cc ready to use and check if infected or not
+
+    //TODO: finish
+    return false;
+
+}
+
+
+
+
+
+void Session::DFSUtil(int v, bool visited[],std::vector<std::vector<int>> cc)
+{
+    // Mark the current node as visited and print it
+    visited[v] = true;
+    cc[cc.size()-1].push_back(v);
+    //cout << v << " "; //to delete
+
+    // Recur for all the vertices
+    // adjacent to this vertex
+
+    for (int i=0;i<g.getEdges()[i].size(); ++i)
+        if (!visited[i])
+            DFSUtil(i, visited,cc);
+}
+
 
 void Session::addAgent(Agent *agent) {
 
@@ -192,6 +334,7 @@ void Session::enqueueInfected(int nodeInd) { //add to infected and we also check
 
 
 void Session::setGraph(const Graph &graph) {
+
     //TODO: finish
  }
 

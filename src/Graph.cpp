@@ -46,6 +46,10 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
     }
 }
 */
+
+
+
+
 void Graph::infectNode(int nodeInd)
 {
     for (int i= 0; infected_nodes.size();i++)
@@ -83,7 +87,10 @@ for(int i=0;i<infected_nodes.size();i++){
 {
     return edges;
 }
+std::vector<int> Graph::getinfected_nodes(){
 
+    return  infected_nodes;
+}
 
 
 

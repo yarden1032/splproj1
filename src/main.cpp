@@ -75,14 +75,11 @@ int main(int argc, char** argv) {
 //         Session sess(argv[1]);
         // sess.simulate();
 
-
-
-
     if(argc != 2){
         cout << "usage cTrace config1.JSON" << endl;
         return 0;
     }
-    Session sess(*argv);
+    Session sess(*argv); // there is a difference
     sess.simulate();
     return 0;
     }
