@@ -15,11 +15,6 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
 
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
-    st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
-
-//TODO:We need to confirm the right arguments in the end - if we can, to do so from IDE and not to wait
-    st = ("/tmp/tmp.c5RtcnDezT/cmake-build-debug");
-    st=(st+"/config1.json");
     std::ifstream i(st);
     json j;
     i >>j;

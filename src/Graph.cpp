@@ -103,7 +103,7 @@ std::vector<int> Graph::getinfected_nodes(){
 Graph & Graph::operator=(const Graph &aGraph) //TODO: Finished but need to be tested
 {
     // check for "self assignment" and do nothing in that case
-
+///////= there is issue here- follow the debugger
     int size= aGraph.getEdges().size();
     if (this == &aGraph) {
         return *this;
@@ -115,8 +115,17 @@ Graph & Graph::operator=(const Graph &aGraph) //TODO: Finished but need to be te
             edges.push_back(*new vector<int>);
         }
         for (int j = 0; j <size; j++){
-            edges[i][j]=aGraph.getEdges()[i][j];
+            if (j<=edges[j].size())
+            {
+                edges[i].push_back(aGraph.getEdges()[i][j]);
+            }
+            else{
+                (edges[i])[j]=aGraph.getEdges()[i][j];
+            }
+
+
     }
+
         if (edges.size()>aGraph.getEdges().size())
         {
             edges.resize(aGraph.getEdges().size());
