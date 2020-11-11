@@ -5,7 +5,8 @@
 #include <string>
 #include "Graph.h"
 
-#include "Agent.h"
+#include "../include/Agent.h"
+using namespace std;
 class Agent;
     enum TreeType {
         Cycle,
@@ -28,29 +29,29 @@ class Agent;
         void setGraph(const Graph &graph);
       //  Session operator()(int ss);
         void enqueueInfected(int nodeInd);
-        Session* Session::copy(const string &path);
+        Session* copy(const string &path);
         int dequeueInfected();
         TreeType getTreeType() const;
          Graph getGraph() const;
         Session& operator=(const Session &other);
-        Session::Session(Session&& other);
-        Session& Session::operator=(Session &&other);
+        Session(Session&& other);
+        Session& operator=(Session &&other);
 
     private:
         Graph g;
         TreeType treeType;
         std::vector<Agent *> agents;
      // TREE OBJECT maybe? TODO: to understand that
-     void Session::DFS_helper(int v, bool visited[])
-        void Session::clear();
-        bool Session::is_ConnectedCopOk();
-
-
-        void DFS_helper(int i, bool *pBoolean,std::vector<std::vector<int>> cc);
-
+   //  void DFS_helper(int v, bool visited[])
         void clear();
+        bool is_ConnectedCopOk();
 
-        void DFS_helper(int v, bool *visited, vector <vector<int>> cc);
+
+        void DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc);
+
+        //void clear();
+
+       // void DFS_helper(int v, bool *visited, vector <vector<int>> cc);
     };
 
 #endif

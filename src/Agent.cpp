@@ -11,7 +11,7 @@ Agent::Agent() {
 
 }
 
-void act(Session& session){
+void Agent::act(Session& session){
 ///We need to complete
 
     }
@@ -19,6 +19,30 @@ void act(Session& session){
 
 
 
+Virus::Virus(int nodeInd) : nodeInd(-1) {
+///TODO:We need to complete
+
+
+
+}
+
+void Virus::act(Session & session){
+///TODO:We need to complete
+
+}
+
+ContactTracer::ContactTracer() {
+///TODO: We need to complete
+
+
+
+
+}
+
+void ContactTracer::act(Session& session){
+///TODO:We need to complete
+
+}
 
 
 

@@ -2,7 +2,7 @@
 #define AGENT_H_
 #include "../include/Session.h"
 #include <vector>
-
+class Session; ////////TODO: important!!!! this line was important - to show to Roni
 class Agent{
 public:
     Agent();

@@ -109,35 +109,9 @@ CMakeFiles/splproj1.dir/src/Agent.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/splproj1.dir/src/Agent.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.gYVJnAdKBX/src/Agent.cpp -o CMakeFiles/splproj1.dir/src/Agent.cpp.s
 
-CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o: CMakeFiles/splproj1.dir/flags.make
-CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o: ../src/ContactTracer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.gYVJnAdKBX/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o -c /tmp/tmp.gYVJnAdKBX/src/ContactTracer.cpp
-
-CMakeFiles/splproj1.dir/src/ContactTracer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/splproj1.dir/src/ContactTracer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.gYVJnAdKBX/src/ContactTracer.cpp > CMakeFiles/splproj1.dir/src/ContactTracer.cpp.i
-
-CMakeFiles/splproj1.dir/src/ContactTracer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/splproj1.dir/src/ContactTracer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.gYVJnAdKBX/src/ContactTracer.cpp -o CMakeFiles/splproj1.dir/src/ContactTracer.cpp.s
-
-CMakeFiles/splproj1.dir/src/Virus.cpp.o: CMakeFiles/splproj1.dir/flags.make
-CMakeFiles/splproj1.dir/src/Virus.cpp.o: ../src/Virus.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.gYVJnAdKBX/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/splproj1.dir/src/Virus.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/Virus.cpp.o -c /tmp/tmp.gYVJnAdKBX/src/Virus.cpp
-
-CMakeFiles/splproj1.dir/src/Virus.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/splproj1.dir/src/Virus.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /tmp/tmp.gYVJnAdKBX/src/Virus.cpp > CMakeFiles/splproj1.dir/src/Virus.cpp.i
-
-CMakeFiles/splproj1.dir/src/Virus.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/splproj1.dir/src/Virus.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /tmp/tmp.gYVJnAdKBX/src/Virus.cpp -o CMakeFiles/splproj1.dir/src/Virus.cpp.s
-
 CMakeFiles/splproj1.dir/src/Tree.cpp.o: CMakeFiles/splproj1.dir/flags.make
 CMakeFiles/splproj1.dir/src/Tree.cpp.o: ../src/Tree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.gYVJnAdKBX/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/splproj1.dir/src/Tree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.gYVJnAdKBX/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/splproj1.dir/src/Tree.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/Tree.cpp.o -c /tmp/tmp.gYVJnAdKBX/src/Tree.cpp
 
 CMakeFiles/splproj1.dir/src/Tree.cpp.i: cmake_force
@@ -154,8 +128,6 @@ splproj1_OBJECTS = \
 "CMakeFiles/splproj1.dir/src/Graph.cpp.o" \
 "CMakeFiles/splproj1.dir/src/Session.cpp.o" \
 "CMakeFiles/splproj1.dir/src/Agent.cpp.o" \
-"CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o" \
-"CMakeFiles/splproj1.dir/src/Virus.cpp.o" \
 "CMakeFiles/splproj1.dir/src/Tree.cpp.o"
 
 # External object files for target splproj1
@@ -165,12 +137,10 @@ splproj1: CMakeFiles/splproj1.dir/src/main.cpp.o
 splproj1: CMakeFiles/splproj1.dir/src/Graph.cpp.o
 splproj1: CMakeFiles/splproj1.dir/src/Session.cpp.o
 splproj1: CMakeFiles/splproj1.dir/src/Agent.cpp.o
-splproj1: CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o
-splproj1: CMakeFiles/splproj1.dir/src/Virus.cpp.o
 splproj1: CMakeFiles/splproj1.dir/src/Tree.cpp.o
 splproj1: CMakeFiles/splproj1.dir/build.make
 splproj1: CMakeFiles/splproj1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.gYVJnAdKBX/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable splproj1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.gYVJnAdKBX/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable splproj1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/splproj1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -150,33 +150,6 @@ src/Agent.cpp.s:
 	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Agent.cpp.s
 .PHONY : src/Agent.cpp.s
 
-src/ContactTracer.o: src/ContactTracer.cpp.o
-
-.PHONY : src/ContactTracer.o
-
-# target to build an object file
-src/ContactTracer.cpp.o:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/ContactTracer.cpp.o
-.PHONY : src/ContactTracer.cpp.o
-
-src/ContactTracer.i: src/ContactTracer.cpp.i
-
-.PHONY : src/ContactTracer.i
-
-# target to preprocess a source file
-src/ContactTracer.cpp.i:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/ContactTracer.cpp.i
-.PHONY : src/ContactTracer.cpp.i
-
-src/ContactTracer.s: src/ContactTracer.cpp.s
-
-.PHONY : src/ContactTracer.s
-
-# target to generate assembly for a file
-src/ContactTracer.cpp.s:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/ContactTracer.cpp.s
-.PHONY : src/ContactTracer.cpp.s
-
 src/Graph.o: src/Graph.cpp.o
 
 .PHONY : src/Graph.o
@@ -258,33 +231,6 @@ src/Tree.cpp.s:
 	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tree.cpp.s
 .PHONY : src/Tree.cpp.s
 
-src/Virus.o: src/Virus.cpp.o
-
-.PHONY : src/Virus.o
-
-# target to build an object file
-src/Virus.cpp.o:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Virus.cpp.o
-.PHONY : src/Virus.cpp.o
-
-src/Virus.i: src/Virus.cpp.i
-
-.PHONY : src/Virus.i
-
-# target to preprocess a source file
-src/Virus.cpp.i:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Virus.cpp.i
-.PHONY : src/Virus.cpp.i
-
-src/Virus.s: src/Virus.cpp.s
-
-.PHONY : src/Virus.s
-
-# target to generate assembly for a file
-src/Virus.cpp.s:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Virus.cpp.s
-.PHONY : src/Virus.cpp.s
-
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -324,9 +270,6 @@ help:
 	@echo "... src/Agent.o"
 	@echo "... src/Agent.i"
 	@echo "... src/Agent.s"
-	@echo "... src/ContactTracer.o"
-	@echo "... src/ContactTracer.i"
-	@echo "... src/ContactTracer.s"
 	@echo "... src/Graph.o"
 	@echo "... src/Graph.i"
 	@echo "... src/Graph.s"
@@ -336,9 +279,6 @@ help:
 	@echo "... src/Tree.o"
 	@echo "... src/Tree.i"
 	@echo "... src/Tree.s"
-	@echo "... src/Virus.o"
-	@echo "... src/Virus.i"
-	@echo "... src/Virus.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

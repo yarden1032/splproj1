@@ -87,9 +87,6 @@
 		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/Agent.cpp">
 			<Option target="splproj1"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/ContactTracer.cpp">
-			<Option target="splproj1"/>
-		</Unit>
 		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/Graph.cpp">
 			<Option target="splproj1"/>
 		</Unit>
@@ -97,9 +94,6 @@
 			<Option target="splproj1"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/Tree.cpp">
-			<Option target="splproj1"/>
-		</Unit>
-		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/Virus.cpp">
 			<Option target="splproj1"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/main.cpp">

@@ -13,11 +13,6 @@ using json = nlohmann::json;
 //session::Session() { } //Constructor empty
 Session::Session(const string &path):treeType (Cycle) { //constructor not empty
 
-
-
-
-
-
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
     st=st.replace(st.find("/splproj1"),sizeof("/splproj1")-1,"");
@@ -269,33 +264,54 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
     std::vector<std::vector<int>> cc;
 
     //line of something
-        // Mark all the vertices as not visited
-        bool* visited = new bool[g.getEdges().size()];
-        for (int v = 0; v < g.getEdges().size(); v++)
-            visited[v] = false;
+    // Mark all the vertices as not visited
+    bool *visited = new bool[g.getEdges().size()];
+    for (int v = 0; v < g.getEdges().size(); v++)
+        visited[v] = false;
 
-        for (int v = 0; v < g.getEdges().size(); v++) {
-            if (visited[v] == false) {
-                // print all reachable vertices
-                // from v
+    for (int v = 0; v < g.getEdges().size(); v++) {
+        if (visited[v] == false) {
+            // print all reachable vertices
+            // from v
 
-                //create of first CC
-                cc[v]= * new std::vector<int> ;
-                DFS_helper(v, visited,cc);
+            //create of first CC
+            cc[v] = *new std::vector<int>;
+            DFS_helper(v, visited, cc);
 
-              //  cout << "\n";  //Delete
+            //  cout << "\n";  //Delete
+        }
+    }
+    delete[] visited;
+
+
+    //TODO: finish - We need here to finish it it just making cc ready for use
+    //We need to check all the cc: if it's all in infected = good and we finish.
+    //else check if all not infected.
+
+    //check the first node in the cc[i] and then decide what to do:
+
+    for (int k = 0; k < cc.size(); k++) {
+        bool infected_cc = false; //here we check the specific cc if it's infected or not (what to expect)
+        for (int l = 0; l < cc[k].size(); l++) {
+            bool found = false; //this one is found in the infected vector
+            for (int i = 0; i < g.getinfected_nodes().size(); i++) {
+                if (cc[k][l] == g.getinfected_nodes()[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (l == 0) {
+                infected_cc = found; //what do we expect from the first one and the other is the same
+            } else {
+                if (infected_cc != found) { //if this is different it means we have difference between the CC if it is full infected or full non-infected
+                    return true;
+                }
             }
         }
-        delete[] visited;
-// now we have cc ready to use and check if infected or not
-
-    //TODO: finish
+    }
     return false;
 
 }
-
-
-
 
 
 void Session::DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc)
@@ -336,11 +352,11 @@ void Session::enqueueInfected(int nodeInd) { //add to infected and we also check
 
 void Session::setGraph(const Graph &graph) {
 
-    g(graph);
+    g=graph;
     }
 
     //TODO: finish
- }
+
 
 
 
