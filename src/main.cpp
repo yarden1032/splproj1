@@ -79,7 +79,8 @@ int main(int argc, char** argv) {
         cout << "usage cTrace config1.JSON" << endl;
         return 0;
     }
-    Session sess(argv[1]); // there is a difference
+    Session sess(argv[1]);
     sess.simulate();
+  // cout << sess.getGraph().getEdges()[0][0];
     return 0;
     }

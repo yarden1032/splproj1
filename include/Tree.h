@@ -7,15 +7,21 @@ class Session;
 
 class Tree{
 public:
-    Tree(int rootLabel);
-    void addChild(const Tree& child);
-
-
+    Tree();
+    int getNode();
+    std::vector<Tree*> getChildren();
+    Tree(int rootLabel); //we only add the root node from the infected vector
+    void addChild(const Tree& child); //
+    ~Tree() ;
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
+    void setNode(int node);
 private:
     int node;
     std::vector<Tree*> children;
+    void clear();
+
+
 };
 
 class CycleTree: public Tree{
@@ -30,12 +36,16 @@ class MaxRankTree: public Tree{
 public:
     MaxRankTree(int rootLabel);
     virtual int traceTree();
+
+private:
+    int maxDepthHelper(Tree* node);
 };
 
 class RootTree: public Tree{
 public:
     RootTree(int rootLabel);
     virtual int traceTree();
+
 };
 
 #endif

@@ -22,12 +22,10 @@ class Agent;
         Session(const std::string &path);
         void simulate();
         virtual ~Session();
-
-
         void addAgent(Agent *agent);
-   //     Session operator()(Session ss);
+        std::vector<Agent *> getAgents ();
         void setGraph(const Graph &graph);
-      //  Session operator()(int ss);
+
         void enqueueInfected(int nodeInd);
         Session* copy(const string &path);
         int dequeueInfected();

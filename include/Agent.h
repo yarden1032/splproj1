@@ -6,15 +6,21 @@ class Session; ////////TODO: important!!!! this line was important - to show to 
 class Agent{
 public:
     Agent();
-
     virtual void act(Session& session)=0;
-};
+      int getNodeInd();
+private:
+    const int nodeInd;
 
+};
 class ContactTracer: public Agent{
 public:
     ContactTracer();
 
     virtual void act(Session& session);
+
+private:
+    Tree BFS(int start,Session& session,vector<int> tempinfectednodes);
+
 };
 
 
@@ -23,8 +29,7 @@ public:
     Virus(int nodeInd);
 
     virtual void act(Session& session);
-private:
-    const int nodeInd;
+
 };
 
 #endif

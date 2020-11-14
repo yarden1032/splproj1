@@ -93,9 +93,6 @@
 		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/Session.cpp">
 			<Option target="splproj1"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/Tree.cpp">
-			<Option target="splproj1"/>
-		</Unit>
 		<Unit filename="/tmp/tmp.gYVJnAdKBX/src/main.cpp">
 			<Option target="splproj1"/>
 		</Unit>

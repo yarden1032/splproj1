@@ -30,7 +30,7 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
     int indexi=1;
 
     int indexj=-1;
-    cout << graphST.at(3) << endl;
+   // cout << graphST.at(3) << endl;
     while (graphST.at(indexi)!=']'||graphST.at(indexi+1)!=']') {
         if ((graphST.at(indexi)=='['))
         {
@@ -62,12 +62,13 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
         }
 
     }
-        g=*(new Graph (vec));
+
+        g=* new Graph (vec); //memory leak here
         ///Here we finish with the graph
         /////// Read the tree type
         treeType = Cycle; //Just for default for making sure.
         json jTreeType=j.at("tree");
-    cout <<  jTreeType.dump() << endl;
+
         if (jTreeType.dump().at(1)=='M')
         {
             treeType = MaxRank;
@@ -85,12 +86,58 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
 
     //// We need to add here Agents - Finished but we maybe need to add here. -finished
     ///I will write here down the Agents read - we need to add the agents then we can use the read from here - test only after Agents writing
+
+/*
+////Issue with iterator= try manual:
+    json jAgents =j.at("agents");
+    while (graphST.at(indexi)!=']'||graphST.at(indexi+1)!=']') {
+        if ((graphST.at(indexi)=='['))
+        {
+            vector<int> *vecy = new vector<int>();
+            vec.push_back(*vecy);
+            indexi++;
+            indexj++;
+            continue;
+
+        }
+        if(graphST.at(indexi)==',')
+        {
+            indexi++;
+            continue;
+        }
+        if(graphST.at(indexi)=='1') {
+            vec[indexj].push_back((1));
+            indexi++;
+            continue;
+        }
+        if(graphST.at(indexi)=='0'){
+            vec[indexj].push_back((0));
+            indexi++;
+            continue;
+        }
+        if(graphST.at(indexi)==']') {
+
+            indexi++;
+        }
+
+    }
+
+
+
+
+*/
+
+
+   // std::ifstream k(st);
+    //k >>j;
+
+//end manual
     int interator; //For Agents === the initial place of the Agents
     string ageString ; //For Agents === the type of Agent
     json jAgents =j.at("agents");
-    for (json::iterator it = jAgents.begin(); it != jAgents.end(); ++it) {
-         interator = it.value()[1];
-        ageString=it.value()[0];
+    for (json::iterator it =jAgents.begin() ; it !=jAgents.end() ;++it) {
+        interator = (it.value())[1];
+        ageString=(it.value())[0];
         if (ageString =="V")
         {
             agents.push_back(new Virus (interator));
@@ -98,6 +145,7 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
         else {
             agents.push_back(new ContactTracer());
         }
+
     }
 
 ///Finish constraction - be advised the changes here to agents
@@ -165,7 +213,6 @@ void Session::clear()
 
 /*
 Session* Session::copy(const string &path ){
-
 
 }*/
 
@@ -240,18 +287,19 @@ void Session::simulate() {
 //TODO: finish
 //method to find CC in the graph
 //kind of while
-bool stop_sim=true;
-while (stop_sim)
+bool continue_sim=true;
+while (continue_sim)
 {
-for(int i=0;i<agents.size();i++)
+    int agentCurrentSize= agents.size();
+for(int i=0;i<agentCurrentSize;i++)
     {
         Session& session(*this);
        agents[i]->act(session); //make sure memory is ok here
 
     }
-    stop_sim=is_ConnectedCopOk();
+    continue_sim=is_ConnectedCopOk();
 }
-
+//make output
 }
 bool Session::is_ConnectedCopOk() //TODO: change names and continue
 
@@ -270,7 +318,9 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
             // from v
 
             //create of first CC
-            cc[v] = *new std::vector<int>;
+            vector<int> vecy = *new vector<int>();  ////TODO: show Roni - It tried to allocate non existed vector
+            cc.push_back(vecy);
+          //  cc[v] = *new std::vector<int>;
             DFS_helper(v, visited, cc);
 
             //  cout << "\n";  //Delete
@@ -354,4 +404,6 @@ void Session::setGraph(const Graph &graph) {
 
 
 
-
+std::vector<Agent *> Session::getAgents(){
+    return agents;
+}
