@@ -132,7 +132,7 @@ return 0;
 
     }
 
-int maxDepthHelper(Tree* node) {
+        int MaxRankTree::maxDepthHelper(Tree* node) {
     if (node == NULL)
         return 0;
     else {

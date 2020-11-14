@@ -22,6 +22,7 @@ private:
     void clear();
 
 
+    int maxDepthHelper(Tree *node);
 };
 
 class CycleTree: public Tree{

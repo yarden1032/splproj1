@@ -1,6 +1,8 @@
 #ifndef AGENT_H_
 #define AGENT_H_
 #include "../include/Session.h"
+#include "../include/Tree.h"
+
 #include <vector>
 class Session; ////////TODO: important!!!! this line was important - to show to Roni
 class Agent{
@@ -19,7 +21,7 @@ public:
     virtual void act(Session& session);
 
 private:
-    Tree BFS(int start,Session& session,vector<int> tempinfectednodes);
+    Tree* BFS(int start,Session& session);
 
 };
 
@@ -29,6 +31,8 @@ public:
     Virus(int nodeInd);
 
     virtual void act(Session& session);
+private:
+    const int nodeInd;
 
 };
 

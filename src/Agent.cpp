@@ -6,10 +6,7 @@
 #include <list>
 using namespace std;
 Agent::Agent() :nodeInd(-1){
-///We need to complete
-
-
-
+///We need to complete or not
 
 }
 
@@ -21,6 +18,15 @@ int Agent::getNodeInd(){
 
     return nodeInd;
 }
+
+Virus::Virus(int nodeInd):nodeInd(nodeInd) {
+
+}
+///We need to complete
+
+
+
+
 
 
 
@@ -95,7 +101,7 @@ for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
 }
 
 //TODO: Fix and modifiy to our use
-Tree* ContactTracer::BFS(int startVertex,Session& session,vector<int> tempinfectednodes) {
+Tree* ContactTracer::BFS(int startVertex,Session& session) {
     int numVertices=session.getGraph().getEdges().size();
     TreeType t = session.getTreeType();
     Tree* tree;

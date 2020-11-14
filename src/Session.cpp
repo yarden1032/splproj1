@@ -140,7 +140,8 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
         ageString=(it.value())[0];
         if (ageString =="V")
         {
-            agents.push_back(new Virus (interator));
+          Virus* vir =  new Virus (interator);
+            agents.push_back(vir);
         }
         else {
             agents.push_back(new ContactTracer());
