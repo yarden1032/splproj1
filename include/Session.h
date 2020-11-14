@@ -31,9 +31,11 @@ class Agent;
         int dequeueInfected();
         TreeType getTreeType() const;
          Graph getGraph() const;
+        Graph getGraph() ;
         Session& operator=(const Session &other);
         Session(Session&& other);
         Session& operator=(Session &&other);
+        Graph * getGraphRef() ;
 
     private:
         Graph g;

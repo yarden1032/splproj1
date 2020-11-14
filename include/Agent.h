@@ -9,7 +9,7 @@ class Agent{
 public:
     Agent();
     virtual void act(Session& session)=0;
-      int getNodeInd();
+     virtual int getNodeInd();
 private:
     const int nodeInd;
 
@@ -29,7 +29,7 @@ private:
 class Virus: public Agent{
 public:
     Virus(int nodeInd);
-
+    int getNodeInd();
     virtual void act(Session& session);
 private:
     const int nodeInd;

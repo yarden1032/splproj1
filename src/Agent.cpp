@@ -19,6 +19,10 @@ int Agent::getNodeInd(){
     return nodeInd;
 }
 
+int Virus::getNodeInd(){
+
+    return nodeInd;
+}
 Virus::Virus(int nodeInd):nodeInd(nodeInd) {
 
 }
@@ -41,7 +45,8 @@ void Virus::act(Session & session){
  *
  *
  */
-session.getGraph().infectNode(getNodeInd()); //infect the current node
+    int n=getNodeInd();
+session.getGraphRef()->infectNode(n); //infect the current node
 for(int i=0;i<session.getGraph().getEdges().size();i++)
     if (session.getGraph().getEdges()[getNodeInd()][i]==1)
     {

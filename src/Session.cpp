@@ -217,6 +217,10 @@ Session* Session::copy(const string &path ){
 
 }*/
 
+Graph * Session::getGraphRef() {
+return &g;
+
+}
 Session& Session::operator=(const Session &other)
 {
     // check for "self assignment" and do nothing in that case
@@ -262,13 +266,16 @@ Session& Session::operator=(Session &&other)
     return *this;
 }
 
- Graph Session::getGraph() const {
+ Graph Session::getGraph() const  {
 
     return g;
 }
 
 
+Graph Session::getGraph()   {
 
+    return g;
+}
 
 
 TreeType Session::getTreeType() const  {
@@ -294,8 +301,8 @@ while (continue_sim)
     int agentCurrentSize= agents.size();
 for(int i=0;i<agentCurrentSize;i++)
     {
-        Session& session(*this);
-       agents[i]->act(session); //make sure memory is ok here
+       // Session& session(*this);
+       agents[i]->act((Session &) *this); //make sure memory is ok here
 
     }
     continue_sim=is_ConnectedCopOk();
