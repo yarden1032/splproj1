@@ -60,7 +60,7 @@ void Graph::isolate(int nodeInd)
 
 void Graph::infectNode(int nodeInd)
 {
-    for (int i= 0; infected_nodes.size();i++)
+    for (int i= 0;i< infected_nodes.size();i++)
     {
         if (infected_nodes[i]==nodeInd)
         {

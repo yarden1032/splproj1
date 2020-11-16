@@ -55,14 +55,17 @@ for(int i=0;i<session.getGraph().getEdges().size();i++)
         {
             for(int j=0;j<session.getAgents().size();j++)
             {
-                if(session.getAgents()[j]->getNodeInd()!=i)
+                if(session.getAgents()[j]->getNodeInd()==i)
                 {
                     //session.getGraph().infectNode(i);
                    // session.enqueueInfected(i);
-                   session.addAgent(new Virus (i));
+
                    return;
                 }
+
             }
+            session.addAgent(new Virus (i));
+            return;
         }
     }
 
@@ -86,7 +89,8 @@ INSIDE TRACE TREE: WE DELETE THE EDGES OF THIS NODE
 */
 //for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
 int i=session.dequeueInfected();
-    Tree* tree =BFS(session.getGraph().getinfected_nodes()[i],session);
+if (i!=-1){
+    Tree* tree =BFS(i,session);
 
     int nodeTodelete=tree->traceTree();
    // Graph gtemp = session.getGraph();
@@ -101,7 +105,7 @@ int i=session.dequeueInfected();
     session.setGraph(gtemp);*/
 
     delete tree;
-
+}
 
 
 

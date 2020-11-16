@@ -11,7 +11,7 @@ using namespace std;
 using json = nlohmann::json;
 #include <vector>
 //session::Session() { } //Constructor empty
-Session::Session(const string &path):treeType (Cycle),indicator(0) { //constructor not empty
+Session::Session(const string &path):treeType (Cycle),indicator(-1) { //constructor not empty
 
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
@@ -284,11 +284,16 @@ TreeType Session::getTreeType() const  {
 }
 
 int Session::dequeueInfected() {
-    int last =g.getinfected_nodes()[indicator];
+int checker =(g.getinfected_nodes()).size();
   //  g.getinfected_nodes_deque().pop_back(); // we maybe have issue with the order
-  if(indicator!=g.getinfected_nodes().size()-1)
-  indicator ++;
-  return last;
+  if(indicator<checker-1)
+  {indicator ++;
+      int last =g.getinfected_nodes()[indicator];
+      return last;
+  }
+  else
+      return -1;
+
     //TODO: finish - not sure if this is it
 
 }

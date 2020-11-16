@@ -113,7 +113,10 @@ return 0;
 
      //   delete this->[max];    //TODO: think about it we have issue here for now
         return this->getChildren()[(maxint[0])]->getNode();
-    }
+    }if (maxint.size()==0)
+         {
+        return getNode();
+         }
 
     else
     {
