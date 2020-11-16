@@ -46,7 +46,15 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
     }
 }
 */
+void Graph::isolate(int nodeInd)
+{
+    for (int i=0;i<edges.size();i++)
+    {
+        edges[nodeInd][i]=0;
+        edges[i][nodeInd]=0;
 
+    }
+}
 
 
 

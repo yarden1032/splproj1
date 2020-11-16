@@ -25,7 +25,7 @@ class Agent;
         void addAgent(Agent *agent);
         std::vector<Agent *> getAgents ();
         void setGraph(const Graph &graph);
-
+        void isolateNode(int node);
         void enqueueInfected(int nodeInd);
         Session* copy(const string &path);
         int dequeueInfected();
@@ -42,12 +42,12 @@ class Agent;
         TreeType treeType;
         std::vector<Agent *> agents;
      // TREE OBJECT maybe? TODO: to understand that
-   //  void DFS_helper(int v, bool visited[])
+     void DFS_helper(int v, bool visited[]);
         void clear();
         bool is_ConnectedCopOk();
 
 
-        void DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc);
+        void DFS_helper(int v, std::vector <bool> visited,std::vector<std::vector<int>>   cc);
 
         //void clear();
 

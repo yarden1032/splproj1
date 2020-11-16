@@ -88,13 +88,17 @@ for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
 {
     Tree* tree =BFS(session.getGraph().getinfected_nodes()[i],session);
     int nodeTodelete=tree->traceTree();
-    Graph gtemp = session.getGraph();
-    for (int i=0;i<gtemp.getEdges().size();i++)
+   // Graph gtemp = session.getGraph();
+    session.isolateNode(nodeTodelete);
+
+  /*  for (int i=0;i<gtemp.getEdges().size();i++)
     {
         gtemp.getEdges()[nodeTodelete][i]=0;
         gtemp.getEdges()[i][nodeTodelete]=0;
 
     }
+    session.setGraph(gtemp);*/
+
     delete tree;
 
 }

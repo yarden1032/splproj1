@@ -100,26 +100,26 @@ return 0;
             maxint.clear();
            maxint.push_back(i);
         }
-        if (this->getChildren()[i]->getChildren().size()==max)
-        {
-            maxint.push_back(i);
+        else {
+            if (this->getChildren()[i]->getChildren().size() == max) {
+                maxint.push_back(i);
+            }
         }
-
 
     }
     if(maxint.size()==1)
     {
-        int max= this->getChildren()[i]->getNode();
+       // int max= ;
 
-        delete this->getChildren()[max];    //think about it
-        return max ;
+     //   delete this->[max];    //TODO: think about it we have issue here for now
+        return this->getChildren()[(maxint[0])]->getNode();
     }
 
     else
     {
-        int max=maxDepthHelper(this);
+    //    int max=;
 
-        return getChildren()[max]->getNode();
+        return getChildren()[maxDepthHelper(this)]->getNode();
     }
         /**
          * we choose the next node by the type of the tree

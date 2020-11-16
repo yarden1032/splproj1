@@ -291,6 +291,11 @@ int Session::dequeueInfected() {
 
 }
 
+void Session::isolateNode(int node){
+    g.isolate(node);
+
+    }
+
 void Session::simulate() {
 //TODO: finish
 //method to find CC in the graph
@@ -316,7 +321,7 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
 
     //line of something
     // Mark all the vertices as not visited
-    bool *visited = new bool[g.getEdges().size()];
+    std::vector <bool> visited =* new vector <bool>(g.getEdges().size());
     for (int v = 0; v < g.getEdges().size(); v++)
         visited[v] = false;
 
@@ -334,7 +339,9 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
             //  cout << "\n";  //Delete
         }
     }
-    delete[] visited;
+
+
+   visited.clear();
 
 
     //TODO: finish - We need here to finish it it just making cc ready for use
@@ -367,7 +374,7 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
 }
 
 
-void Session::DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc)
+void Session::DFS_helper(int v, std::vector <bool> visited,std::vector<std::vector<int>> cc)
 {
     // Mark the current node as visited and print it
     visited[v] = true;
@@ -377,7 +384,7 @@ void Session::DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc)
     // Recur for all the vertices
     // adjacent to this vertex
 
-    for (int i=0;i<g.getEdges()[i].size(); ++i)
+    for (int i=0;i<g.getEdges()size(); ++i)
         if (!visited[i])
             DFS_helper(i, visited,cc);
 }
