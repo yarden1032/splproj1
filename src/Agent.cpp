@@ -93,13 +93,11 @@ for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
     {
         gtemp.getEdges()[nodeTodelete][i]=0;
         gtemp.getEdges()[i][nodeTodelete]=0;
+
     }
     delete tree;
 
-
 }
-
-
 
 
 //do trcace =int
