@@ -415,3 +415,5 @@ void Session::setGraph(const Graph &graph) {
 std::vector<Agent *> Session::getAgents(){
     return agents;
 }
+
+

@@ -115,33 +115,34 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
     if (t==MaxRank)
      tree = new MaxRankTree (startVertex);
 
-    else
-    {
-        if (t==Root)
-             tree = new RootTree (startVertex);
-        else
-        {
-         //    tree = new CycleTree (startVertex); //TODO: make constructor and disable here
+    else {
+        if (t == Root)
+            tree = new RootTree(startVertex);
+        else {
+            //    tree = new CycleTree (startVertex); //TODO: make constructor and disable here
 
         }
+
     }
+    vector <Tree *> whereVisisted= * new vector <Tree *> (numVertices);
     vector<bool> visited =* new vector<bool> (numVertices);
         for (int i = 0; i < numVertices; i++)
             visited[i] = false;
 
-        list<int> queue;
+        list<Tree *> queue;
          Tree* tempTree=tree;
          visited[startVertex] = true;
-        queue.push_back(startVertex);
+        queue.push_back(tree);
 
         vector<int>::iterator i;
-
+    Tree *childnew;
         while (!queue.empty()) {
-            int currVertex = queue.front();
+            int currVertex = queue.front()->getNode();
+            tempTree= queue.front();
             if(currVertex!=startVertex) {
                 //   cout << "Visited " << currVertex << " ";
                 ///start check tree type
-                Tree *childnew;
+           /*
                 if (t == MaxRank) {
                     childnew = new MaxRankTree(currVertex);
                 } else {
@@ -152,10 +153,10 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
                         //   childnew =  new CycleTree (currVertex);//TODO: make constructor and disable here
                     }
                 }
-
+*/ //try someting new
                 ///end check tree type
                 //add this vartex to the tree (add child)
-                tempTree->addChild(*const_cast<Tree *>(childnew));
+                whereVisisted[currVertex]->addChild(*tempTree);
             }
             queue.pop_front();
 
@@ -163,7 +164,22 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
          //       int adjVertex = *i;
                 if (!visited[i]&&session.getGraph().getEdges()[currVertex][i]==1) {
                     visited[i] = true;
-                    queue.push_back(i);
+                    //try start
+
+                    if (t == MaxRank) {
+                        childnew = new MaxRankTree(i);
+                    } else {
+                        if (t == Root) {
+                            childnew = new RootTree(i);
+                        } else {
+
+                            //   childnew =  new CycleTree (i);//TODO: make constructor and disable here
+                        }
+                    }
+
+                    //try end
+                    whereVisisted[i]=tempTree;
+                    queue.push_back(childnew);
                 }
             }
         }
