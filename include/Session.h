@@ -5,7 +5,8 @@
 #include <string>
 #include "Graph.h"
 
-#include "Agent.h"
+#include "../include/Agent.h"
+using namespace std;
 class Agent;
     enum TreeType {
         Cycle,
@@ -15,25 +16,42 @@ class Agent;
 
     class Session {
     public:
-        Session();
 
-        Session(const std::string &path,std::vector<std::vector<int>> );
+ //       Session(); //empty constructor
+        Session(const Session &aSession);// copy constructor
+        Session(const std::string &path);
         void simulate();
-
-        void addAgent(const Agent &agent);
-   //     Session operator()(Session ss);
+        virtual ~Session();
+        void addAgent(Agent *agent);
+        std::vector<Agent *> getAgents ();
         void setGraph(const Graph &graph);
-        Session operator()(int ss);
-        void enqueueInfected(int);
 
+        void enqueueInfected(int nodeInd);
+        Session* copy(const string &path);
         int dequeueInfected();
-
         TreeType getTreeType() const;
+         Graph getGraph() const;
+        Graph getGraph() ;
+        Session& operator=(const Session &other);
+        Session(Session&& other);
+        Session& operator=(Session &&other);
+        Graph * getGraphRef() ;
 
     private:
         Graph g;
         TreeType treeType;
-     //   std::vector<Agent *> agents;
+        std::vector<Agent *> agents;
+     // TREE OBJECT maybe? TODO: to understand that
+   //  void DFS_helper(int v, bool visited[])
+        void clear();
+        bool is_ConnectedCopOk();
+
+
+        void DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc);
+
+        //void clear();
+
+       // void DFS_helper(int v, bool *visited, vector <vector<int>> cc);
     };
 
 #endif

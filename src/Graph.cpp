@@ -1,10 +1,13 @@
 //This is implementation of class Graph
 #include "../include/Graph.h"
 #include <iostream>
+#include <vector>
 using namespace std;
-
+#include <vector>
 //Graph::Vector(): {std::vector<std::vector<int>> matrix(0)}
-Graph::Graph(){} //Constructor empty
+Graph::Graph(){
+
+} //Constructor empty
 Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
 
 
@@ -18,7 +21,7 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
             edges[i].push_back(((matrix[i])[j]));
         }
     }
-
+/*
         for (int i = 0; i < matrix.size(); i++){
             for (int j= 0; j < matrix[i].size();  j++)
             {
@@ -26,8 +29,10 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
                 edges[i].push_back((matrix[i])[j]);
             }
     }
-
+*/
 }
+
+
 
 /*void printGraph(vector<int> adj[], int V)
 {
@@ -41,12 +46,19 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
     }
 }
 */
-void Graph::infectNode(int nodeInd)
-{/*
-    int indexi= nodeInd/edges.size();
-    int indexj= nodeInd%edges.size();
-    (edges[indexi])[indexj]=1;*/
 
+
+
+
+void Graph::infectNode(int nodeInd)
+{
+    for (int i= 0; infected_nodes.size();i++)
+    {
+        if (infected_nodes[i]==nodeInd)
+        {
+            return;
+        }
+    }
 infected_nodes.push_back(nodeInd);
 }
 bool Graph::isInfected(int nodeInd)
@@ -60,17 +72,58 @@ bool Graph::isInfected(int nodeInd)
 
 */
 
-for(int i=0;i<infected_nodes.size();i++)
+for(int i=0;i<infected_nodes.size();i++){
     if (infected_nodes[i]==nodeInd)
     {
         return true;
     }
+}
     return false;
 }
 
 
 
+ vector<vector<int>> Graph::getEdges ()
+{
+    return edges;
+}
+
+
+ vector<vector<int>> Graph::getEdges  () const
+{
+    return edges;
+}
+
+std::vector<int> Graph::getinfected_nodes(){
+
+    return  infected_nodes;
+}
+
+
+Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
+{
+    // check for "self assignment" and do nothing in that case
+
+    int size = aGraph.getEdges().size();
+    if (this == &aGraph) {
+        return *this;
+    }
+    if (size != edges.size()) {
+        edges.resize(size);
+    }
+    for (int i = 0; i < size; i++) {
+        if (size != edges[i].size()) {
+            edges[i].resize(size);
+        }
+        for (int j = 0; j < size; j++) {
+
+            (edges[i])[j] = aGraph.getEdges()[i][j];
+        }
+    }
 
 
 
+    return *this;
+
+}
 
