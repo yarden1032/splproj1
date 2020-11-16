@@ -11,7 +11,7 @@ using namespace std;
 using json = nlohmann::json;
 #include <vector>
 //session::Session() { } //Constructor empty
-Session::Session(const string &path):treeType (Cycle) { //constructor not empty
+Session::Session(const string &path):treeType (Cycle),indicator(0) { //constructor not empty
 
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
@@ -284,9 +284,11 @@ TreeType Session::getTreeType() const  {
 }
 
 int Session::dequeueInfected() {
-    int last =g.getinfected_nodes()[g.getinfected_nodes().size()-1];
-    g.getinfected_nodes().pop_back(); // we maybe have issue with the order
-    return last;
+    int last =g.getinfected_nodes()[indicator];
+  //  g.getinfected_nodes_deque().pop_back(); // we maybe have issue with the order
+  if(indicator!=g.getinfected_nodes().size()-1)
+  indicator ++;
+  return last;
     //TODO: finish - not sure if this is it
 
 }
@@ -334,7 +336,10 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
             vector<int> vecy = *new vector<int>();  ////TODO: show Roni - It tried to allocate non existed vector
             cc.push_back(vecy);
           //  cc[v] = *new std::vector<int>;
-            DFS_helper(v, visited, cc);
+            std::vector<std::vector<int>>& cc1 =cc;
+            std::vector <bool> & visited1 =visited;
+
+            DFS_helper(v,  visited1,cc1);
 
             //  cout << "\n";  //Delete
         }
@@ -374,19 +379,24 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
 }
 
 
-void Session::DFS_helper(int v, std::vector <bool> visited,std::vector<std::vector<int>> cc)
+void Session::DFS_helper(int v, std::vector <bool> & visited,std::vector<std::vector<int>> &cc)
 {
     // Mark the current node as visited and print it
-    visited[v] = true;
+  //  std::vector <bool> visitedreal =visited;
+    visited[v]  =  true;
+   // std::vector<std::vector<int>> cc1= reinterpret_cast<const vector<vector<int, allocator<int>>, allocator<vector<int, allocator<int>>>> &>(cc);
     cc[cc.size()-1].push_back(v);
     //cout << v << " "; //to delete
 
     // Recur for all the vertices
     // adjacent to this vertex
 
-    for (int i=0;i<g.getEdges()size(); ++i)
-        if (!visited[i])
-            DFS_helper(i, visited,cc);
+    for (int i=0;i<g.getEdges().size(); i++)
+        if (!visited[i] && g.getEdges()[v][i]==1) {
+            DFS_helper(i, visited ,cc );
+
+
+        }
 }
 
 

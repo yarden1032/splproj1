@@ -52,9 +52,9 @@ void Graph::isolate(int nodeInd)
     {
         edges[nodeInd][i]=0;
         edges[i][nodeInd]=0;
-
+        }
     }
-}
+
 
 
 
@@ -68,8 +68,16 @@ void Graph::infectNode(int nodeInd)
         }
     }
 infected_nodes.push_back(nodeInd);
+  //  infected_nodes_deque.push_back(nodeInd);
+
 }
-bool Graph::isInfected(int nodeInd)
+/* std::vector<int> Graph::getinfected_nodes_deque(){
+
+    return  infected_nodes_deque;
+
+}
+*/
+ bool Graph::isInfected(int nodeInd)
 {/*
     int indexi= nodeInd/edges.size();
     int indexj= nodeInd%edges.size();

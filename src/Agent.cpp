@@ -84,9 +84,10 @@ NOW WE DO TRACE - PICKING THE NODES WITH THE RIGHT LOGIC OF THE TREE
 INSIDE TRACE TREE: WE DELETE THE EDGES OF THIS NODE
 
 */
-for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
-{
+//for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
+int i=session.dequeueInfected();
     Tree* tree =BFS(session.getGraph().getinfected_nodes()[i],session);
+
     int nodeTodelete=tree->traceTree();
    // Graph gtemp = session.getGraph();
     session.isolateNode(nodeTodelete);
@@ -101,7 +102,7 @@ for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
 
     delete tree;
 
-}
+
 
 
 //do trcace =int

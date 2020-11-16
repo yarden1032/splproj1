@@ -11,6 +11,7 @@ public:
     void infectNode(int nodeInd);
     bool isInfected(int nodeInd);
     std::vector<int> getinfected_nodes();
+  //  std::vector<int> getinfected_nodes_deque();
      std::vector<std::vector<int>> getEdges();
     Graph & operator=(const Graph &aGraph);
      std::vector<std::vector<int>> getEdges  () const ;
@@ -18,6 +19,7 @@ public:
 private:
     std::vector<std::vector<int>> edges;
     std::vector<int> infected_nodes;
+    //std::vector<int> infected_nodes_deque;
 
 };
 
