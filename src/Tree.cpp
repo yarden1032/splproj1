@@ -25,9 +25,9 @@ Tree::~Tree() {
 
 void Tree::addChild(const Tree& child)
 {
-    Tree * tempChild = const_cast<Tree *>(&child); //TODO:tocheck
-children.push_back(tempChild);
-delete tempChild;
+ //   Tree * tempChild = const_cast<Tree *>(&child); //TODO:tocheck
+children.push_back(const_cast<Tree *>(&child));
+//delete tempChild;
 }
 std::vector<Tree*> Tree::getChildren() {
 return children;

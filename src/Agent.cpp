@@ -46,7 +46,8 @@ void Virus::act(Session & session){
  *
  */
     int n=getNodeInd();
-session.getGraphRef()->infectNode(n); //infect the current node
+//session.getGraphRef()->infectNode(n); //infect the current node
+session.enqueueInfected(n);
 for(int i=0;i<session.getGraph().getEdges().size();i++)
     if (session.getGraph().getEdges()[getNodeInd()][i]==1)
     {
@@ -56,7 +57,10 @@ for(int i=0;i<session.getGraph().getEdges().size();i++)
             {
                 if(session.getAgents()[j]->getNodeInd()!=i)
                 {
-                    session.getGraph().infectNode(i);
+                    //session.getGraph().infectNode(i);
+                   // session.enqueueInfected(i);
+                   session.addAgent(new Virus (i));
+                   return;
                 }
             }
         }
@@ -153,18 +157,19 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
 
                 ///end check tree type
                 //add this vartex to the tree (add child)
-                tempTree->addChild(*const_cast<Tree *>( childnew));
+                tempTree->addChild(*const_cast<Tree *>(childnew));
             }
             queue.pop_front();
 
-            for (i = session.getGraph().getEdges()[currVertex].begin(); i != session.getGraph().getEdges()[currVertex].end(); ++i) {
-                int adjVertex = *i;
-                if (!visited[adjVertex]) {
-                    visited[adjVertex] = true;
-                    queue.push_back(adjVertex);
+            for (int i = 0; i < session.getGraph().getEdges()[currVertex].size(); i++) {
+         //       int adjVertex = *i;
+                if (!visited[i]&&session.getGraph().getEdges()[currVertex][i]==1) {
+                    visited[i] = true;
+                    queue.push_back(i);
                 }
             }
         }
+        return tree;
     }
 
 
