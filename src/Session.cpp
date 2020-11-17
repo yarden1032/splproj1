@@ -194,11 +194,11 @@ void Session::clear()
     for(int i=0;i<=agents.size();i++) {
         delete agents[i];
     }
-    agents.clear();
+   agents.clear();
     //TODO: destructor to treeType - we have issue
 
     //Delete graph
-
+    /*
     for (int i = 0; i <g.getEdges().size(); i++){
         for (int j= 0; j < g.getEdges().size(); j++)
         {
@@ -207,6 +207,7 @@ void Session::clear()
         }
         delete[] &g.getEdges()[i];
     }
+     */
     g.getEdges().clear();
 
 }

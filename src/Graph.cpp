@@ -137,9 +137,6 @@ Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
         }
     }
 
-
-
     return *this;
 
 }
-
