@@ -123,6 +123,33 @@ splproj1/fast:
 	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/build
 .PHONY : splproj1/fast
 
+Tests/Tests.o: Tests/Tests.cpp.o
+
+.PHONY : Tests/Tests.o
+
+# target to build an object file
+Tests/Tests.cpp.o:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/Tests/Tests.cpp.o
+.PHONY : Tests/Tests.cpp.o
+
+Tests/Tests.i: Tests/Tests.cpp.i
+
+.PHONY : Tests/Tests.i
+
+# target to preprocess a source file
+Tests/Tests.cpp.i:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/Tests/Tests.cpp.i
+.PHONY : Tests/Tests.cpp.i
+
+Tests/Tests.s: Tests/Tests.cpp.s
+
+.PHONY : Tests/Tests.s
+
+# target to generate assembly for a file
+Tests/Tests.cpp.s:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/Tests/Tests.cpp.s
+.PHONY : Tests/Tests.cpp.s
+
 src/Agent.o: src/Agent.cpp.o
 
 .PHONY : src/Agent.o
@@ -267,6 +294,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... splproj1"
 	@echo "... edit_cache"
+	@echo "... Tests/Tests.o"
+	@echo "... Tests/Tests.i"
+	@echo "... Tests/Tests.s"
 	@echo "... src/Agent.o"
 	@echo "... src/Agent.i"
 	@echo "... src/Agent.s"

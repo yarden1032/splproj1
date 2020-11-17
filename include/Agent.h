@@ -10,6 +10,7 @@ public:
     Agent();
     virtual void act(Session& session)=0;
      virtual int getNodeInd();
+    ~Agent();
 private:
     const int nodeInd;
 
@@ -31,6 +32,7 @@ public:
     Virus(int nodeInd);
     int getNodeInd();
     virtual void act(Session& session);
+    ~Virus();
 private:
     const int nodeInd;
 

@@ -1,4 +1,4 @@
-#include <iostream>
+/****#include <iostream>
 #include <fstream>
 #include "../include/Session.h"
 #include <string>
@@ -9,7 +9,7 @@
 
 using namespace std;
 using json = nlohmann::json;
-int main(int argc, char** argv) {
+int main(int argc, char** argv) {*/
 /*
     std::string st = *argv;
     st = st.replace(st.find("/splproj1"), sizeof("/splproj1") - 1, "");
@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
         */
 //         Session sess(argv[1]);
         // sess.simulate();
-
+/*
     if(argc != 2){
         cout << "usage cTrace config1.JSON" << endl;
         return 0;
@@ -82,6 +82,8 @@ int main(int argc, char** argv) {
     Session sess(argv[1]);
     sess.simulate();
 
-  // cout << sess.getGraph().getEdges()[0][0];
+
     return 0;
     }
+
+*/

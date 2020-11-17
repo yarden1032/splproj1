@@ -16,6 +16,7 @@ public:
     Graph & operator=(const Graph &aGraph);
      std::vector<std::vector<int>> getEdges  () const ;
     void isolate(int nodeInd);
+    ~Graph();
 private:
     std::vector<std::vector<int>> edges;
     std::vector<int> infected_nodes;

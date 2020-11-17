@@ -36,7 +36,7 @@ Virus::Virus(int nodeInd):nodeInd(nodeInd) {
 
 
 void Virus::act(Session & session){
-///TODO:We need to complete
+
 
 /**
  * infect the current node
@@ -64,7 +64,9 @@ for(int i=0;i<session.getGraph().getEdges().size();i++)
                 }
 
             }
-            session.addAgent(new Virus (i));
+            Virus * vir  =  new Virus (i);
+            session.addAgent(vir);
+            //delete vir;
             return;
         }
     }
@@ -73,12 +75,12 @@ for(int i=0;i<session.getGraph().getEdges().size();i++)
 }
 
 ContactTracer::ContactTracer() {
-///TODO: We need to complete or not
+
 
 }
 
 void ContactTracer::act(Session& session){
-///TODO:We need to complete
+
 /**TAKE THE INFECTED QUEUE FROM THE GRAPH FROM SESSION
 
 DO BFS FROM THE TOP OF EVERY INFECTED NODE
@@ -116,7 +118,6 @@ if (i!=-1){
 
 }
 
-//TODO: Fix and modifiy to our use
 Tree* ContactTracer::BFS(int startVertex,Session& session) {
     int numVertices=session.getGraph().getEdges().size();
     TreeType t = session.getTreeType();
@@ -133,16 +134,16 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
         }
 
     }
-    vector <Tree *> whereVisisted= * new vector <Tree *> (numVertices);
-    vector<bool> visited =* new vector<bool> (numVertices);
-        for (int i = 0; i < numVertices; i++)
-            visited[i] = false;
-
+    vector <Tree *> whereVisisted;
+    vector<bool> visited ;
+        for (int i = 0; i < numVertices; i++){
+            visited.push_back(false);
+            whereVisisted.push_back(nullptr);
+        }
         list<Tree *> queue;
          Tree* tempTree=tree;
          visited[startVertex] = true;
         queue.push_back(tree);
-
         vector<int>::iterator i;
     Tree *childnew;
         while (!queue.empty()) {
@@ -192,6 +193,8 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
                 }
             }
         }
+    whereVisisted.clear();
+         visited.clear();
         return tree;
     }
 
@@ -200,16 +203,17 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
 
 
 
-
+Virus::~Virus()
+{
+}
 
 
 // Destructor: "deep delete"
-/**
+
 Agent::~Agent()
 {
-    clear();
 }
-
+/*
 void Agent::clear()
 {
     while (head_ != nullptr) {
@@ -239,11 +243,10 @@ for (int v = 0; v < V; ++v)
     printf("\n");
 }
 }
+*/
 
 
 
-
-**/
 
 
 

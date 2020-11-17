@@ -41,17 +41,16 @@ class Agent;
         Graph g;
         TreeType treeType;
         std::vector<Agent *> agents;
-     // TREE OBJECT maybe? TODO: to understand that
-     //void DFS_helper(int v, bool visited[]);
+
+
         void clear();
         bool is_ConnectedCopOk();
         int indicator;
 
         void DFS_helper(int v, std::vector <bool> & visited,std::vector<std::vector<int>> &  cc);
 
-        //void clear();
 
-       // void DFS_helper(int v, bool *visited, vector <vector<int>> cc);
+        void memoManage();
     };
 
 #endif

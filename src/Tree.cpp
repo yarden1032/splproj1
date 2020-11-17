@@ -90,7 +90,7 @@ return 0;
      int MaxRankTree::traceTree(){
 
          int max=0;
-         vector<int> maxint =*new vector<int> ();
+         vector<int> maxint;
          int i;
          for (i=0;i<this->getChildren().size();i++)
     {
@@ -121,8 +121,8 @@ return 0;
     else
     {
     //    int max=;
-
-        return getChildren()[maxDepthHelper(this)]->getNode();
+int iti =maxDepthHelper(this);
+        return getChildren()[iti]->getNode();
     }
         /**
          * we choose the next node by the type of the tree
@@ -134,7 +134,7 @@ return 0;
          */
 
     }
-
+//TODO fix here - important for config4.JSON
         int MaxRankTree::maxDepthHelper(Tree* node) {
     if (node == NULL)
         return 0;

@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/Milky/CLionProjects/splproj1/Tests/Tests.cpp">
+			<Option target="splproj1"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Milky/CLionProjects/splproj1/Tests/Tests.h">
+			<Option target="splproj1"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Milky/CLionProjects/splproj1/src/Agent.cpp">
 			<Option target="splproj1"/>
 		</Unit>

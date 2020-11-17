@@ -38,14 +38,11 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1) { //construc
             vec.push_back(*vecy);
             indexi++;
             indexj++;
+            delete vecy;
             continue;
 
         }
-        if(graphST.at(indexi)==',')
-        {
-            indexi++;
-            continue;
-        }
+
         if(graphST.at(indexi)=='1') {
             vec[indexj].push_back((1));
             indexi++;
@@ -59,11 +56,16 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1) { //construc
         if(graphST.at(indexi)==']') {
 
             indexi++;
+            continue;
         }
-
+        else//if(graphST.at(indexi)==',')
+        {
+            indexi++;
+            continue;
+        }
     }
 
-        g=* new Graph (vec); //memory leak here
+        g=(vec); //memory leak here -don't use new
         ///Here we finish with the graph
         /////// Read the tree type
         treeType = Cycle; //Just for default for making sure.
@@ -140,11 +142,15 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1) { //construc
         ageString=(it.value())[0];
         if (ageString =="V")
         {
-          Virus* vir =  new Virus (interator);
+          Virus * vir= new Virus (interator);
             agents.push_back(vir);
+
+
         }
         else {
-            agents.push_back(new ContactTracer());
+            ContactTracer * cont  =new ContactTracer();
+            agents.push_back(cont);
+         //   delete cont;
         }
 
     }
@@ -152,6 +158,9 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1) { //construc
 ///Finish constraction - be advised the changes here to agents
 
             /////   std::vector<Agent*> agents;;
+
+
+
 }
 
 
@@ -192,7 +201,7 @@ void Session::clear()
 {
 
     for(int i=0;i<=agents.size();i++) {
-        delete agents[i];
+    //    delete agents[i];
     }
    agents.clear();
     //TODO: destructor to treeType - we have issue
@@ -236,7 +245,7 @@ Session& Session::operator=(const Session &other)
 
 
     for(int i=0;i<=other.agents.size();i++) {
-        agents.push_back(other.agents[i]); //TODO: We maybe have problem here, we maybe copy the poiters themself - recheck if we have issue - We need a specific test for that
+        agents.push_back(other.agents[i]);
     }
     //agents =*new Agent (other.getAgents());//We have issue here
     // return this List
@@ -295,7 +304,6 @@ int checker =(g.getinfected_nodes()).size();
   else
       return -1;
 
-    //TODO: finish - not sure if this is it
 
 }
 
@@ -305,7 +313,7 @@ void Session::isolateNode(int node){
     }
 
 void Session::simulate() {
-//TODO: finish
+
 //method to find CC in the graph
 //kind of while
 bool continue_sim=true;
@@ -320,18 +328,29 @@ for(int i=0;i<agentCurrentSize;i++)
     }
     continue_sim=is_ConnectedCopOk();
 }
-//make output
+//TODO: make output and manage memory
+    memoManage();
+
 }
-bool Session::is_ConnectedCopOk() //TODO: change names and continue
+void Session::memoManage()
+{
+    for (int i=0;i<agents.size();i++)
+    {
+       delete agents[i];
+    }
+}
+bool Session::is_ConnectedCopOk()
 
 {
     std::vector<std::vector<int>> cc;
 
     //line of something
     // Mark all the vertices as not visited
-    std::vector <bool> visited =* new vector <bool>(g.getEdges().size());
+    std::vector <bool> visited ;
     for (int v = 0; v < g.getEdges().size(); v++)
-        visited[v] = false;
+    {
+        visited.push_back(false);
+    }
 
     for (int v = 0; v < g.getEdges().size(); v++) {
         if (visited[v] == false) {
@@ -339,7 +358,7 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
             // from v
 
             //create of first CC
-            vector<int> vecy = *new vector<int>();  ////TODO: show Roni - It tried to allocate non existed vector
+            vector<int> vecy ;
             cc.push_back(vecy);
           //  cc[v] = *new std::vector<int>;
             std::vector<std::vector<int>>& cc1 =cc;
@@ -355,7 +374,7 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
    visited.clear();
 
 
-    //TODO: finish - We need here to finish it it just making cc ready for use
+
     //We need to check all the cc: if it's all in infected = good and we finish.
     //else check if all not infected.
 
@@ -412,13 +431,13 @@ void Session::addAgent(Agent *agent) {
     agents.push_back((Agent *const) agent);
 
 
-     //TODO: finish - I don't sure if we need more here and if it's ok
+
  }
 
 void Session::enqueueInfected(int nodeInd) { //add to infected and we also check if we need to do so
 
      g.infectNode(nodeInd);
-    //TODO: finish
+
  }
 
 
@@ -431,7 +450,7 @@ void Session::setGraph(const Graph &graph) {
     g=graph;
     }
 
-    //TODO: finish
+
 
 
 

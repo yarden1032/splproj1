@@ -20,6 +20,7 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
 
             edges[i].push_back(((matrix[i])[j]));
         }
+        delete vecy;
     }
 /*
         for (int i = 0; i < matrix.size(); i++){
@@ -125,7 +126,17 @@ Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
         return *this;
     }
     if (size != edges.size()) {
-        edges.resize(size);
+        if(size < edges.size())
+        {
+            for (int i=size;i<edges.size();i++)
+            {
+                for(int j=size;i<edges.size();j++)
+                {
+                    edges [i][j]=0;
+                }
+            }
+        }
+        edges.resize(size); //TODO: check this - It's ok
     }
     for (int i = 0; i < size; i++) {
         if (size != edges[i].size()) {
@@ -138,5 +149,10 @@ Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
     }
 
     return *this;
+
+}
+
+Graph::~Graph()
+{
 
 }
