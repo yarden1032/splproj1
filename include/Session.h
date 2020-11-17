@@ -38,6 +38,7 @@ class Agent;
         Graph * getGraphRef() ;
 
     private:
+        void output();
         Graph g;
         TreeType treeType;
         std::vector<Agent *> agents;

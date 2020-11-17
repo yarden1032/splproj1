@@ -1,5 +1,6 @@
 
 using namespace std;
+#include <iomanip>
 #include "../include/Graph.h"
 #include "../include/Session.h"
 #include <iostream>
@@ -329,9 +330,34 @@ for(int i=0;i<agentCurrentSize;i++)
     continue_sim=is_ConnectedCopOk();
 }
 //TODO: make output and manage memory
-    memoManage();
+output();
+memoManage();
 
 }
+void Session::output() {
+ //   json jgraph;
+ //   json jinfected;
+    json jtotal;
+    jtotal["graph"]=g.getEdges();
+    jtotal["infected"]=g.getinfected_nodes();
+    std::ofstream o("output.json");
+    o << std::setw(4) << jtotal ;
+ //    jtotal=jinfected;
+
+    //start config jgraph
+ /*   for (int i=0;i<g.getEdges().size();i++)
+    {
+        json jtemp;
+        for (int j=0;j<g.getEdges().size();j++)
+        {
+            jtemp.push_back(g.getEdges()[i][j]);
+        }
+        jgraph.push_back(jtemp);
+    }
+*/
+
+}
+
 void Session::memoManage()
 {
     for (int i=0;i<agents.size();i++)
