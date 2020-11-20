@@ -43,8 +43,8 @@ int Tree::getNode() {
 }
 void Tree::clear() {
     for(int i=0 ; i<children.size();i++) {
-        Tree *ptr = children[i];
-        delete ptr;
+        children[i]=nullptr;
+
     }
     node=0;
 }
@@ -59,21 +59,25 @@ void Tree::clear() {
 RootTree::RootTree(int rootLabel){
 
     this->setNode(rootLabel);
-    }
+}
 
 
-    int RootTree::traceTree(){
+int RootTree::traceTree(){
 
-        /**
-         * we choose the next node by the type of the tree
-         *
-         * than we delete all the connected edges of the current one
-         *
-         * return the chosen one
-         *
-         */
-return 0;
-    }
+    /**
+     * we choose the next node by the type of the tree
+     *
+     * than we delete all the connected edges of the current one
+     *
+     * return the chosen one
+     *
+     */
+    int root = this->getNode();
+
+
+    return root;
+
+}
 
 
 
@@ -121,7 +125,7 @@ return 0;
     else
     {
     //    int max=;
-int iti =maxDepthHelper(this);
+int iti =maxDepthHelper(this,maxint);
         return getChildren()[iti]->getNode();
     }
         /**
@@ -135,18 +139,18 @@ int iti =maxDepthHelper(this);
 
     }
 //TODO fix here - important for config4.JSON
-        int MaxRankTree::maxDepthHelper(Tree* node) {
+        int MaxRankTree::maxDepthHelper(Tree* node,vector<int> maxint) {
     if (node == NULL)
         return 0;
     else {
         ///start
         int i;
         vector<int> maxintdepth = *new vector<int>(node->getChildren().size());
-        int maxint = -1;
+      //  int maxint = -1;
         for (i = 0; i < node->getChildren().size(); i++) {
             //call to itself with the children
 
-            maxintdepth[i] = maxDepthHelper(node->getChildren()[i]) + 1;
+            maxintdepth[i] = maxDepthHelper(node->getChildren()[i],maxint) + 1;
         }
         int j = -1;
         int max=-1;
@@ -166,6 +170,8 @@ int iti =maxDepthHelper(this);
 
 
         }
+        return 0;
+
 
     }
 
@@ -210,4 +216,77 @@ int iti =maxDepthHelper(this);
 
 
 
+void CycleTree::setCurrCycle(int currCycle) {
+    this->currCycle = currCycle;
+}
+int CycleTree::getCurrCycle() {
+    return currCycle;
+}
+
+
+CycleTree::CycleTree(int rootLabel, int currCycle) {
+
+    this->setNode(rootLabel);
+    this->setCurrCycle(currCycle);
+}
+
+int CycleTree::traceTree() {
+
+    //create a vector trip that start with the root (node) and continue with the left-most child of this node (from the children vector the 0 index and etc) . check if the trip vector is c length or more and than return the c's index in the vector trip ' if not return the last index.
+    //delete the edges of the node we returned
+
+    vector<int> cycleTrip;  //TODO CHANGE
+    cycleTrip.clear();
+    cycleTrip.push_back(this->getNode());
+    Tree * temp;
+    temp=this;
+
+    int tempcurrCycle=currCycle;
+    if(temp->getChildren().size()!=0){
+
+        while (temp->getChildren().size()!=0){
+        //for (int i = 1; i <= tempcurrCycle; i++) { // i want that only this node childs will enter the trip vector   this->getChildren()[this->getNode()]->getChildren().size()
+        temp=temp->getChildren()[0];
+        cycleTrip.push_back(temp->getNode());
+        //tempcurrCycle=this->getCurrCycle();
+    }
+    }
+    temp= nullptr;
+ //   delete temp;
+ if(cycleTrip.size()>=this->getCurrCycle()){
+    return cycleTrip[this->getCurrCycle()];
+ }
+ return cycleTrip[cycleTrip.size()-1];
+
+/*
+    int CurrCycle=this->getCurrCycle();
+
+    int lastindex = cycleTrip[cycleTrip.size()-1];
+
+    if (cycleTrip.size()<CurrCycle) {
+      /*  for (int i = 0; i < this->getChildren().size(); i++) {
+            delete this->getChildren()[lastindex];
+        }
+        return (cycleTrip[lastindex]);
+
+    }
+   /* for (int i = 0; i < this->getChildren().size(); i++) {
+        delete this->getChildren()[CurrCycle];
+    }
+    return cycleTrip[CurrCycle];
+
+*/
+
+
+
+    /**
+     * we choose the next node by the type of the tree
+     *
+     * than we delete all the connected edges of the current one
+     *
+     * return the chosen one
+     *
+     */
+
+}
 

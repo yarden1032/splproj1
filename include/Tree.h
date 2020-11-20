@@ -16,6 +16,7 @@ public:
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
     void setNode(int node);
+
 private:
     int node;
     std::vector<Tree*> children;
@@ -29,6 +30,8 @@ class CycleTree: public Tree{
 public:
     CycleTree(int rootLabel, int currCycle);
     virtual int traceTree();
+    void setCurrCycle(int currCycle);
+    int getCurrCycle();
 private:
     int currCycle;
 };
@@ -39,7 +42,7 @@ public:
     virtual int traceTree();
 
 private:
-    int maxDepthHelper(Tree* node);
+    int maxDepthHelper(Tree* node,std::vector<int> maxint);
 };
 
 class RootTree: public Tree{

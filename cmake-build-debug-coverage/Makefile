@@ -231,6 +231,33 @@ src/Session.cpp.s:
 	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Session.cpp.s
 .PHONY : src/Session.cpp.s
 
+src/Tester.o: src/Tester.cpp.o
+
+.PHONY : src/Tester.o
+
+# target to build an object file
+src/Tester.cpp.o:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tester.cpp.o
+.PHONY : src/Tester.cpp.o
+
+src/Tester.i: src/Tester.cpp.i
+
+.PHONY : src/Tester.i
+
+# target to preprocess a source file
+src/Tester.cpp.i:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tester.cpp.i
+.PHONY : src/Tester.cpp.i
+
+src/Tester.s: src/Tester.cpp.s
+
+.PHONY : src/Tester.s
+
+# target to generate assembly for a file
+src/Tester.cpp.s:
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tester.cpp.s
+.PHONY : src/Tester.cpp.s
+
 src/Tree.o: src/Tree.cpp.o
 
 .PHONY : src/Tree.o
@@ -258,33 +285,6 @@ src/Tree.cpp.s:
 	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tree.cpp.s
 .PHONY : src/Tree.cpp.s
 
-src/main.o: src/main.cpp.o
-
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
-
-src/main.i: src/main.cpp.i
-
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -306,12 +306,12 @@ help:
 	@echo "... src/Session.o"
 	@echo "... src/Session.i"
 	@echo "... src/Session.s"
+	@echo "... src/Tester.o"
+	@echo "... src/Tester.i"
+	@echo "... src/Tester.s"
 	@echo "... src/Tree.o"
 	@echo "... src/Tree.i"
 	@echo "... src/Tree.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
 .PHONY : help
 
 

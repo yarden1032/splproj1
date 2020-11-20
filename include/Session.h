@@ -36,12 +36,14 @@ class Agent;
         Session(Session&& other);
         Session& operator=(Session &&other);
         Graph * getGraphRef() ;
+        int getCurriteration();
 
     private:
         void output();
         Graph g;
         TreeType treeType;
         std::vector<Agent *> agents;
+        int curriteration;
 
 
         void clear();

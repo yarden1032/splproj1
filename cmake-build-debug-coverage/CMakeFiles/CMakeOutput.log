@@ -32,16 +32,16 @@ The CXX compiler identification is GNU, found in "/mnt/c/Users/Milky/CLionProjec
 Determining if the C compiler works passed with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_21b2f/fast"
-make: Warning: File 'Makefile' has modification time 0.26 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_21b2f.dir/build.make CMakeFiles/cmTC_21b2f.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_0f0ab/fast"
+make: Warning: File 'Makefile' has modification time 0.55 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_0f0ab.dir/build.make CMakeFiles/cmTC_0f0ab.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_21b2f.dir/flags.make' has modification time 0.23 s in the future
-Building C object CMakeFiles/cmTC_21b2f.dir/testCCompiler.c.o
-/usr/bin/cc   --coverage    -o CMakeFiles/cmTC_21b2f.dir/testCCompiler.c.o   -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_21b2f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_21b2f.dir/link.txt --verbose=1
-/usr/bin/cc --coverage     -rdynamic CMakeFiles/cmTC_21b2f.dir/testCCompiler.c.o  -o cmTC_21b2f 
+make[1]: Warning: File 'CMakeFiles/cmTC_0f0ab.dir/flags.make' has modification time 0.53 s in the future
+Building C object CMakeFiles/cmTC_0f0ab.dir/testCCompiler.c.o
+/usr/bin/cc   --coverage    -o CMakeFiles/cmTC_0f0ab.dir/testCCompiler.c.o   -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_0f0ab
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f0ab.dir/link.txt --verbose=1
+/usr/bin/cc --coverage     -rdynamic CMakeFiles/cmTC_0f0ab.dir/testCCompiler.c.o  -o cmTC_0f0ab 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -50,16 +50,16 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c948d/fast"
-make: Warning: File 'Makefile' has modification time 0.25 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_c948d.dir/build.make CMakeFiles/cmTC_c948d.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_9ec0d/fast"
+make: Warning: File 'Makefile' has modification time 0.57 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_9ec0d.dir/build.make CMakeFiles/cmTC_9ec0d.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_c948d.dir/flags.make' has modification time 0.23 s in the future
-Building C object CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc   --coverage    -o CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_c948d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c948d.dir/link.txt --verbose=1
-/usr/bin/cc --coverage    -v -rdynamic CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o  -o cmTC_c948d 
+make[1]: Warning: File 'CMakeFiles/cmTC_9ec0d.dir/flags.make' has modification time 0.54 s in the future
+Building C object CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   --coverage    -o CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_9ec0d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ec0d.dir/link.txt --verbose=1
+/usr/bin/cc --coverage    -v -rdynamic CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o  -o cmTC_9ec0d 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -71,9 +71,9 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_c948d' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccRFxID1.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c948d /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o -lgcov -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_c948d' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_9ec0d' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccvln8p6.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9ec0d /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o -lgcov -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_9ec0d' '-mtune=generic' '-march=x86-64'
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -83,16 +83,16 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c948d/fast"]
-  ignore line: [make: Warning: File 'Makefile' has modification time 0.25 s in the future]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_c948d.dir/build.make CMakeFiles/cmTC_c948d.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_9ec0d/fast"]
+  ignore line: [make: Warning: File 'Makefile' has modification time 0.57 s in the future]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_9ec0d.dir/build.make CMakeFiles/cmTC_9ec0d.dir/build]
   ignore line: [make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp']
-  ignore line: [make[1]: Warning: File 'CMakeFiles/cmTC_c948d.dir/flags.make' has modification time 0.23 s in the future]
-  ignore line: [Building C object CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc   --coverage    -o CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_c948d]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c948d.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc --coverage    -v -rdynamic CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o  -o cmTC_c948d ]
+  ignore line: [make[1]: Warning: File 'CMakeFiles/cmTC_9ec0d.dir/flags.make' has modification time 0.54 s in the future]
+  ignore line: [Building C object CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   --coverage    -o CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_9ec0d]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ec0d.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc --coverage    -v -rdynamic CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o  -o cmTC_9ec0d ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -104,13 +104,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_c948d' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccRFxID1.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c948d /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o -lgcov -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_9ec0d' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccvln8p6.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9ec0d /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o -lgcov -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccRFxID1.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccvln8p6.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -129,7 +129,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_c948d] ==> ignore
+    arg [cmTC_9ec0d] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -141,7 +141,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_c948d.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_9ec0d.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcov] ==> lib [gcov]
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
@@ -174,16 +174,16 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_71c0b/fast"
-make: Warning: File 'Makefile' has modification time 0.26 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_71c0b.dir/build.make CMakeFiles/cmTC_71c0b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_a2fb0/fast"
+make: Warning: File 'Makefile' has modification time 0.57 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_a2fb0.dir/build.make CMakeFiles/cmTC_a2fb0.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_71c0b.dir/flags.make' has modification time 0.23 s in the future
-Building C object CMakeFiles/cmTC_71c0b.dir/feature_tests.c.o
-/usr/bin/cc   --coverage    -std=c11 -o CMakeFiles/cmTC_71c0b.dir/feature_tests.c.o   -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.c
-Linking C executable cmTC_71c0b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71c0b.dir/link.txt --verbose=1
-/usr/bin/cc --coverage     -rdynamic CMakeFiles/cmTC_71c0b.dir/feature_tests.c.o  -o cmTC_71c0b 
+make[1]: Warning: File 'CMakeFiles/cmTC_a2fb0.dir/flags.make' has modification time 0.55 s in the future
+Building C object CMakeFiles/cmTC_a2fb0.dir/feature_tests.c.o
+/usr/bin/cc   --coverage    -std=c11 -o CMakeFiles/cmTC_a2fb0.dir/feature_tests.c.o   -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a2fb0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2fb0.dir/link.txt --verbose=1
+/usr/bin/cc --coverage     -rdynamic CMakeFiles/cmTC_a2fb0.dir/feature_tests.c.o  -o cmTC_a2fb0 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -198,16 +198,16 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_61f31/fast"
-make: Warning: File 'Makefile' has modification time 0.25 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_61f31.dir/build.make CMakeFiles/cmTC_61f31.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_2f187/fast"
+make: Warning: File 'Makefile' has modification time 0.57 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_2f187.dir/build.make CMakeFiles/cmTC_2f187.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_61f31.dir/flags.make' has modification time 0.23 s in the future
-Building C object CMakeFiles/cmTC_61f31.dir/feature_tests.c.o
-/usr/bin/cc   --coverage    -std=c99 -o CMakeFiles/cmTC_61f31.dir/feature_tests.c.o   -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.c
-Linking C executable cmTC_61f31
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61f31.dir/link.txt --verbose=1
-/usr/bin/cc --coverage     -rdynamic CMakeFiles/cmTC_61f31.dir/feature_tests.c.o  -o cmTC_61f31 
+make[1]: Warning: File 'CMakeFiles/cmTC_2f187.dir/flags.make' has modification time 0.55 s in the future
+Building C object CMakeFiles/cmTC_2f187.dir/feature_tests.c.o
+/usr/bin/cc   --coverage    -std=c99 -o CMakeFiles/cmTC_2f187.dir/feature_tests.c.o   -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.c
+Linking C executable cmTC_2f187
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2f187.dir/link.txt --verbose=1
+/usr/bin/cc --coverage     -rdynamic CMakeFiles/cmTC_2f187.dir/feature_tests.c.o  -o cmTC_2f187 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -222,16 +222,16 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_358ad/fast"
-make: Warning: File 'Makefile' has modification time 0.26 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_358ad.dir/build.make CMakeFiles/cmTC_358ad.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_de0a1/fast"
+make: Warning: File 'Makefile' has modification time 0.57 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_de0a1.dir/build.make CMakeFiles/cmTC_de0a1.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_358ad.dir/flags.make' has modification time 0.23 s in the future
-Building C object CMakeFiles/cmTC_358ad.dir/feature_tests.c.o
-/usr/bin/cc   --coverage    -std=c90 -o CMakeFiles/cmTC_358ad.dir/feature_tests.c.o   -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.c
-Linking C executable cmTC_358ad
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_358ad.dir/link.txt --verbose=1
-/usr/bin/cc --coverage     -rdynamic CMakeFiles/cmTC_358ad.dir/feature_tests.c.o  -o cmTC_358ad 
+make[1]: Warning: File 'CMakeFiles/cmTC_de0a1.dir/flags.make' has modification time 0.55 s in the future
+Building C object CMakeFiles/cmTC_de0a1.dir/feature_tests.c.o
+/usr/bin/cc   --coverage    -std=c90 -o CMakeFiles/cmTC_de0a1.dir/feature_tests.c.o   -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.c
+Linking C executable cmTC_de0a1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de0a1.dir/link.txt --verbose=1
+/usr/bin/cc --coverage     -rdynamic CMakeFiles/cmTC_de0a1.dir/feature_tests.c.o  -o cmTC_de0a1 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -244,16 +244,16 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_671db/fast"
-make: Warning: File 'Makefile' has modification time 0.25 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_671db.dir/build.make CMakeFiles/cmTC_671db.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_668f3/fast"
+make: Warning: File 'Makefile' has modification time 0.58 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_668f3.dir/build.make CMakeFiles/cmTC_668f3.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_671db.dir/flags.make' has modification time 0.23 s in the future
-Building CXX object CMakeFiles/cmTC_671db.dir/testCXXCompiler.cxx.o
-/usr/bin/c++    --coverage    -o CMakeFiles/cmTC_671db.dir/testCXXCompiler.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_671db
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_671db.dir/link.txt --verbose=1
-/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_671db.dir/testCXXCompiler.cxx.o  -o cmTC_671db 
+make[1]: Warning: File 'CMakeFiles/cmTC_668f3.dir/flags.make' has modification time 0.55 s in the future
+Building CXX object CMakeFiles/cmTC_668f3.dir/testCXXCompiler.cxx.o
+/usr/bin/c++    --coverage    -o CMakeFiles/cmTC_668f3.dir/testCXXCompiler.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_668f3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_668f3.dir/link.txt --verbose=1
+/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_668f3.dir/testCXXCompiler.cxx.o  -o cmTC_668f3 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -262,16 +262,16 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_2d9ed/fast"
-make: Warning: File 'Makefile' has modification time 0.25 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_2d9ed.dir/build.make CMakeFiles/cmTC_2d9ed.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_faf0e/fast"
+make: Warning: File 'Makefile' has modification time 0.56 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_faf0e.dir/build.make CMakeFiles/cmTC_faf0e.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_2d9ed.dir/flags.make' has modification time 0.23 s in the future
-Building CXX object CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++    --coverage    -o CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_2d9ed
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d9ed.dir/link.txt --verbose=1
-/usr/bin/c++  --coverage    -v -rdynamic CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_2d9ed 
+make[1]: Warning: File 'CMakeFiles/cmTC_faf0e.dir/flags.make' has modification time 0.54 s in the future
+Building CXX object CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++    --coverage    -o CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_faf0e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_faf0e.dir/link.txt --verbose=1
+/usr/bin/c++  --coverage    -v -rdynamic CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_faf0e 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -283,9 +283,9 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_2d9ed' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpXmV7r.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_2d9ed /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcov -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_2d9ed' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_faf0e' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc8rhkOu.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_faf0e /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcov -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_faf0e' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -295,16 +295,16 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_2d9ed/fast"]
-  ignore line: [make: Warning: File 'Makefile' has modification time 0.25 s in the future]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_2d9ed.dir/build.make CMakeFiles/cmTC_2d9ed.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_faf0e/fast"]
+  ignore line: [make: Warning: File 'Makefile' has modification time 0.56 s in the future]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_faf0e.dir/build.make CMakeFiles/cmTC_faf0e.dir/build]
   ignore line: [make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp']
-  ignore line: [make[1]: Warning: File 'CMakeFiles/cmTC_2d9ed.dir/flags.make' has modification time 0.23 s in the future]
-  ignore line: [Building CXX object CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++    --coverage    -o CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_2d9ed]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d9ed.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++  --coverage    -v -rdynamic CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_2d9ed ]
+  ignore line: [make[1]: Warning: File 'CMakeFiles/cmTC_faf0e.dir/flags.make' has modification time 0.54 s in the future]
+  ignore line: [Building CXX object CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++    --coverage    -o CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_faf0e]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_faf0e.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++  --coverage    -v -rdynamic CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_faf0e ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -316,13 +316,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_2d9ed' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpXmV7r.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_2d9ed /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcov -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-coverage' '-v' '-rdynamic' '-o' 'cmTC_faf0e' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc8rhkOu.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_faf0e /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcov -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccpXmV7r.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc8rhkOu.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -341,7 +341,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_2d9ed] ==> ignore
+    arg [cmTC_faf0e] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -353,7 +353,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_2d9ed.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_faf0e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcov] ==> lib [gcov]
@@ -382,16 +382,16 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8b967/fast"
-make: Warning: File 'Makefile' has modification time 0.25 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_8b967.dir/build.make CMakeFiles/cmTC_8b967.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_f9cc2/fast"
+make: Warning: File 'Makefile' has modification time 0.57 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_f9cc2.dir/build.make CMakeFiles/cmTC_f9cc2.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_8b967.dir/flags.make' has modification time 0.23 s in the future
-Building CXX object CMakeFiles/cmTC_8b967.dir/feature_tests.cxx.o
-/usr/bin/c++    --coverage    -std=c++1z -o CMakeFiles/cmTC_8b967.dir/feature_tests.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_8b967
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b967.dir/link.txt --verbose=1
-/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_8b967.dir/feature_tests.cxx.o  -o cmTC_8b967 
+make[1]: Warning: File 'CMakeFiles/cmTC_f9cc2.dir/flags.make' has modification time 0.55 s in the future
+Building CXX object CMakeFiles/cmTC_f9cc2.dir/feature_tests.cxx.o
+/usr/bin/c++    --coverage    -std=c++1z -o CMakeFiles/cmTC_f9cc2.dir/feature_tests.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f9cc2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9cc2.dir/link.txt --verbose=1
+/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_f9cc2.dir/feature_tests.cxx.o  -o cmTC_f9cc2 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -459,16 +459,16 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c3d5a/fast"
-make: Warning: File 'Makefile' has modification time 0.1 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_c3d5a.dir/build.make CMakeFiles/cmTC_c3d5a.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_1e715/fast"
+make: Warning: File 'Makefile' has modification time 0.55 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_1e715.dir/build.make CMakeFiles/cmTC_1e715.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_c3d5a.dir/flags.make' has modification time 0.073 s in the future
-Building CXX object CMakeFiles/cmTC_c3d5a.dir/feature_tests.cxx.o
-/usr/bin/c++    --coverage    -std=c++14 -o CMakeFiles/cmTC_c3d5a.dir/feature_tests.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_c3d5a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c3d5a.dir/link.txt --verbose=1
-/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_c3d5a.dir/feature_tests.cxx.o  -o cmTC_c3d5a 
+make[1]: Warning: File 'CMakeFiles/cmTC_1e715.dir/flags.make' has modification time 0.53 s in the future
+Building CXX object CMakeFiles/cmTC_1e715.dir/feature_tests.cxx.o
+/usr/bin/c++    --coverage    -std=c++14 -o CMakeFiles/cmTC_1e715.dir/feature_tests.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_1e715
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1e715.dir/link.txt --verbose=1
+/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_1e715.dir/feature_tests.cxx.o  -o cmTC_1e715 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -536,16 +536,16 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1b2a3/fast"
-make: Warning: File 'Makefile' has modification time 0.26 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_1b2a3.dir/build.make CMakeFiles/cmTC_1b2a3.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_4f97f/fast"
+make: Warning: File 'Makefile' has modification time 0.58 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_4f97f.dir/build.make CMakeFiles/cmTC_4f97f.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_1b2a3.dir/flags.make' has modification time 0.23 s in the future
-Building CXX object CMakeFiles/cmTC_1b2a3.dir/feature_tests.cxx.o
-/usr/bin/c++    --coverage    -std=c++11 -o CMakeFiles/cmTC_1b2a3.dir/feature_tests.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_1b2a3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b2a3.dir/link.txt --verbose=1
-/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_1b2a3.dir/feature_tests.cxx.o  -o cmTC_1b2a3 
+make[1]: Warning: File 'CMakeFiles/cmTC_4f97f.dir/flags.make' has modification time 0.56 s in the future
+Building CXX object CMakeFiles/cmTC_4f97f.dir/feature_tests.cxx.o
+/usr/bin/c++    --coverage    -std=c++11 -o CMakeFiles/cmTC_4f97f.dir/feature_tests.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_4f97f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4f97f.dir/link.txt --verbose=1
+/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_4f97f.dir/feature_tests.cxx.o  -o cmTC_4f97f 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.
@@ -613,16 +613,16 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_265ff/fast"
-make: Warning: File 'Makefile' has modification time 0.24 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_265ff.dir/build.make CMakeFiles/cmTC_265ff.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_bb037/fast"
+make: Warning: File 'Makefile' has modification time 0.52 s in the future
+/usr/bin/make -f CMakeFiles/cmTC_bb037.dir/build.make CMakeFiles/cmTC_bb037.dir/build
 make[1]: Entering directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_265ff.dir/flags.make' has modification time 0.22 s in the future
-Building CXX object CMakeFiles/cmTC_265ff.dir/feature_tests.cxx.o
-/usr/bin/c++    --coverage    -std=c++98 -o CMakeFiles/cmTC_265ff.dir/feature_tests.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_265ff
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_265ff.dir/link.txt --verbose=1
-/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_265ff.dir/feature_tests.cxx.o  -o cmTC_265ff 
+make[1]: Warning: File 'CMakeFiles/cmTC_bb037.dir/flags.make' has modification time 0.48 s in the future
+Building CXX object CMakeFiles/cmTC_bb037.dir/feature_tests.cxx.o
+/usr/bin/c++    --coverage    -std=c++98 -o CMakeFiles/cmTC_bb037.dir/feature_tests.cxx.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_bb037
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bb037.dir/link.txt --verbose=1
+/usr/bin/c++  --coverage     -rdynamic CMakeFiles/cmTC_bb037.dir/feature_tests.cxx.o  -o cmTC_bb037 
 make[1]: warning:  Clock skew detected.  Your build may be incomplete.
 make[1]: Leaving directory '/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/CMakeTmp'
 make: warning:  Clock skew detected.  Your build may be incomplete.

@@ -12,7 +12,7 @@ using namespace std;
 using json = nlohmann::json;
 #include <vector>
 //session::Session() { } //Constructor empty
-Session::Session(const string &path):treeType (Cycle),indicator(-1) { //constructor not empty
+Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteration(0) { //constructor not empty
 
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
@@ -308,6 +308,11 @@ int checker =(g.getinfected_nodes()).size();
 
 }
 
+int Session::getCurriteration()
+{
+    return curriteration;
+}
+
 void Session::isolateNode(int node){
     g.isolate(node);
 
@@ -320,6 +325,7 @@ void Session::simulate() {
 bool continue_sim=true;
 while (continue_sim)
 {
+    curriteration++;
     int agentCurrentSize= agents.size();
 for(int i=0;i<agentCurrentSize;i++)
     {
@@ -327,7 +333,7 @@ for(int i=0;i<agentCurrentSize;i++)
        agents[i]->act((Session &) *this); //make sure memory is ok here
 
     }
-    continue_sim=is_ConnectedCopOk();
+    continue_sim=is_ConnectedCopOk();  ///HERE
 }
 //TODO: make output and manage memory
 output();
@@ -412,6 +418,12 @@ bool Session::is_ConnectedCopOk()
             bool found = false; //this one is found in the infected vector
             for (int i = 0; i < g.getinfected_nodes().size(); i++) {
                 if (cc[k][l] == g.getinfected_nodes()[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            for (int i = 0; i < this->getAgents().size(); i++) {
+                if (cc[k][l] == this->getAgents()[i]->getNodeInd()) {
                     found = true;
                     break;
                 }
