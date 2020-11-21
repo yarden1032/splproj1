@@ -125,7 +125,7 @@ int RootTree::traceTree(){
     else
     {
     //    int max=;
-int iti =maxDepthHelper(this,maxint);
+int iti = minDepthHelper(this, maxint);
         return getChildren()[iti]->getNode();
     }
         /**
@@ -139,29 +139,29 @@ int iti =maxDepthHelper(this,maxint);
 
     }
 //TODO fix here - important for config4.JSON
-        int MaxRankTree::maxDepthHelper(Tree* node,vector<int> maxint) {
+        int MaxRankTree::minDepthHelper(Tree* node, vector<int> maxint,Session session) {
     if (node == NULL)
         return 0;
     else {
         ///start
         int i;
-        vector<int> maxintdepth = *new vector<int>(node->getChildren().size());
+        vector<int> minintdepth = *new vector<int>(node->getChildren().size());
       //  int maxint = -1;
         for (i = 0; i < node->getChildren().size(); i++) {
             //call to itself with the children
 
-            maxintdepth[i] = maxDepthHelper(node->getChildren()[i],maxint) + 1;
+            minintdepth[i] = minDepthHelper(node->getChildren()[i], maxint) + 1;
         }
         int j = -1;
-        int max=-1;
-        for (j=0;j<maxintdepth.size();j++) {
-            if (max < maxintdepth[j]) {
-                max = maxintdepth[j];
+        int min=se;
+        for (j=0; j < minintdepth.size(); j++) {
+            if (max < minintdepth[j]) {
+                max = minintdepth[j];
 
             }
         }
         for(int k=0;k< node->getChildren().size(); k++) {
-            if (max == maxintdepth[k])
+            if (max == minintdepth[k])
             {
                 delete node->getChildren()[k];
                 return  k;
@@ -229,7 +229,7 @@ CycleTree::CycleTree(int rootLabel, int currCycle) {
     this->setNode(rootLabel);
     this->setCurrCycle(currCycle);
 }
-
+///WE NEED TO CHANGE HERE BUT FOR NOW I WON'T DO NOTHING
 int CycleTree::traceTree() {
 
     //create a vector trip that start with the root (node) and continue with the left-most child of this node (from the children vector the 0 index and etc) . check if the trip vector is c length or more and than return the c's index in the vector trip ' if not return the last index.

@@ -89,7 +89,11 @@ INSIDE TRACE TREE: WE DELETE THE EDGES OF THIS NODE
 int i=session.dequeueInfected();
 if (i!=-1){
     Tree* tree =BFS(i,session);
-
+    if (session.getTreeType()==Cycle)
+    {
+      CycleTree * treeCyc= dynamic_cast<CycleTree *>(tree);
+      treeCyc->setCurrCycle(session.getCurriteration());
+    }
     int nodeTodelete=tree->traceTree();
 
     session.isolateNode(nodeTodelete);

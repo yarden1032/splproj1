@@ -23,7 +23,6 @@ private:
     void clear();
 
 
-    int maxDepthHelper(Tree *node);
 };
 
 class CycleTree: public Tree{
@@ -42,7 +41,7 @@ public:
     virtual int traceTree();
 
 private:
-    int maxDepthHelper(Tree* node,std::vector<int> maxint);
+    int minDepthHelper(Tree* node, std::vector<int> maxint,Session session);
 };
 
 class RootTree: public Tree{
