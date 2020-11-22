@@ -2,6 +2,7 @@
 #define TREE_H_
 
 #include <vector>
+using namespace std;
 
 class Session;
 
@@ -16,11 +17,12 @@ public:
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
     void setNode(int node);
+    void clear();
 
 private:
     int node;
     std::vector<Tree*> children;
-    void clear();
+
 
 
 };
@@ -44,6 +46,13 @@ private:
     int   minDepthHelperIteration(Tree* node);
     int  minDepthHelper(Tree* node, std::vector<int> maxint);
     std::vector<int> traceTreeIteration(Tree* node,std::vector<int> & maxint,int & max);
+
+  void
+
+    traceTree_TripForMax(Tree *node, std::vector<int> maxint, std::vector<std::vector<int>> &trip_maxint,
+                         std::vector<int> currentPath);
+
+    int traceTree_Leftest(Tree * node, std::vector<int> maxint, std:: vector<std::vector<int>> trip_maxint);
 };
 
 class RootTree: public Tree{

@@ -423,7 +423,7 @@ bool Session::is_ConnectedCopOk()
                 }
             }
             for (int i = 0; i < this->getAgents().size(); i++) {
-                if (cc[k][l] == this->getAgents()[i]->getNodeInd()) {
+                if (cc[k][l] == this->getAgents()[i]->getNodeInd()&&g.isInfected(cc[k][l])) { ////Notice a litlle different
                     found = true;
                     break;
                 }

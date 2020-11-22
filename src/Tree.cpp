@@ -43,13 +43,13 @@ int Tree::getNode() {
     return node;
 }
 void Tree::clear() {
-    for(int i=0 ; i<children.size();i++) {
-        children[i]=nullptr;
-
-    }
     node=0;
+    for(int i=0 ; i<children.size();i++) {
+        children[i]->clear();
+        children[i]= nullptr;
+        children.clear();
+    }
 }
-
 
 
 
@@ -146,24 +146,125 @@ int iti = minDepthHelper(this, maxint);
  *
  *
  */
-    int  max=0;
+    int  max=-1;
     vector<int> maxint;
     int i;
     MaxRankTree * temp=this;
     maxint = traceTreeIteration(this, maxint,max);
+    if (maxint.size()==1) {
+        return maxint[0];
+    }
+    if (maxint.size()==0)
+    {
+    return getNode();
+    }
+    /// here we start to check for the trips for max
+    vector<vector<int>> trip_maxint;
+    trip_maxint.resize(maxint.size());
+    vector<int> vecytor;
+    traceTree_TripForMax(this,maxint,trip_maxint,vecytor);
 
+
+    int lowest_trip=trip_maxint[0].size();
+    vector <int> lowest_trip_index;
+    lowest_trip_index.push_back(0);
+    for (int i=1;i<trip_maxint.size();i++)
+    {
+        if ((trip_maxint[i].size())==lowest_trip)
+        {
+            lowest_trip_index.push_back(i);
+        }
+
+        if (lowest_trip<trip_maxint[i].size())
+        {
+            lowest_trip=trip_maxint[i].size();
+            lowest_trip_index.clear();
+            lowest_trip_index.push_back(i);
+        }
+    }
+    if (lowest_trip_index.size()==1)
+        return  lowest_trip_index[0];
+    else{
+        ///here we check who is the most left one
+        return traceTree_Leftest(this, maxint,trip_maxint);
+    }
+
+
+
+
+}
+
+
+int MaxRankTree::traceTree_Leftest(Tree * node, vector<int> maxint,  vector<vector<int>> trip_maxint) {
+        bool b=true; int currnode=node->getNode();
+         int step=0; int safetogo=0;
+         while(b)   {
+        for (int i=0;i<trip_maxint.size();i++)
+         {
+            if(trip_maxint[i].size()>=step){
+
+        if (currnode!=trip_maxint[i][step])
+        {
+            if(trip_maxint[i][step]>currnode)
+            {
+              return  maxint[i];
+            }
+            else{
+
+                return  maxint[0];
+                ///choose the first int
+            }
+        }
+
+        }
+
+         } ///go to the next node
+        for (int i=0;i<node->getChildren().size();i++){
+            if (((node->getChildren())[i]->getNode() == (trip_maxint[0])[step + 1])){
+            node=node->getChildren()[i];
+                    break;
+            }
+        }
+             step++;
+         }
+
+}
+
+    void MaxRankTree::traceTree_TripForMax(Tree* node,std::vector<int>  maxint,std::vector<std::vector<int>> & trip_maxint, std::vector<int>  currentPath)
+    {
+         for (int i=0;i<maxint.size();i++)
+         {
+             if (maxint[i]==node->getNode())
+             {
+                 trip_maxint[i]=currentPath;
+                 break;
+             }
+         }
+
+         currentPath.push_back(node->getNode());
+        for (int i = 0; i < node->getChildren().size(); i++) {
+          traceTree_TripForMax(node->getChildren()[i], maxint , trip_maxint,currentPath);
+        }
 
 
     }
-std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & maxint,int & max) {
 
-   if (node->getChildren().size()!=0){
-       if (node->getChildren().size() > max) {
-           max = getChildren().size();
+
+
+
+
+
+
+
+std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & maxint,int & max) {
+         int size =node->getChildren().size();
+   if (size!=0){
+       if (size> max) {
+           max = size;
            maxint.clear();
            maxint.push_back(node->getNode());
        } else {
-           if (node->getChildren().size() == max) {
+           if (size == max) {
                maxint.push_back(node->getNode());
            }
        }
@@ -172,11 +273,12 @@ std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & m
 
 
 
-        maxint = traceTreeIteration(getChildren()[i], maxint, max);
+        maxint = traceTreeIteration(node->getChildren()[i], maxint, max);
 
     }
    }
     return maxint;
+
 }
 
 //TODO fix here - important for config4.JSON
@@ -222,14 +324,14 @@ std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & m
 /*here we wrote how to get depth in recursion - it works for sure
  *
  */
-
+/*
      int  MaxRankTree::minDepthHelperIteration(Tree* node) {
 
              if (node->getChildren().size() == 0)
                  return 1;
              else
              {
-                 /* compute the depth of each subtree */
+                 // compute the depth of each subtree
                  vector<int> vecy;
                  for (int i = 0; i < node->getChildren().size(); i++) {
                      vecy.push_back(minDepthHelperIteration(node->getChildren()[i]));
@@ -239,7 +341,7 @@ std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & m
           //       int lDepth = maxDepth(node->left);
        //          int rDepth = maxDepth(node->right);
 
-                 /* use the larger one */
+                 /// use the larger one
                  int max=-1;
           for (int i = 0; i < node->getChildren().size(); i++)
           {
@@ -261,7 +363,7 @@ std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & m
  */
 
 
-
+/*
 
          int  MaxRankTree::minDepthHelper(Tree* node, vector<int> maxint) { //we return the index
 
@@ -303,7 +405,7 @@ std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & m
 
     return minpos;
          }
-
+*/
 /*
     int maxDepth(Tree* node)
 
@@ -379,7 +481,7 @@ int CycleTree::traceTree() {
     }
     temp= nullptr;
  //   delete temp;
- if(cycleTrip.size()>=this->getCurrCycle()){
+ if(cycleTrip.size()>this->getCurrCycle()){
     return cycleTrip[this->getCurrCycle()];
  }
  return cycleTrip[cycleTrip.size()-1];

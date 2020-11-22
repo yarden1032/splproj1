@@ -101,6 +101,7 @@ if (i!=-1){
 
 
     delete tree;
+    tree=nullptr;
 }
 
 
@@ -156,24 +157,39 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
                     visited[i] = true;
 
                     if (t == MaxRank) {
-                        childnew = new MaxRankTree(i);
+                        MaxRankTree * maxchild;
+                        maxchild->setNode(i);
+                        childnew=maxchild;
                     } else {
                         if (t == Root) {
-                            childnew = new RootTree(i);
+                            RootTree * rootchild;
+                            rootchild->setNode(i);
+                            childnew=rootchild;
+                         //   childnew = new RootTree(i);
+
                         } else {
+                            CycleTree * cycchild;
+                            cycchild->setNode(i);
+
+
                             CycleTree * tempCycle = dynamic_cast<CycleTree *>(tempTree);
+
                            int currcy = tempCycle->getCurrCycle();
-                               childnew =  new CycleTree (i,currcy+1);//TODO: make constructor and disable here
+                            cycchild->setCurrCycle(currcy+1);
+                            childnew=cycchild;
+                             //  childnew =  new CycleTree (i,currcy+1);//TODO: make constructor and disable here
                         }
                     }
 
                     whereVisisted[i]=tempTree;
                     queue.push_back(childnew);
+                    childnew= nullptr;
                 }
             }
         }
     whereVisisted.clear();
          visited.clear();
+
         return tree;
     }
 
