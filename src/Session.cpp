@@ -371,16 +371,13 @@ void Session::memoManage()
        delete agents[i];
     }
 }
-bool Session::is_ConnectedCopOk()
-
-{
+bool Session::is_ConnectedCopOk() {
     std::vector<std::vector<int>> cc;
 
     //line of something
     // Mark all the vertices as not visited
-    std::vector <bool> visited ;
-    for (int v = 0; v < g.getEdges().size(); v++)
-    {
+    std::vector<bool> visited;
+    for (int v = 0; v < g.getEdges().size(); v++) {
         visited.push_back(false);
     }
 
@@ -390,20 +387,20 @@ bool Session::is_ConnectedCopOk()
             // from v
 
             //create of first CC
-            vector<int> vecy ;
+            vector<int> vecy;
             cc.push_back(vecy);
-          //  cc[v] = *new std::vector<int>;
-            std::vector<std::vector<int>>& cc1 =cc;
-            std::vector <bool> & visited1 =visited;
+            //  cc[v] = *new std::vector<int>;
+            std::vector<std::vector<int>> &cc1 = cc;
+            std::vector<bool> &visited1 = visited;
 
-            DFS_helper(v,  visited1,cc1);
+            DFS_helper(v, visited1, cc1);
 
             //  cout << "\n";  //Delete
         }
     }
 
 
-   visited.clear();
+    visited.clear();
 
 
 
@@ -411,10 +408,10 @@ bool Session::is_ConnectedCopOk()
     //else check if all not infected.
 
     //check the first node in the cc[i] and then decide what to do:
-
+    bool forexit = true;
     for (int k = 0; k < cc.size(); k++) {
         bool infected_cc = false; //here we check the specific cc if it's infected or not (what to expect)
-        for (int l = 0; l < cc[k].size(); l++) {
+        for (int l = 0; l < cc[k].size() && forexit; l++) {
             bool found = false; //this one is found in the infected vector
             for (int i = 0; i < g.getinfected_nodes().size(); i++) {
                 if (cc[k][l] == g.getinfected_nodes()[i]) {
@@ -423,7 +420,7 @@ bool Session::is_ConnectedCopOk()
                 }
             }
             for (int i = 0; i < this->getAgents().size(); i++) {
-                if (cc[k][l] == this->getAgents()[i]->getNodeInd()&&g.isInfected(cc[k][l])) { ////Notice a litlle different
+                if (cc[k][l] == this->getAgents()[i]->getNodeInd() &&g.isInfected(cc[k][l])) { ////Notice a litlle different 
                     found = true;
                     break;
                 }
@@ -431,14 +428,28 @@ bool Session::is_ConnectedCopOk()
             if (l == 0) {
                 infected_cc = found; //what do we expect from the first one and the other is the same
             } else {
-                if (infected_cc != found) { //if this is different it means we have difference between the CC if it is full infected or full non-infected
+                if (infected_cc !=
+                    found) { //if this is different it means we have difference between the CC if it is full infected or full non-infected
                     return true;
                 }
             }
         }
     }
-    return false;
-
+    /*  bool attach_agent_to_infected=false;
+      for (int j = 0; j < this->getAgents().size(); j++){
+          for (int i = 0; i < g.getinfected_nodes().size(); i++) {
+         if (this->getAgents()[j]->getNodeInd()==g.getinfected_nodes()[i])
+         {
+             attach_agent_to_infected=true;
+             break;
+         }
+          }
+          if (attach_agent_to_infected)
+          {
+              return true;
+          }
+          }
+   */   return false;
 }
 
 

@@ -20,10 +20,12 @@ Tree::Tree(int rootLabel)
     {
     node=rootLabel;
     }
+/*Tree::~Tree() {
+    clear();
+}*/
 Tree::~Tree() {
     clear();
 }
-
 void Tree::addChild(const Tree& child)
 {
  //   Tree * tempChild = const_cast<Tree *>(&child); //TODO:tocheck
@@ -84,7 +86,9 @@ int RootTree::traceTree(){
 
 
 
-
+MaxRankTree::~MaxRankTree() {
+    clear();
+}
 
     MaxRankTree::MaxRankTree(int rootLabel){
 
