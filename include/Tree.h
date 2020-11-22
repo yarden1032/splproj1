@@ -39,9 +39,11 @@ class MaxRankTree: public Tree{
 public:
     MaxRankTree(int rootLabel);
     virtual int traceTree();
-
+ //   std::vector<int> * iterationTail_minDepth(Tree* node, std::vector<int> maxint,  std::vector<int> * minintdepth) ;
 private:
-    int minDepthHelper(Tree* node, std::vector<int> maxint,Session session);
+    int   minDepthHelperIteration(Tree* node);
+    int  minDepthHelper(Tree* node, std::vector<int> maxint);
+    std::vector<int> traceTreeIteration(Tree* node,std::vector<int> & maxint,int & max);
 };
 
 class RootTree: public Tree{

@@ -30,7 +30,29 @@ TEST_CASE( "Factorials are computed", "[factorial]" ) {
     REQUIRE( Factorial(3) == 6 );
     REQUIRE( Factorial(10) == 3628800 );
 }
+TEST_CASE( "config1 test", "[config1]" ) {
 
+
+    Session sess("config1.JSON");
+    sess.simulate();
+    /*  REQUIRE( sess.getGraph().getEdges()[4][0] == 1);
+      REQUIRE( sess.getGraph().getinfected_nodes()[0]==0);
+      REQUIRE( sess.getGraph().getinfected_nodes()[1]==1);
+      REQUIRE( sess.getGraph().getinfected_nodes()[2]==4);
+     REQUIRE( sess.getGraph().getinfected_nodes()[3]==5);*/
+    std::string st="output1.json";
+    std::ifstream i(st);
+    json expect;
+    i >>expect;
+    std::string stout="output.JSON";
+    std::ifstream ik(stout);
+    json joutput;
+    ik >>joutput;
+//    REQUIRE(joutput.at("graph")==expect.at("graph")) ;
+    REQUIRE(joutput.at("infected")==expect.at("infected")) ;
+
+
+}
 TEST_CASE( "config3 test", "[config3]" ) {
 
 

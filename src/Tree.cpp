@@ -6,6 +6,7 @@
 //This is implementation of class Graph
 #include "../include/Graph.h"
 #include "../include/Tree.h"
+#include "../include/Session.h"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -91,8 +92,17 @@ int RootTree::traceTree(){
     }
 
 
-     int MaxRankTree::traceTree(){
+/**
+ * we choose the next node by the type of the tree
+ *
+ * than we delete all the connected edges of the current one
+ *
+ * return the chosen one
+ *
+ */
 
+     int MaxRankTree::traceTree(){
+/*
          int max=0;
          vector<int> maxint;
          int i;
@@ -127,41 +137,72 @@ int RootTree::traceTree(){
     //    int max=;
 int iti = minDepthHelper(this, maxint);
         return getChildren()[iti]->getNode();
-    }
-        /**
-         * we choose the next node by the type of the tree
-         *
-         * than we delete all the connected edges of the current one
-         *
-         * return the chosen one
-         *
-         */
+    }*/
+/**
+ * for max tree we need to searrch the node with the most children - easy - we can do iteration to all of nodes
+ *
+ * if we find 2 with the same size - return them as vector
+ *          we will check from them who is the closest one to the root - iteration?
+ *
+ *
+ */
+    int  max=0;
+    vector<int> maxint;
+    int i;
+    MaxRankTree * temp=this;
+    maxint = traceTreeIteration(this, maxint,max);
+
+
 
     }
+std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & maxint,int & max) {
+
+   if (node->getChildren().size()!=0){
+       if (node->getChildren().size() > max) {
+           max = getChildren().size();
+           maxint.clear();
+           maxint.push_back(node->getNode());
+       } else {
+           if (node->getChildren().size() == max) {
+               maxint.push_back(node->getNode());
+           }
+       }
+
+    for (int i = 0; i < node->getChildren().size(); i++) {
+
+
+
+        maxint = traceTreeIteration(getChildren()[i], maxint, max);
+
+    }
+   }
+    return maxint;
+}
+
 //TODO fix here - important for config4.JSON
-        int MaxRankTree::minDepthHelper(Tree* node, vector<int> maxint,Session session) {
+      /*  int MaxRankTree::minDepthHelper(Tree* node, vector<int> maxint,  vector<int> * minintdepth) {
     if (node == NULL)
         return 0;
     else {
         ///start
         int i;
-        vector<int> minintdepth = *new vector<int>(node->getChildren().size());
+    //    vector<int> minintdepth = *new vector<int>(node->getChildren().size());
       //  int maxint = -1;
         for (i = 0; i < node->getChildren().size(); i++) {
             //call to itself with the children
 
-            minintdepth[i] = minDepthHelper(node->getChildren()[i], maxint) + 1;
+            (*minintdepth)[i] = minDepthHelper(node->getChildren()[i], maxint,minintdepth) + 1;
         }
         int j = -1;
-        int min=se;
-        for (j=0; j < minintdepth.size(); j++) {
-            if (max < minintdepth[j]) {
-                max = minintdepth[j];
+        int min=-5;
+        for (j=0; j < minintdepth->size(); j++) {
+            if (min < (*minintdepth)[j]||min<0) {
+                min =   (*minintdepth)[j];
 
             }
         }
         for(int k=0;k< node->getChildren().size(); k++) {
-            if (max == minintdepth[k])
+            if (min == (*minintdepth)[k])
             {
                 delete node->getChildren()[k];
                 return  k;
@@ -177,6 +218,91 @@ int iti = minDepthHelper(this, maxint);
 
 }
 
+*/
+/*here we wrote how to get depth in recursion - it works for sure
+ *
+ */
+
+     int  MaxRankTree::minDepthHelperIteration(Tree* node) {
+
+             if (node->getChildren().size() == 0)
+                 return 1;
+             else
+             {
+                 /* compute the depth of each subtree */
+                 vector<int> vecy;
+                 for (int i = 0; i < node->getChildren().size(); i++) {
+                     vecy.push_back(minDepthHelperIteration(node->getChildren()[i]));
+
+                 }
+
+          //       int lDepth = maxDepth(node->left);
+       //          int rDepth = maxDepth(node->right);
+
+                 /* use the larger one */
+                 int max=-1;
+          for (int i = 0; i < node->getChildren().size(); i++)
+          {
+              if (max<=vecy[i])
+              {
+                  max=vecy[i];
+              }
+          }
+          return max;
+             }
+      }
+
+
+/**
+ * we use here the iteration above
+ * @param node
+ * @param maxint
+ * @return min depth
+ */
+
+
+
+
+         int  MaxRankTree::minDepthHelper(Tree* node, vector<int> maxint) { //we return the index
+
+    vector<int>  vecy; //vector of all the maxint's depth - we will use the iteration to do so
+   int min =-5; int minpos=-1;
+    int counterchecker=0;
+
+    for (int j = 0; j < maxint.size(); j++) {
+
+    for (int i = 0; i < node->getChildren().size(); i++){
+
+        if (i==maxint[j]) {
+            vecy.push_back(minDepthHelperIteration(node->getChildren()[i]));
+            break;
+        }
+                     }
+
+                 }
+
+
+    for (int j = 0; j < maxint.size(); j++){
+   if (vecy[j]==min)
+   {
+       counterchecker++;
+   }
+
+        if (min==-5 ||vecy[j]<min)
+        {
+            min=vecy[j];
+            counterchecker=1;
+            minpos=j;
+        }
+             }
+
+    if (counterchecker>1)
+    {
+        return 0;
+    }
+
+    return minpos;
+         }
 
 /*
     int maxDepth(Tree* node)
