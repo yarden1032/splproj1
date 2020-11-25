@@ -70,8 +70,8 @@ int main(int argc, char** argv) {
             //    Session sess(path ); ///
             return 0;
         }
+*/
 
-        */
 //         Session sess(argv[1]);
         // sess.simulate();
 
@@ -81,6 +81,8 @@ int main(int argc, char** argv) {
     }
     Session sess(argv[1]);
     sess.simulate();
-  // cout << sess.getGraph().getEdges()[0][0];
+
+
     return 0;
     }
+

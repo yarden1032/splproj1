@@ -25,7 +25,7 @@ class Agent;
         void addAgent(Agent *agent);
         std::vector<Agent *> getAgents ();
         void setGraph(const Graph &graph);
-
+        void isolateNode(int node);
         void enqueueInfected(int nodeInd);
         Session* copy(const string &path);
         int dequeueInfected();
@@ -36,22 +36,24 @@ class Agent;
         Session(Session&& other);
         Session& operator=(Session &&other);
         Graph * getGraphRef() ;
+        int getCurriteration();
 
     private:
+        void output();
         Graph g;
         TreeType treeType;
         std::vector<Agent *> agents;
-     // TREE OBJECT maybe? TODO: to understand that
-   //  void DFS_helper(int v, bool visited[])
+        int curriteration;
+
+
         void clear();
         bool is_ConnectedCopOk();
+        int indicator;
+
+        void DFS_helper(int v, std::vector <bool> & visited,std::vector<std::vector<int>> &  cc);
 
 
-        void DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc);
-
-        //void clear();
-
-       // void DFS_helper(int v, bool *visited, vector <vector<int>> cc);
+        void memoManage();
     };
 
 #endif

@@ -57,33 +57,9 @@ include CMakeFiles/splproj1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/splproj1.dir/flags.make
 
-CMakeFiles/splproj1.dir/src/main.cpp.o: CMakeFiles/splproj1.dir/flags.make
-CMakeFiles/splproj1.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/splproj1.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/main.cpp.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/src/main.cpp
-
-CMakeFiles/splproj1.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/splproj1.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Milky/CLionProjects/splproj1/src/main.cpp > CMakeFiles/splproj1.dir/src/main.cpp.i
-
-CMakeFiles/splproj1.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/splproj1.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Milky/CLionProjects/splproj1/src/main.cpp -o CMakeFiles/splproj1.dir/src/main.cpp.s
-
-CMakeFiles/splproj1.dir/src/main.cpp.o.requires:
-
-.PHONY : CMakeFiles/splproj1.dir/src/main.cpp.o.requires
-
-CMakeFiles/splproj1.dir/src/main.cpp.o.provides: CMakeFiles/splproj1.dir/src/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/main.cpp.o.provides.build
-.PHONY : CMakeFiles/splproj1.dir/src/main.cpp.o.provides
-
-CMakeFiles/splproj1.dir/src/main.cpp.o.provides.build: CMakeFiles/splproj1.dir/src/main.cpp.o
-
-
 CMakeFiles/splproj1.dir/src/Graph.cpp.o: CMakeFiles/splproj1.dir/flags.make
 CMakeFiles/splproj1.dir/src/Graph.cpp.o: ../src/Graph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/splproj1.dir/src/Graph.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/splproj1.dir/src/Graph.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/Graph.cpp.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/src/Graph.cpp
 
 CMakeFiles/splproj1.dir/src/Graph.cpp.i: cmake_force
@@ -107,7 +83,7 @@ CMakeFiles/splproj1.dir/src/Graph.cpp.o.provides.build: CMakeFiles/splproj1.dir/
 
 CMakeFiles/splproj1.dir/src/Session.cpp.o: CMakeFiles/splproj1.dir/flags.make
 CMakeFiles/splproj1.dir/src/Session.cpp.o: ../src/Session.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/splproj1.dir/src/Session.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/splproj1.dir/src/Session.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/Session.cpp.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/src/Session.cpp
 
 CMakeFiles/splproj1.dir/src/Session.cpp.i: cmake_force
@@ -131,7 +107,7 @@ CMakeFiles/splproj1.dir/src/Session.cpp.o.provides.build: CMakeFiles/splproj1.di
 
 CMakeFiles/splproj1.dir/src/Agent.cpp.o: CMakeFiles/splproj1.dir/flags.make
 CMakeFiles/splproj1.dir/src/Agent.cpp.o: ../src/Agent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/splproj1.dir/src/Agent.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/splproj1.dir/src/Agent.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/Agent.cpp.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/src/Agent.cpp
 
 CMakeFiles/splproj1.dir/src/Agent.cpp.i: cmake_force
@@ -155,7 +131,7 @@ CMakeFiles/splproj1.dir/src/Agent.cpp.o.provides.build: CMakeFiles/splproj1.dir/
 
 CMakeFiles/splproj1.dir/src/Tree.cpp.o: CMakeFiles/splproj1.dir/flags.make
 CMakeFiles/splproj1.dir/src/Tree.cpp.o: ../src/Tree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/splproj1.dir/src/Tree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/splproj1.dir/src/Tree.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/Tree.cpp.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/src/Tree.cpp
 
 CMakeFiles/splproj1.dir/src/Tree.cpp.i: cmake_force
@@ -177,25 +153,75 @@ CMakeFiles/splproj1.dir/src/Tree.cpp.o.provides: CMakeFiles/splproj1.dir/src/Tre
 CMakeFiles/splproj1.dir/src/Tree.cpp.o.provides.build: CMakeFiles/splproj1.dir/src/Tree.cpp.o
 
 
+CMakeFiles/splproj1.dir/Tests/Tests.cpp.o: CMakeFiles/splproj1.dir/flags.make
+CMakeFiles/splproj1.dir/Tests/Tests.cpp.o: ../Tests/Tests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/splproj1.dir/Tests/Tests.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/Tests/Tests.cpp.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/Tests/Tests.cpp
+
+CMakeFiles/splproj1.dir/Tests/Tests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/splproj1.dir/Tests/Tests.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Milky/CLionProjects/splproj1/Tests/Tests.cpp > CMakeFiles/splproj1.dir/Tests/Tests.cpp.i
+
+CMakeFiles/splproj1.dir/Tests/Tests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/splproj1.dir/Tests/Tests.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Milky/CLionProjects/splproj1/Tests/Tests.cpp -o CMakeFiles/splproj1.dir/Tests/Tests.cpp.s
+
+CMakeFiles/splproj1.dir/Tests/Tests.cpp.o.requires:
+
+.PHONY : CMakeFiles/splproj1.dir/Tests/Tests.cpp.o.requires
+
+CMakeFiles/splproj1.dir/Tests/Tests.cpp.o.provides: CMakeFiles/splproj1.dir/Tests/Tests.cpp.o.requires
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/Tests/Tests.cpp.o.provides.build
+.PHONY : CMakeFiles/splproj1.dir/Tests/Tests.cpp.o.provides
+
+CMakeFiles/splproj1.dir/Tests/Tests.cpp.o.provides.build: CMakeFiles/splproj1.dir/Tests/Tests.cpp.o
+
+
+CMakeFiles/splproj1.dir/src/Tester.cpp.o: CMakeFiles/splproj1.dir/flags.make
+CMakeFiles/splproj1.dir/src/Tester.cpp.o: ../src/Tester.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/splproj1.dir/src/Tester.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/splproj1.dir/src/Tester.cpp.o -c /mnt/c/Users/Milky/CLionProjects/splproj1/src/Tester.cpp
+
+CMakeFiles/splproj1.dir/src/Tester.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/splproj1.dir/src/Tester.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/Milky/CLionProjects/splproj1/src/Tester.cpp > CMakeFiles/splproj1.dir/src/Tester.cpp.i
+
+CMakeFiles/splproj1.dir/src/Tester.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/splproj1.dir/src/Tester.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/Milky/CLionProjects/splproj1/src/Tester.cpp -o CMakeFiles/splproj1.dir/src/Tester.cpp.s
+
+CMakeFiles/splproj1.dir/src/Tester.cpp.o.requires:
+
+.PHONY : CMakeFiles/splproj1.dir/src/Tester.cpp.o.requires
+
+CMakeFiles/splproj1.dir/src/Tester.cpp.o.provides: CMakeFiles/splproj1.dir/src/Tester.cpp.o.requires
+	$(MAKE) -f CMakeFiles/splproj1.dir/build.make CMakeFiles/splproj1.dir/src/Tester.cpp.o.provides.build
+.PHONY : CMakeFiles/splproj1.dir/src/Tester.cpp.o.provides
+
+CMakeFiles/splproj1.dir/src/Tester.cpp.o.provides.build: CMakeFiles/splproj1.dir/src/Tester.cpp.o
+
+
 # Object files for target splproj1
 splproj1_OBJECTS = \
-"CMakeFiles/splproj1.dir/src/main.cpp.o" \
 "CMakeFiles/splproj1.dir/src/Graph.cpp.o" \
 "CMakeFiles/splproj1.dir/src/Session.cpp.o" \
 "CMakeFiles/splproj1.dir/src/Agent.cpp.o" \
-"CMakeFiles/splproj1.dir/src/Tree.cpp.o"
+"CMakeFiles/splproj1.dir/src/Tree.cpp.o" \
+"CMakeFiles/splproj1.dir/Tests/Tests.cpp.o" \
+"CMakeFiles/splproj1.dir/src/Tester.cpp.o"
 
 # External object files for target splproj1
 splproj1_EXTERNAL_OBJECTS =
 
-splproj1: CMakeFiles/splproj1.dir/src/main.cpp.o
 splproj1: CMakeFiles/splproj1.dir/src/Graph.cpp.o
 splproj1: CMakeFiles/splproj1.dir/src/Session.cpp.o
 splproj1: CMakeFiles/splproj1.dir/src/Agent.cpp.o
 splproj1: CMakeFiles/splproj1.dir/src/Tree.cpp.o
+splproj1: CMakeFiles/splproj1.dir/Tests/Tests.cpp.o
+splproj1: CMakeFiles/splproj1.dir/src/Tester.cpp.o
 splproj1: CMakeFiles/splproj1.dir/build.make
 splproj1: CMakeFiles/splproj1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable splproj1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable splproj1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/splproj1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -203,11 +229,12 @@ CMakeFiles/splproj1.dir/build: splproj1
 
 .PHONY : CMakeFiles/splproj1.dir/build
 
-CMakeFiles/splproj1.dir/requires: CMakeFiles/splproj1.dir/src/main.cpp.o.requires
 CMakeFiles/splproj1.dir/requires: CMakeFiles/splproj1.dir/src/Graph.cpp.o.requires
 CMakeFiles/splproj1.dir/requires: CMakeFiles/splproj1.dir/src/Session.cpp.o.requires
 CMakeFiles/splproj1.dir/requires: CMakeFiles/splproj1.dir/src/Agent.cpp.o.requires
 CMakeFiles/splproj1.dir/requires: CMakeFiles/splproj1.dir/src/Tree.cpp.o.requires
+CMakeFiles/splproj1.dir/requires: CMakeFiles/splproj1.dir/Tests/Tests.cpp.o.requires
+CMakeFiles/splproj1.dir/requires: CMakeFiles/splproj1.dir/src/Tester.cpp.o.requires
 
 .PHONY : CMakeFiles/splproj1.dir/requires
 

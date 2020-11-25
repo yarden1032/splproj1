@@ -1,5 +1,6 @@
 
 using namespace std;
+#include <iomanip>
 #include "../include/Graph.h"
 #include "../include/Session.h"
 #include <iostream>
@@ -11,7 +12,7 @@ using namespace std;
 using json = nlohmann::json;
 #include <vector>
 //session::Session() { } //Constructor empty
-Session::Session(const string &path):treeType (Cycle) { //constructor not empty
+Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteration(-1) { //constructor not empty
 
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
@@ -38,14 +39,11 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
             vec.push_back(*vecy);
             indexi++;
             indexj++;
+            delete vecy;
             continue;
 
         }
-        if(graphST.at(indexi)==',')
-        {
-            indexi++;
-            continue;
-        }
+
         if(graphST.at(indexi)=='1') {
             vec[indexj].push_back((1));
             indexi++;
@@ -59,11 +57,16 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
         if(graphST.at(indexi)==']') {
 
             indexi++;
+            continue;
         }
-
+        else//if(graphST.at(indexi)==',')
+        {
+            indexi++;
+            continue;
+        }
     }
 
-        g=* new Graph (vec); //memory leak here
+        g=(vec); //memory leak here -don't use new
         ///Here we finish with the graph
         /////// Read the tree type
         treeType = Cycle; //Just for default for making sure.
@@ -140,11 +143,15 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
         ageString=(it.value())[0];
         if (ageString =="V")
         {
-          Virus* vir =  new Virus (interator);
+          Virus * vir= new Virus (interator);
             agents.push_back(vir);
+
+
         }
         else {
-            agents.push_back(new ContactTracer());
+            ContactTracer * cont  =new ContactTracer();
+            agents.push_back(cont);
+         //   delete cont;
         }
 
     }
@@ -152,6 +159,9 @@ Session::Session(const string &path):treeType (Cycle) { //constructor not empty
 ///Finish constraction - be advised the changes here to agents
 
             /////   std::vector<Agent*> agents;;
+
+
+
 }
 
 
@@ -192,13 +202,13 @@ void Session::clear()
 {
 
     for(int i=0;i<=agents.size();i++) {
-        delete agents[i];
+    //    delete agents[i];
     }
-    agents.clear();
+   agents.clear();
     //TODO: destructor to treeType - we have issue
 
     //Delete graph
-
+    /*
     for (int i = 0; i <g.getEdges().size(); i++){
         for (int j= 0; j < g.getEdges().size(); j++)
         {
@@ -207,6 +217,7 @@ void Session::clear()
         }
         delete[] &g.getEdges()[i];
     }
+     */
     g.getEdges().clear();
 
 }
@@ -235,7 +246,7 @@ Session& Session::operator=(const Session &other)
 
 
     for(int i=0;i<=other.agents.size();i++) {
-        agents.push_back(other.agents[i]); //TODO: We maybe have problem here, we maybe copy the poiters themself - recheck if we have issue - We need a specific test for that
+        agents.push_back(other.agents[i]);
     }
     //agents =*new Agent (other.getAgents());//We have issue here
     // return this List
@@ -284,20 +295,37 @@ TreeType Session::getTreeType() const  {
 }
 
 int Session::dequeueInfected() {
-    int last =g.getinfected_nodes()[g.getinfected_nodes().size()-1];
-    g.getinfected_nodes().pop_back(); // we maybe have issue with the order
-    return last;
-    //TODO: finish - not sure if this is it
+int checker =(g.getinfected_nodes()).size();
+  //  g.getinfected_nodes_deque().pop_back(); // we maybe have issue with the order
+  if(indicator<checker-1)
+  {indicator ++;
+      int last =g.getinfected_nodes()[indicator];
+      return last;
+  }
+  else
+      return -1;
+
 
 }
 
+int Session::getCurriteration()
+{
+    return curriteration;
+}
+
+void Session::isolateNode(int node){
+    g.isolate(node);
+
+    }
+
 void Session::simulate() {
-//TODO: finish
+
 //method to find CC in the graph
 //kind of while
 bool continue_sim=true;
 while (continue_sim)
 {
+    curriteration++;
     int agentCurrentSize= agents.size();
 for(int i=0;i<agentCurrentSize;i++)
     {
@@ -305,20 +333,53 @@ for(int i=0;i<agentCurrentSize;i++)
        agents[i]->act((Session &) *this); //make sure memory is ok here
 
     }
-    continue_sim=is_ConnectedCopOk();
+    continue_sim=is_ConnectedCopOk();  ///HERE
 }
-//make output
-}
-bool Session::is_ConnectedCopOk() //TODO: change names and continue
+//TODO: make output and manage memory
+output();
+memoManage();
 
+}
+void Session::output() {
+ //   json jgraph;
+ //   json jinfected;
+    json jtotal;
+    jtotal["graph"]=g.getEdges();
+    jtotal["infected"]=g.getinfected_nodes();
+    std::ofstream o("output.json");
+    o << std::setw(4) << jtotal ;
+ //    jtotal=jinfected;
+
+    //start config jgraph
+ /*   for (int i=0;i<g.getEdges().size();i++)
+    {
+        json jtemp;
+        for (int j=0;j<g.getEdges().size();j++)
+        {
+            jtemp.push_back(g.getEdges()[i][j]);
+        }
+        jgraph.push_back(jtemp);
+    }
+*/
+
+}
+
+void Session::memoManage()
 {
+    for (int i=0;i<agents.size();i++)
+    {
+       delete agents[i];
+    }
+}
+bool Session::is_ConnectedCopOk() {
     std::vector<std::vector<int>> cc;
 
     //line of something
     // Mark all the vertices as not visited
-    bool *visited = new bool[g.getEdges().size()];
-    for (int v = 0; v < g.getEdges().size(); v++)
-        visited[v] = false;
+    std::vector<bool> visited;
+    for (int v = 0; v < g.getEdges().size(); v++) {
+        visited.push_back(false);
+    }
 
     for (int v = 0; v < g.getEdges().size(); v++) {
         if (visited[v] == false) {
@@ -326,26 +387,31 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
             // from v
 
             //create of first CC
-            vector<int> vecy = *new vector<int>();  ////TODO: show Roni - It tried to allocate non existed vector
+            vector<int> vecy;
             cc.push_back(vecy);
-          //  cc[v] = *new std::vector<int>;
-            DFS_helper(v, visited, cc);
+            //  cc[v] = *new std::vector<int>;
+            std::vector<std::vector<int>> &cc1 = cc;
+            std::vector<bool> &visited1 = visited;
+
+            DFS_helper(v, visited1, cc1);
 
             //  cout << "\n";  //Delete
         }
     }
-    delete[] visited;
 
 
-    //TODO: finish - We need here to finish it it just making cc ready for use
+    visited.clear();
+
+
+
     //We need to check all the cc: if it's all in infected = good and we finish.
     //else check if all not infected.
 
     //check the first node in the cc[i] and then decide what to do:
-
+    bool forexit = true;
     for (int k = 0; k < cc.size(); k++) {
         bool infected_cc = false; //here we check the specific cc if it's infected or not (what to expect)
-        for (int l = 0; l < cc[k].size(); l++) {
+        for (int l = 0; l < cc[k].size() && forexit; l++) {
             bool found = false; //this one is found in the infected vector
             for (int i = 0; i < g.getinfected_nodes().size(); i++) {
                 if (cc[k][l] == g.getinfected_nodes()[i]) {
@@ -353,33 +419,61 @@ bool Session::is_ConnectedCopOk() //TODO: change names and continue
                     break;
                 }
             }
+            for (int i = 0; i < this->getAgents().size(); i++) {
+                if (cc[k][l] == this->getAgents()[i]->getNodeInd() ) { ////Notice a litlle different  &&g.isInfected(cc[k][l])
+                    found = true;
+                    break;
+                }
+            }
             if (l == 0) {
                 infected_cc = found; //what do we expect from the first one and the other is the same
             } else {
-                if (infected_cc != found) { //if this is different it means we have difference between the CC if it is full infected or full non-infected
+                if (infected_cc !=
+                    found) { //if this is different it means we have difference between the CC if it is full infected or full non-infected
                     return true;
                 }
             }
         }
     }
-    return false;
+      bool attach_agent_to_infected=false;
+      for (int j = 0; j < this->getAgents().size(); j++){
+          attach_agent_to_infected=false;
+          for (int i = 0; i < g.getinfected_nodes().size(); i++) {
 
+         if (this->getAgents()[j]->getNodeInd()==g.getinfected_nodes()[i])
+         {
+             attach_agent_to_infected=true;
+             break;
+         }
+          }
+          if (!attach_agent_to_infected&&this->getAgents()[j]->getNodeInd()>=0)
+          {
+              return true;
+          }
+          }
+
+    return false;
 }
 
 
-void Session::DFS_helper(int v, bool visited[],std::vector<std::vector<int>> cc)
+void Session::DFS_helper(int v, std::vector <bool> & visited,std::vector<std::vector<int>> &cc)
 {
     // Mark the current node as visited and print it
-    visited[v] = true;
+  //  std::vector <bool> visitedreal =visited;
+    visited[v]  =  true;
+   // std::vector<std::vector<int>> cc1= reinterpret_cast<const vector<vector<int, allocator<int>>, allocator<vector<int, allocator<int>>>> &>(cc);
     cc[cc.size()-1].push_back(v);
     //cout << v << " "; //to delete
 
     // Recur for all the vertices
     // adjacent to this vertex
 
-    for (int i=0;i<g.getEdges()[i].size(); ++i)
-        if (!visited[i])
-            DFS_helper(i, visited,cc);
+    for (int i=0;i<g.getEdges().size(); i++)
+        if (!visited[i] && g.getEdges()[v][i]==1) {
+            DFS_helper(i, visited ,cc );
+
+
+        }
 }
 
 
@@ -389,13 +483,13 @@ void Session::addAgent(Agent *agent) {
     agents.push_back((Agent *const) agent);
 
 
-     //TODO: finish - I don't sure if we need more here and if it's ok
+
  }
 
 void Session::enqueueInfected(int nodeInd) { //add to infected and we also check if we need to do so
 
      g.infectNode(nodeInd);
-    //TODO: finish
+
  }
 
 
@@ -408,10 +502,12 @@ void Session::setGraph(const Graph &graph) {
     g=graph;
     }
 
-    //TODO: finish
+
 
 
 
 std::vector<Agent *> Session::getAgents(){
     return agents;
 }
+
+

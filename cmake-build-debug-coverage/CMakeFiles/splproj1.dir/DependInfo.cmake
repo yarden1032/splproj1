@@ -4,11 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/mnt/c/Users/Milky/CLionProjects/splproj1/Tests/Tests.cpp" "/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/splproj1.dir/Tests/Tests.cpp.o"
   "/mnt/c/Users/Milky/CLionProjects/splproj1/src/Agent.cpp" "/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/splproj1.dir/src/Agent.cpp.o"
   "/mnt/c/Users/Milky/CLionProjects/splproj1/src/Graph.cpp" "/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/splproj1.dir/src/Graph.cpp.o"
   "/mnt/c/Users/Milky/CLionProjects/splproj1/src/Session.cpp" "/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/splproj1.dir/src/Session.cpp.o"
+  "/mnt/c/Users/Milky/CLionProjects/splproj1/src/Tester.cpp" "/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/splproj1.dir/src/Tester.cpp.o"
   "/mnt/c/Users/Milky/CLionProjects/splproj1/src/Tree.cpp" "/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/splproj1.dir/src/Tree.cpp.o"
-  "/mnt/c/Users/Milky/CLionProjects/splproj1/src/main.cpp" "/mnt/c/Users/Milky/CLionProjects/splproj1/cmake-build-debug-coverage/CMakeFiles/splproj1.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

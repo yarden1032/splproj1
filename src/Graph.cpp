@@ -20,6 +20,7 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
 
             edges[i].push_back(((matrix[i])[j]));
         }
+        delete vecy;
     }
 /*
         for (int i = 0; i < matrix.size(); i++){
@@ -46,13 +47,21 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
     }
 }
 */
+void Graph::isolate(int nodeInd)
+{
+    for (int i=0;i<edges.size();i++)
+    {
+        edges[nodeInd][i]=0;
+        edges[i][nodeInd]=0;
+        }
+    }
 
 
 
 
 void Graph::infectNode(int nodeInd)
 {
-    for (int i= 0; infected_nodes.size();i++)
+    for (int i= 0;i< infected_nodes.size();i++)
     {
         if (infected_nodes[i]==nodeInd)
         {
@@ -60,8 +69,16 @@ void Graph::infectNode(int nodeInd)
         }
     }
 infected_nodes.push_back(nodeInd);
+  //  infected_nodes_deque.push_back(nodeInd);
+
 }
-bool Graph::isInfected(int nodeInd)
+/* std::vector<int> Graph::getinfected_nodes_deque(){
+
+    return  infected_nodes_deque;
+
+}
+*/
+ bool Graph::isInfected(int nodeInd)
 {/*
     int indexi= nodeInd/edges.size();
     int indexj= nodeInd%edges.size();
@@ -109,7 +126,17 @@ Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
         return *this;
     }
     if (size != edges.size()) {
-        edges.resize(size);
+        if(size < edges.size())
+        {
+            for (int i=size;i<edges.size();i++)
+            {
+                for(int j=size;i<edges.size();j++)
+                {
+                    edges [i][j]=0;
+                }
+            }
+        }
+        edges.resize(size); //TODO: check this - It's ok
     }
     for (int i = 0; i < size; i++) {
         if (size != edges[i].size()) {
@@ -121,9 +148,11 @@ Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
         }
     }
 
-
-
     return *this;
 
 }
 
+Graph::~Graph()
+{
+
+}

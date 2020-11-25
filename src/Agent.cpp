@@ -1,7 +1,5 @@
 //This is implementation of class Agent
 #include "../include/Agent.h"
-#include "../include/Session.h"
-#include "../include/Tree.h"
 #include <iostream>
 #include <list>
 using namespace std;
@@ -36,7 +34,7 @@ Virus::Virus(int nodeInd):nodeInd(nodeInd) {
 
 
 void Virus::act(Session & session){
-///TODO:We need to complete
+
 
 /**
  * infect the current node
@@ -46,22 +44,33 @@ void Virus::act(Session & session){
  *
  */
     int n=getNodeInd();
-//session.getGraphRef()->infectNode(n); //infect the current node
-session.enqueueInfected(n);
+        if (!session.getGraph().isInfected(n)) //if not, don't enqueue it because it already infected
+        session.enqueueInfected(n);
+
 for(int i=0;i<session.getGraph().getEdges().size();i++)
     if (session.getGraph().getEdges()[getNodeInd()][i]==1)
     {
         if(!session.getGraph().isInfected(i))
-        {
+        {bool skip=false;
             for(int j=0;j<session.getAgents().size();j++)
             {
-                if(session.getAgents()[j]->getNodeInd()!=i)
+
+                if(session.getAgents()[j]->getNodeInd()==i)
                 {
+
+                /////    it means we dont infect a node that already have virus
                     //session.getGraph().infectNode(i);
                    // session.enqueueInfected(i);
-                   session.addAgent(new Virus (i));
-                   return;
+
+                    skip=true;   //TODO tried to change from return
                 }
+
+            }
+            if(!skip){
+            Virus * vir  =  new Virus (i);
+            session.addAgent(vir);
+            //delete vir;
+            return;
             }
         }
     }
@@ -69,13 +78,10 @@ for(int i=0;i<session.getGraph().getEdges().size();i++)
 
 }
 
-ContactTracer::ContactTracer() {
-///TODO: We need to complete or not
-
-}
+ContactTracer::ContactTracer() =default;
 
 void ContactTracer::act(Session& session){
-///TODO:We need to complete
+
 /**TAKE THE INFECTED QUEUE FROM THE GRAPH FROM SESSION
 
 DO BFS FROM THE TOP OF EVERY INFECTED NODE
@@ -84,19 +90,23 @@ NOW WE DO TRACE - PICKING THE NODES WITH THE RIGHT LOGIC OF THE TREE
 INSIDE TRACE TREE: WE DELETE THE EDGES OF THIS NODE
 
 */
-for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
-{
-    Tree* tree =BFS(session.getGraph().getinfected_nodes()[i],session);
-    int nodeTodelete=tree->traceTree();
-    Graph gtemp = session.getGraph();
-    for (int i=0;i<gtemp.getEdges().size();i++)
+
+int i=session.dequeueInfected();
+if (i!=-1){
+    Tree* tree =BFS(i,session);
+    if (session.getTreeType()==Cycle)
     {
-        gtemp.getEdges()[nodeTodelete][i]=0;
-        gtemp.getEdges()[i][nodeTodelete]=0;
-
+      CycleTree * treeCyc= dynamic_cast<CycleTree *>(tree);
+      treeCyc->setCurrCycle(session.getCurriteration()-1);
     }
-    delete tree;
+    int nodeTodelete=tree->traceTree();
 
+    session.isolateNode(nodeTodelete);
+
+
+
+    delete tree;
+    tree=nullptr;
 }
 
 
@@ -105,9 +115,9 @@ for (int i=0;i<session.getGraph().getinfected_nodes().size();i++)
 //with the int = change the graph
 
 
+
 }
 
-//TODO: Fix and modifiy to our use
 Tree* ContactTracer::BFS(int startVertex,Session& session) {
     int numVertices=session.getGraph().getEdges().size();
     TreeType t = session.getTreeType();
@@ -115,58 +125,65 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
     if (t==MaxRank)
      tree = new MaxRankTree (startVertex);
 
-    else
-    {
-        if (t==Root)
-             tree = new RootTree (startVertex);
-        else
-        {
-         //    tree = new CycleTree (startVertex); //TODO: make constructor and disable here
+    else {
+        if (t == Root)
+            tree = new RootTree(startVertex);
+        else {
+                tree = new CycleTree (startVertex,0); //TODO: make constructor and disable here
 
         }
-    }
-    vector<bool> visited =* new vector<bool> (numVertices);
-        for (int i = 0; i < numVertices; i++)
-            visited[i] = false;
 
-        list<int> queue;
+    }
+    vector <Tree *> whereVisisted;
+    vector<bool> visited ;
+        for (int i = 0; i < numVertices; i++){
+            visited.push_back(false);
+            whereVisisted.push_back(nullptr);
+        }
+        list<Tree *> queue;
          Tree* tempTree=tree;
          visited[startVertex] = true;
-        queue.push_back(startVertex);
-
-        vector<int>::iterator i;
-
+        queue.push_back(tree);
+       // vector<int>::iterator i;
+    Tree *childnew;
         while (!queue.empty()) {
-            int currVertex = queue.front();
+            int currVertex = queue.front()->getNode();
+            tempTree= queue.front();
             if(currVertex!=startVertex) {
-                //   cout << "Visited " << currVertex << " ";
-                ///start check tree type
-                Tree *childnew;
-                if (t == MaxRank) {
-                    childnew = new MaxRankTree(currVertex);
-                } else {
-                    if (t == Root) {
-                        childnew = new RootTree(currVertex);
-                    } else {
-
-                        //   childnew =  new CycleTree (currVertex);//TODO: make constructor and disable here
-                    }
-                }
-
                 ///end check tree type
                 //add this vartex to the tree (add child)
-                tempTree->addChild(*const_cast<Tree *>(childnew));
+                whereVisisted[currVertex]->addChild(*tempTree);
             }
             queue.pop_front();
 
             for (int i = 0; i < session.getGraph().getEdges()[currVertex].size(); i++) {
-         //       int adjVertex = *i;
+
                 if (!visited[i]&&session.getGraph().getEdges()[currVertex][i]==1) {
                     visited[i] = true;
-                    queue.push_back(i);
+
+                    if (t == MaxRank) {
+                        childnew = new MaxRankTree(i);
+
+                    } else {
+                        if (t == Root) {
+                            childnew = new RootTree(i);
+
+                        } else {
+                            CycleTree * tempCycle = dynamic_cast<CycleTree *>(tempTree);
+                           int currcy = tempCycle->getCurrCycle();
+                               childnew =  new CycleTree (i,currcy+1);//TODO: make constructor and disable here
+                        }
+                    }
+
+                    whereVisisted[i]=tempTree;
+                    queue.push_back(childnew);
+
                 }
             }
         }
+    whereVisisted.clear();
+         visited.clear();
+
         return tree;
     }
 
@@ -175,16 +192,15 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
 
 
 
+Virus::~Virus()=default;
 
 
 
 // Destructor: "deep delete"
-/**
-Agent::~Agent()
-{
-    clear();
-}
 
+Agent::~Agent()=default;
+
+/*
 void Agent::clear()
 {
     while (head_ != nullptr) {
@@ -214,11 +230,10 @@ for (int v = 0; v < V; ++v)
     printf("\n");
 }
 }
+*/
 
 
 
-
-**/
 
 
 
