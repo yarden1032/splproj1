@@ -10,8 +10,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#include <vector>
-//Graph::Vector(): {std::vector<std::vector<int>> matrix(0)}
+
 Tree::Tree() {
     node=0;
 
@@ -152,7 +151,6 @@ int iti = minDepthHelper(this, maxint);
  */
     int  max=-1;
     vector<int> maxint;
-    int i;
     MaxRankTree * temp=this;
     maxint = traceTreeIteration(this, maxint,max);
     if (maxint.size()==1) {
@@ -201,10 +199,15 @@ int iti = minDepthHelper(this, maxint);
 
 int MaxRankTree::traceTree_Leftest(Tree * node, vector<int> maxint,  vector<vector<int>> trip_maxint) {
         bool b=true; int currnode=node->getNode();
-         int step=0; int safetogo=0;
+         int step=-1; int safetogo=0;
          while(b)   {
+
         for (int i=0;i<trip_maxint.size();i++)
          {
+             if(maxint[i]==this->getNode())  ///TODO NOTICE THIS ADD
+             return this->getNode(); ///TODO NOTICE THIS ADD
+
+         else{
             if(trip_maxint[i].size()>=step){
 
         if (currnode!=trip_maxint[i][step])
@@ -230,6 +233,8 @@ int MaxRankTree::traceTree_Leftest(Tree * node, vector<int> maxint,  vector<vect
             }
         }
              step++;
+
+         }
          }
 
 }
@@ -485,7 +490,7 @@ int CycleTree::traceTree() {
     }
     temp= nullptr;
  //   delete temp;
- if(cycleTrip.size()>this->getCurrCycle()){
+ if(cycleTrip.size()>=this->getCurrCycle()+1){
     return cycleTrip[this->getCurrCycle()];
  }
  return cycleTrip[cycleTrip.size()-1];

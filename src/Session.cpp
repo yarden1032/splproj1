@@ -12,7 +12,7 @@ using namespace std;
 using json = nlohmann::json;
 #include <vector>
 //session::Session() { } //Constructor empty
-Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteration(0) { //constructor not empty
+Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteration(-1) { //constructor not empty
 
 //    treeType = (Cycle); /////// only for test need to change
     std::string st=path;
@@ -420,7 +420,7 @@ bool Session::is_ConnectedCopOk() {
                 }
             }
             for (int i = 0; i < this->getAgents().size(); i++) {
-                if (cc[k][l] == this->getAgents()[i]->getNodeInd() &&g.isInfected(cc[k][l])) { ////Notice a litlle different 
+                if (cc[k][l] == this->getAgents()[i]->getNodeInd() ) { ////Notice a litlle different  &&g.isInfected(cc[k][l])
                     found = true;
                     break;
                 }
@@ -435,21 +435,24 @@ bool Session::is_ConnectedCopOk() {
             }
         }
     }
-    /*  bool attach_agent_to_infected=false;
+      bool attach_agent_to_infected=false;
       for (int j = 0; j < this->getAgents().size(); j++){
+          attach_agent_to_infected=false;
           for (int i = 0; i < g.getinfected_nodes().size(); i++) {
+
          if (this->getAgents()[j]->getNodeInd()==g.getinfected_nodes()[i])
          {
              attach_agent_to_infected=true;
              break;
          }
           }
-          if (attach_agent_to_infected)
+          if (!attach_agent_to_infected&&this->getAgents()[j]->getNodeInd()>=0)
           {
               return true;
           }
           }
-   */   return false;
+
+    return false;
 }
 
 

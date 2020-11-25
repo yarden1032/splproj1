@@ -44,14 +44,17 @@ void Virus::act(Session & session){
  *
  */
     int n=getNodeInd();
-session.enqueueInfected(n);
+        if (!session.getGraph().isInfected(n)) //if not, don't enqueue it because it already infected
+        session.enqueueInfected(n);
+
 for(int i=0;i<session.getGraph().getEdges().size();i++)
     if (session.getGraph().getEdges()[getNodeInd()][i]==1)
     {
         if(!session.getGraph().isInfected(i))
-        {
+        {bool skip=false;
             for(int j=0;j<session.getAgents().size();j++)
             {
+
                 if(session.getAgents()[j]->getNodeInd()==i)
                 {
 
@@ -59,14 +62,16 @@ for(int i=0;i<session.getGraph().getEdges().size();i++)
                     //session.getGraph().infectNode(i);
                    // session.enqueueInfected(i);
 
-                   return;
+                    skip=true;   //TODO tried to change from return
                 }
 
             }
+            if(!skip){
             Virus * vir  =  new Virus (i);
             session.addAgent(vir);
             //delete vir;
             return;
+            }
         }
     }
 
@@ -92,7 +97,7 @@ if (i!=-1){
     if (session.getTreeType()==Cycle)
     {
       CycleTree * treeCyc= dynamic_cast<CycleTree *>(tree);
-      treeCyc->setCurrCycle(session.getCurriteration());
+      treeCyc->setCurrCycle(session.getCurriteration()-1);
     }
     int nodeTodelete=tree->traceTree();
 

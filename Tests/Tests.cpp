@@ -71,7 +71,7 @@ TEST_CASE( "config3 test", "[config3]" ) {
     std::ifstream ik(stout);
     json joutput;
     ik >>joutput;
-//    REQUIRE(joutput.at("graph")==expect.at("graph")) ;
+  REQUIRE(joutput.at("graph")==expect.at("graph")) ;
     REQUIRE(joutput.at("infected")==expect.at("infected")) ;
 
 
@@ -99,10 +99,6 @@ TEST_CASE( "config4", "[config4]" ) {
 
 
 
-
-
- REQUIRE(joutput.at("graph")==expect.at("graph")) ;
-    REQUIRE(joutput.at("infected")==expect.at("infected")) ;
 
 
 
