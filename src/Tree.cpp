@@ -45,11 +45,18 @@ int Tree::getNode() {
 }
 void Tree::clear() {
     node=0;
-    for(int i=0 ; i<children.size();i++) {
+    /*for(int i=0 ; i<children.size();i++) {
         children[i]->clear();
         children[i]= nullptr;
-        children.clear();
+
     }
+    children.clear();*/
+
+    for (auto p : children)
+    {
+        delete p;
+    }
+    children.clear();
 }
 
 
@@ -478,7 +485,7 @@ int CycleTree::traceTree() {
     Tree * temp;
     temp=this;
 
-    int tempcurrCycle=currCycle;
+  //  int tempcurrCycle=currCycle;
     if(temp->getChildren().size()!=0){
 
         while (temp->getChildren().size()!=0){
@@ -488,10 +495,11 @@ int CycleTree::traceTree() {
         //tempcurrCycle=this->getCurrCycle();
     }
     }
-    temp= nullptr;
  //   delete temp;
- if(cycleTrip.size()>=this->getCurrCycle()+1){
-    return cycleTrip[this->getCurrCycle()];
+    int n = this->getCurrCycle();
+ if(cycleTrip.size()>n+1){
+
+    return cycleTrip[n];
  }
  return cycleTrip[cycleTrip.size()-1];
 

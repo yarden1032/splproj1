@@ -163,6 +163,7 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
 
                     if (t == MaxRank) {
                         childnew = new MaxRankTree(i);
+
                     } else {
                         if (t == Root) {
                             childnew = new RootTree(i);
@@ -176,7 +177,7 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
 
                     whereVisisted[i]=tempTree;
                     queue.push_back(childnew);
-                  //  childnew= nullptr;
+
                 }
             }
         }

@@ -75,6 +75,35 @@ TEST_CASE( "config3 test", "[config3]" ) {
     REQUIRE(joutput.at("infected")==expect.at("infected")) ;
 
 
+
+}
+
+TEST_CASE( "configtry", "[configtry]" ) {
+
+
+    Session sess("configtry.JSON");
+    sess.simulate();
+    /*   REQUIRE( sess.getGraph().getEdges()[4][0] == 1);
+       REQUIRE( sess.getGraph().getinfected_nodes()[0]==0);
+      REQUIRE( sess.getGraph().getinfected_nodes()[1]==1);
+      REQUIRE( sess.getGraph().getinfected_nodes()[2]==4);
+      REQUIRE( sess.getGraph().getinfected_nodes()[3]==5);*/
+    string st="configtryexpected.json";
+    std::ifstream iJ(st);
+    json expect;
+    iJ >>expect;
+    std::string stout="output.JSON";
+    std::ifstream ik(stout);
+    json joutput;
+    ik >>joutput;
+    REQUIRE(joutput.at("graph")==joutput.at("graph")) ;
+    REQUIRE(joutput.at("infected")==expect.at("infected")) ;
+
+
+
+
+
+
 }
 TEST_CASE( "config4", "[config4]" ) {
 
@@ -106,15 +135,9 @@ TEST_CASE( "config4", "[config4]" ) {
 TEST_CASE( "Maintest", "[configtest]" ) {
     for (int i=1;i<=4;i++)
     SECTION( "change config number" + std::to_string(i)) {
-       // if (i==2){
             string stringi="config"+std::to_string(i)+".JSON";
             Session sess(stringi);
             sess.simulate();
-            //REQUIRE( sess.getGraph().getEdges()[4][0] == 1);
-          //  REQUIRE( sess.getGraph().getinfected_nodes()[0]==0);
-          //  REQUIRE( sess.getGraph().getinfected_nodes()[1]==1);
-          //  REQUIRE( sess.getGraph().getinfected_nodes()[2]==4);
-          //  REQUIRE( sess.getGraph().getinfected_nodes()[3]==5);
             string st="output"+ std::to_string(i) + ".json";
             std::ifstream iJ(st);
             json expect;
@@ -125,7 +148,7 @@ TEST_CASE( "Maintest", "[configtest]" ) {
             ik >>joutput;
             REQUIRE(joutput.at("graph")==joutput.at("graph")) ;
             REQUIRE(joutput.at("infected")==expect.at("infected")) ;
-      //  }
+
     }
 }
 

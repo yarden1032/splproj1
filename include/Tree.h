@@ -11,10 +11,10 @@ public:
     Tree();
     int getNode();
     std::vector<Tree*> getChildren();
-    Tree(int rootLabel); //we only add the root node from the infected vector
-    void addChild(const Tree& child); //
+    Tree(int rootLabel);
+    void addChild(const Tree& child);
    virtual ~Tree() ;
-    static Tree* createTree(const Session& session, int rootLabel);
+    static Tree* createTree(const Session& session, int rootLabel); //TODO IMPORTANT
     virtual int traceTree()=0;
     void setNode(int node);
     void clear();
@@ -42,7 +42,6 @@ public:
     ~MaxRankTree();
     MaxRankTree(int rootLabel);
     virtual int traceTree();
- //   std::vector<int> * iterationTail_minDepth(Tree* node, std::vector<int> maxint,  std::vector<int> * minintdepth) ;
 private:
     int   minDepthHelperIteration(Tree* node);
     int  minDepthHelper(Tree* node, std::vector<int> maxint);
