@@ -32,7 +32,7 @@ public:
     CycleTree(int rootLabel, int currCycle);
     virtual int traceTree();
     void setCurrCycle(int currCycle);
-    int getCurrCycle();
+    int getCurrCycle() const;
 private:
     int currCycle;
 };
