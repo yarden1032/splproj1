@@ -2,13 +2,11 @@
 #include "../include/Graph.h"
 using namespace std;
 
-//Graph::Vector(): {std::vector<std::vector<int>> matrix(0)}
-Graph::Graph(){
+
+Graph::Graph():edges(*new std::vector<std::vector<int>>),infected_nodes(* new std::vector<int> ){
 
 } //Constructor empty
-Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
-
-
+Graph::Graph(std::vector<std::vector<int>> matrix):edges(*new std::vector<std::vector<int>>),infected_nodes(* new std::vector<int> ){ //constructor not empty
 
     for (unsigned int i = 0; i <matrix.size(); i++){
         vector <int>* vecy= new vector<int>();
@@ -22,7 +20,6 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
     }
 
 }
-
 
 void Graph::isolate(int nodeInd)
 {
@@ -46,7 +43,7 @@ void Graph::infectNode(int nodeInd)
         }
     }
 infected_nodes.push_back(nodeInd);
-  //  infected_nodes_deque.push_back(nodeInd);
+
 
 }
 
@@ -85,14 +82,14 @@ Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
 {
     // check for "self assignment" and do nothing in that case
 
-    int size = aGraph.getEdges().size();
+    unsigned int size = aGraph.getEdges().size();
     if (this == &aGraph) {
         return *this;
     }
     if (size != edges.size()) {
         if(size < edges.size())
         {
-            for (int i=size;i<edges.size();i++)
+            for (unsigned int i=size;i<edges.size();i++)
             {
                 for(int j=size;i<edges.size();j++)
                 {
@@ -102,11 +99,11 @@ Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
         }
         edges.resize(size); //TODO: check this - It's ok
     }
-    for (int i = 0; i < size; i++) {
+    for (unsigned int i = 0; i < size; i++) {
         if (size != edges[i].size()) {
             edges[i].resize(size);
         }
-        for (int j = 0; j < size; j++) {
+        for ( unsigned int j = 0; j < size; j++) {
             
             (edges[i])[j] = aGraph.getEdges()[i][j];
         }

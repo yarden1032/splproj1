@@ -13,14 +13,14 @@ Tester::Tester(const int option,int testId) : option(option) {}
 
 //Used for debugging purposes only.
 void Tester::printGraph(const std::vector<std::vector<int>> & input) {
-    for(int i = 0; i < input.size(); i ++){
-        for(int r = 0; r < input.size() ; i ++){  std::cout << input[i][r];  }
+    for(unsigned int i = 0; i < input.size(); i ++){
+        for(unsigned int r = 0; r < input.size() ; i ++){  std::cout << input[i][r];  }
         std::cout << " " <<std::endl;}
 }
 //Converts Agents To Readable Json Format
 void Tester::agentsToJson(json & j , const std::vector<jsonAgent> &input)
 {
-    for(int i = 0 ; i < input.size(); i++)
+    for(unsigned int i = 0 ; i < input.size(); i++)
         j["agents"].push_back({input[i].type,input[i].idStart});
 }
 //Returns file contents
@@ -74,7 +74,7 @@ void Tester::generateTests() {
         }
     }
     agentsToJson(generatedTest,agentList);
-    for(int i = 0 ; i < graphMatrix.size(); i++)
+    for(unsigned int i = 0 ; i < graphMatrix.size(); i++)
         generatedTest["graph"].push_back(graphMatrix[i]);
 
      std::string treeType;
@@ -134,8 +134,8 @@ void Tester::runTests() {
 
             bool passedGraphTest        = true;
             bool passedInfectedListTest = true;
-            for(int i = 0; i < graphFromUser.size() && passedGraphTest; i++){
-                for(int j = 0 ; j < graphFromUser[i].size() && passedGraphTest; j++)
+            for(unsigned int i = 0; i < graphFromUser.size() && passedGraphTest; i++){
+                for(unsigned int j = 0 ; j < graphFromUser[i].size() && passedGraphTest; j++)
                     if(graphFromUser[i][j] != graphFromTest[i][j]) passedGraphTest = false;
             }
             std::sort(infectedListFromUser.begin(),infectedListFromUser.end());
@@ -144,7 +144,7 @@ void Tester::runTests() {
             if(infectedListFromUser.size() != infectedListFromTest.size())
                 passedInfectedListTest = false;
             if(passedInfectedListTest){
-                for(int i = 0; i < infectedListFromUser.size() && passedInfectedListTest; i++)
+                for(unsigned int i = 0; i < infectedListFromUser.size() && passedInfectedListTest; i++)
                     if(infectedListFromUser[i] != infectedListFromTest[i]) passedInfectedListTest = false;
             }
             if(passedInfectedListTest && passedGraphTest) {

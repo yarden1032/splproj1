@@ -7,18 +7,13 @@
 #include "../include/Graph.h"
 #include "../include/Tree.h"
 #include "../include/Session.h"
-#include <iostream>
 #include <vector>
-#include "../include/Agent.h"
 using namespace std;
 
-Tree::Tree() {
-    node=0;
-
+Tree::Tree():node(0),children(* new std::vector<Tree*>) {
 }
-Tree::Tree(int rootLabel)
+Tree::Tree(int rootLabel):node(rootLabel),children(* new std::vector<Tree*>)
     {
-    node=rootLabel;
     }
 
 Tree::~Tree() {
@@ -29,13 +24,12 @@ Tree* Tree::createTree(const Session& session, int rootLabel)
     Session& session1 = const_cast< Session&>(session);
     return ContactTracer::BFS(rootLabel, session1);
 
-   // return BFS(rootLabel, session);
 }
 void Tree::addChild(const Tree& child)
 {
 
 children.push_back(const_cast<Tree *>(&child));
-//delete tempChild;
+
 }
 std::vector<Tree*> Tree::getChildren() {
 return children;
@@ -133,14 +127,15 @@ MaxRankTree::~MaxRankTree() {
     int lowest_trip=trip_maxint[0].size();
     vector <int> lowest_trip_index;
     lowest_trip_index.push_back(0);
-    for (int i=1;i<trip_maxint.size();i++)
+    for (unsigned int i=1;i<trip_maxint.size();i++)
     {
-        if ((trip_maxint[i].size())==lowest_trip)
+        int compare = (trip_maxint[i].size());
+        if (compare==lowest_trip)
         {
             lowest_trip_index.push_back(i);
         }
 
-        if (lowest_trip<trip_maxint[i].size())
+        if (lowest_trip<compare)
         {
             lowest_trip=trip_maxint[i].size();
             lowest_trip_index.clear();
@@ -165,13 +160,14 @@ int MaxRankTree::traceTree_Leftest(Tree * node, vector<int> maxint,  vector<vect
          int step=-1; 
          while(b)   {
 
-        for (int i=0;i<trip_maxint.size();i++)
+        for (unsigned  int i=0;i<trip_maxint.size();i++)
          {
              if(maxint[i]==this->getNode())  ///TODO NOTICE THIS ADD
              return this->getNode(); ///TODO NOTICE THIS ADD
 
          else{
-            if(trip_maxint[i].size()>=step){
+             int comparator=trip_maxint[i].size();
+            if(comparator>=step){
 
         if (currnode!=trip_maxint[i][step])
         {
@@ -189,7 +185,7 @@ int MaxRankTree::traceTree_Leftest(Tree * node, vector<int> maxint,  vector<vect
         }
 
          } ///go to the next node
-        for (int i=0;i<node->getChildren().size();i++){
+        for (unsigned int i=0;i<node->getChildren().size();i++){
             if (((node->getChildren())[i]->getNode() == (trip_maxint[0])[step + 1])){
             node=node->getChildren()[i];
                     break;
@@ -199,12 +195,12 @@ int MaxRankTree::traceTree_Leftest(Tree * node, vector<int> maxint,  vector<vect
 
          }
          }
-
+return 0; //We know this is unreachable code.
 }
 
     void MaxRankTree::traceTree_TripForMax(Tree* node,std::vector<int>  maxint,std::vector<std::vector<int>> & trip_maxint, std::vector<int>  currentPath)
     {
-         for (int i=0;i<maxint.size();i++)
+         for (unsigned int i=0;i<maxint.size();i++)
          {
              if (maxint[i]==node->getNode())
              {
@@ -214,7 +210,7 @@ int MaxRankTree::traceTree_Leftest(Tree * node, vector<int> maxint,  vector<vect
          }
 
          currentPath.push_back(node->getNode());
-        for (int i = 0; i < node->getChildren().size(); i++) {
+        for (unsigned int i = 0; i < node->getChildren().size(); i++) {
           traceTree_TripForMax(node->getChildren()[i], maxint , trip_maxint,currentPath);
         }
 
@@ -241,7 +237,7 @@ std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & m
            }
        }
 
-    for (int i = 0; i < node->getChildren().size(); i++) {
+    for (unsigned int i = 0; i < node->getChildren().size(); i++) {
 
 
 
@@ -263,10 +259,9 @@ int CycleTree::getCurrCycle() {
 }
 
 
-CycleTree::CycleTree(int rootLabel, int currCycle) {
+CycleTree::CycleTree(int rootLabel, int currCycle):currCycle(currCycle) {
 
     this->setNode(rootLabel);
-    this->setCurrCycle(currCycle);
 }
 ///WE NEED TO CHANGE HERE BUT FOR NOW I WON'T DO NOTHING
 int CycleTree::traceTree() {
@@ -280,21 +275,23 @@ int CycleTree::traceTree() {
     Tree * temp;
     temp=this;
 
-  //  int tempcurrCycle=currCycle;
+
     if(temp->getChildren().size()!=0){
 
         while (temp->getChildren().size()!=0){
-        //for (int i = 1; i <= tempcurrCycle; i++) { // i want that only this node childs will enter the trip vector   this->getChildren()[this->getNode()]->getChildren().size()
+
         temp=temp->getChildren()[0];
         cycleTrip.push_back(temp->getNode());
-        //tempcurrCycle=this->getCurrCycle();
-    }
-    }
- //   delete temp;
-    int n = this->getCurrCycle();
- if(cycleTrip.size()>n+1){
 
-    return cycleTrip[n];
+    }
+    }
+
+     int n = this->getCurrCycle();
+   int sizecompare =cycleTrip.size();
+
+ if(sizecompare>n+1){
+
+    return cycleTrip[n+1];
  }
  return cycleTrip[cycleTrip.size()-1];
 

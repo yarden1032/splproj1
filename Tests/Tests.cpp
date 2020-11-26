@@ -146,8 +146,10 @@ TEST_CASE( "Maintest", "[configtest]" ) {
             std::ifstream ik(stout);
             json joutput;
             ik >>joutput;
+        Tree * t= Tree::createTree(sess,4);
             REQUIRE(joutput.at("graph")==joutput.at("graph")) ;
             REQUIRE(joutput.at("infected")==expect.at("infected")) ;
+
 
     }
 }
@@ -164,16 +166,12 @@ TEST_CASE( "RonTest", "[RonTest]" ) {
 
 
 
-//    Session testSession("../config1.json");
-        //  testSession.simulate();
 
 
 
         srand(time(NULL));
         int testerOptionChosen = 2;
 
-      //  std::cout << "---------------\r\nWelcome\r\n---------------\r\nPlease type 1 to generate tests or 2 to run tests file" << std::endl;
-        //cin >> testerOptionChosen ;
 
         if(testerOptionChosen == 2) {
             testGenerator = new Tester(2, 1);

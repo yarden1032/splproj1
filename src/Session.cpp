@@ -10,9 +10,9 @@ using json = nlohmann::json;
 #include <vector>
 using namespace std;
 //session::Session() { } //Constructor empty
-Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteration(-1) { //constructor not empty
+Session::Session(const string &path):g(* new Graph()),agents(* new std::vector<Agent *>),curriteration(-1),treeType (Cycle),indicator(-1) { //constructor not empty
 
-//    treeType = (Cycle); /////// only for test need to change
+
     std::string st=path;
     std::ifstream i(st);
     json j;
@@ -29,7 +29,6 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteratio
     int indexi=1;
 
     int indexj=-1;
-   // cout << graphST.at(3) << endl;
     while (graphST.at(indexi)!=']'||graphST.at(indexi+1)!=']') {
         if ((graphST.at(indexi)=='['))//36
         {
@@ -57,16 +56,15 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteratio
             indexi++;
             continue;
         }
-        else//if(graphST.at(indexi)==',')
+        else
         {
             indexi++;
             continue;
         }
     }
 
-        g=(vec); //memory leak here -don't use new
-        ///Here we finish with the graph
-        /////// Read the tree type
+        g=(vec);
+
         treeType = Cycle; //Just for default for making sure.
         json jTreeType=j.at("tree");
 
@@ -85,16 +83,7 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteratio
 
 
 
-    //// We need to add here Agents - Finished but we maybe need to add here. -finished
-    ///I will write here down the Agents read - we need to add the agents then we can use the read from here - test only after Agents writing
 
-
-
-
-   // std::ifstream k(st);
-    //k >>j;
-
-//end manual
     int interator; //For Agents === the initial place of the Agents
     string ageString ; //For Agents === the type of Agent
     json jAgents =j.at("agents");
@@ -111,22 +100,20 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteratio
         else {
             ContactTracer * cont  =new ContactTracer();
             agents.push_back(cont);
-         //   delete cont;
+
         }
 
     }
 
-///Finish constraction - be advised the changes here to agents
 
-            /////   std::vector<Agent*> agents;;
 
 
 
 }
 
 
-////////We also need here copy constructor
-Session::Session(const Session &aSession)// copy constructor - shallow one
+
+Session::Session(const Session &aSession): g(aSession.getGraph()),agents(aSession.getAgents()),curriteration(aSession.getCurriteration()),treeType(aSession.getTreeType()),indicator(-1)// copy constructor - shallow one
 
 {
     g=*(new Graph(aSession.getGraph()));
@@ -142,7 +129,7 @@ Session::~Session()
 void Session::clear()
 {
 
-    for(int i=0;i<=agents.size();i++) {
+    for(unsigned int i=0;i<=agents.size();i++) {
     //    delete agents[i];
     }
    agents.clear();
@@ -171,7 +158,7 @@ Session& Session::operator=(const Session &other)
     treeType=other.treeType;
 
 
-    for(int i=0;i<=other.agents.size();i++) {
+    for(unsigned int i=0;i<=other.agents.size();i++) {
         agents.push_back(other.agents[i]);
     }
     //agents =*new Agent (other.getAgents());//We have issue here
@@ -180,8 +167,7 @@ Session& Session::operator=(const Session &other)
 }
 
 // Move Constructor
-Session::Session( Session&& other)
-        : g(other.g), agents(other.agents),treeType(other.treeType)
+Session::Session( Session&& other) : g(other.getGraph()),agents(other.getAgents()),curriteration(-1),treeType(other.getTreeType()),indicator(-1)
 {
     other.clear();
 }
@@ -196,7 +182,6 @@ Session& Session::operator=(Session &&other)
         treeType= other.treeType;
 
         other.clear();
-
 
     }
 
@@ -222,7 +207,7 @@ TreeType Session::getTreeType() const  {
 
 int Session::dequeueInfected() {
 int checker =(g.getinfected_nodes()).size();
-  //  g.getinfected_nodes_deque().pop_back(); // we maybe have issue with the order
+
   if(indicator<checker-1)
   {indicator ++;
       int last =g.getinfected_nodes()[indicator];
@@ -231,10 +216,9 @@ int checker =(g.getinfected_nodes()).size();
   else
       return -1;
 
-
 }
 
-int Session::getCurriteration()
+int Session::getCurriteration() const
 {
     return curriteration;
 }
@@ -255,7 +239,7 @@ while (continue_sim)
     int agentCurrentSize= agents.size();
 for(int i=0;i<agentCurrentSize;i++)
     {
-       // Session& session(*this);
+
        agents[i]->act((Session &) *this); //make sure memory is ok here
 
     }
@@ -266,15 +250,14 @@ output();
 memoManage();
 
 }
+//Output of the session to json file
 void Session::output() {
- //   json jgraph;
- //   json jinfected;
     json jtotal;
     jtotal["graph"]=g.getEdges();
     jtotal["infected"]=g.getinfected_nodes();
     std::ofstream o("output.json");
     o << std::setw(4) << jtotal ;
- //    jtotal=jinfected;
+
 
     //start config jgraph
  
@@ -283,22 +266,25 @@ void Session::output() {
 
 void Session::memoManage()
 {
-    for (int i=0;i<agents.size();i++)
+    for (unsigned int i=0;i<agents.size();i++)
     {
        delete agents[i];
     }
 }
+/*
+ *
+ */
 bool Session::is_ConnectedCopOk() {
     std::vector<std::vector<int>> cc;
 
     //line of something
     // Mark all the vertices as not visited
     std::vector<bool> visited;
-    for (int v = 0; v < g.getEdges().size(); v++) {
+    for (unsigned int v = 0; v < g.getEdges().size(); v++) {
         visited.push_back(false);
     }
 
-    for (int v = 0; v < g.getEdges().size(); v++) {
+    for (unsigned int v = 0; v < g.getEdges().size(); v++) {
         if (!visited[v]) {
             // print all reachable vertices
             // from v
@@ -326,17 +312,17 @@ bool Session::is_ConnectedCopOk() {
 
     //check the first node in the cc[i] and then decide what to do:
     bool forexit = true;
-    for (int k = 0; k < cc.size(); k++) {
+    for (unsigned int k = 0; k < cc.size(); k++) {
         bool infected_cc = false; //here we check the specific cc if it's infected or not (what to expect)
-        for (int l = 0; l < cc[k].size() && forexit; l++) {
+        for (unsigned int l = 0; l < cc[k].size() && forexit; l++) {
             bool found = false; //this one is found in the infected vector
-            for (int i = 0; i < g.getinfected_nodes().size(); i++) {
+            for (unsigned int i = 0; i < g.getinfected_nodes().size(); i++) {
                 if (cc[k][l] == g.getinfected_nodes()[i]) {
                     found = true;
                     break;
                 }
             }
-            for (int i = 0; i < this->getAgents().size(); i++) {
+            for (unsigned int i = 0; i < this->getAgents().size(); i++) {
                 if (cc[k][l] == this->getAgents()[i]->getNodeInd() ) { ////Notice a litlle different  &&g.isInfected(cc[k][l])
                     found = true;
                     break;
@@ -353,9 +339,9 @@ bool Session::is_ConnectedCopOk() {
         }
     }
       bool attach_agent_to_infected=false;
-      for (int j = 0; j < this->getAgents().size(); j++){
+      for (unsigned int j = 0; j < this->getAgents().size(); j++){
           attach_agent_to_infected=false;
-          for (int i = 0; i < g.getinfected_nodes().size(); i++) {
+          for (unsigned int i = 0; i < g.getinfected_nodes().size(); i++) {
 
          if (this->getAgents()[j]->getNodeInd()==g.getinfected_nodes()[i])
          {
@@ -385,7 +371,7 @@ void Session::DFS_helper(int v, std::vector <bool> & visited,std::vector<std::ve
     // Recur for all the vertices
     // adjacent to this vertex
 
-    for (int i=0;i<g.getEdges().size(); i++)
+    for (unsigned int i=0;i<g.getEdges().size(); i++)
         if (!visited[i] && g.getEdges()[v][i]==1) {
             DFS_helper(i, visited ,cc );
 
@@ -423,7 +409,7 @@ void Session::setGraph(const Graph &graph) {
 
 
 
-std::vector<Agent *> Session::getAgents(){
+std::vector<Agent *> Session::getAgents() const {
     return agents;
 }
 

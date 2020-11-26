@@ -22,7 +22,7 @@ class Agent;
         void simulate();
         virtual ~Session();
         void addAgent(Agent *agent);
-        std::vector<Agent *> getAgents ();
+        std::vector<Agent *> getAgents () const;
         void setGraph(const Graph &graph);
         void isolateNode(int node);
         void enqueueInfected(int nodeInd);
@@ -33,22 +33,21 @@ class Agent;
         Session& operator=(const Session &other);
         Session(Session&& other);
         Session& operator=(Session &&other);
-        int getCurriteration();
+        int getCurriteration() const;
 
     private:
-        void output();
+
         Graph g;
-        TreeType treeType;
         std::vector<Agent *> agents;
         int curriteration;
-
+        TreeType treeType;
+        int indicator;
 
         void clear();
         bool is_ConnectedCopOk();
-        int indicator;
 
         void DFS_helper(int v, std::vector <bool> & visited,std::vector<std::vector<int>> &  cc);
-
+        void output();
 
         void memoManage();
     };
