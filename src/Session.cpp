@@ -1,16 +1,14 @@
 
-using namespace std;
+
 #include <iomanip>
 #include "../include/Graph.h"
 #include "../include/Session.h"
 #include <iostream>
-#include "../include/Agent.h"
 #include <fstream>
 #include "../include/json.hpp"
-//#include "../config1.JSON"
-#include <list>
 using json = nlohmann::json;
 #include <vector>
+using namespace std;
 //session::Session() { } //Constructor empty
 Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteration(-1) { //constructor not empty
 
@@ -18,7 +16,7 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteratio
     std::string st=path;
     std::ifstream i(st);
     json j;
-    i >>j;
+    i >>j;  
     ///Here we read the Json
 
 
@@ -33,7 +31,7 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteratio
     int indexj=-1;
    // cout << graphST.at(3) << endl;
     while (graphST.at(indexi)!=']'||graphST.at(indexi+1)!=']') {
-        if ((graphST.at(indexi)=='['))
+        if ((graphST.at(indexi)=='['))//36
         {
             vector<int> *vecy = new vector<int>();
             vec.push_back(*vecy);
@@ -90,45 +88,7 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteratio
     //// We need to add here Agents - Finished but we maybe need to add here. -finished
     ///I will write here down the Agents read - we need to add the agents then we can use the read from here - test only after Agents writing
 
-/*
-////Issue with iterator= try manual:
-    json jAgents =j.at("agents");
-    while (graphST.at(indexi)!=']'||graphST.at(indexi+1)!=']') {
-        if ((graphST.at(indexi)=='['))
-        {
-            vector<int> *vecy = new vector<int>();
-            vec.push_back(*vecy);
-            indexi++;
-            indexj++;
-            continue;
 
-        }
-        if(graphST.at(indexi)==',')
-        {
-            indexi++;
-            continue;
-        }
-        if(graphST.at(indexi)=='1') {
-            vec[indexj].push_back((1));
-            indexi++;
-            continue;
-        }
-        if(graphST.at(indexi)=='0'){
-            vec[indexj].push_back((0));
-            indexi++;
-            continue;
-        }
-        if(graphST.at(indexi)==']') {
-
-            indexi++;
-        }
-
-    }
-
-
-
-
-*/
 
 
    // std::ifstream k(st);
@@ -167,32 +127,13 @@ Session::Session(const string &path):treeType (Cycle),indicator(-1),curriteratio
 
 ////////We also need here copy constructor
 Session::Session(const Session &aSession)// copy constructor - shallow one
-/*{
---this is start of deep construction - only if we need it - continue
-    vector<std::vector<int>> vec;
-    int maxsize = aSession.getGraph().getEdges().size();
 
-
-    for ( int i = 0; i <maxsize ; i++) {
-        vector<int> *vecy = new vector<int>();
-        vec.push_back(*vecy);
-        for (int j = 0; j < aSession.getGraph().getEdges()[i].size(); j++) {
-            int a=aSession.getGraph().getEdges()[i][j];
-            vec[i].push_back((a));
-        }
-    }
-    g=*(new Graph (vec));
-        }*/
 {
     g=*(new Graph(aSession.getGraph()));
     treeType=aSession.getTreeType();
     agents=(aSession.agents);
 }
-/* Not sure if we need it
-Session::Session(const string &path) {
-}
 
-*/
 
 Session::~Session()
 {
@@ -208,30 +149,15 @@ void Session::clear()
     //TODO: destructor to treeType - we have issue
 
     //Delete graph
-    /*
-    for (int i = 0; i <g.getEdges().size(); i++){
-        for (int j= 0; j < g.getEdges().size(); j++)
-        {
-
-            delete &((g.getEdges()[i])[j]);
-        }
-        delete[] &g.getEdges()[i];
-    }
-     */
+    
     g.getEdges().clear();
 
 }
 
 
-/*
-Session* Session::copy(const string &path ){
 
-}*/
 
-Graph * Session::getGraphRef() {
-return &g;
 
-}
 Session& Session::operator=(const Session &other)
 {
     // check for "self assignment" and do nothing in that case
@@ -351,16 +277,7 @@ void Session::output() {
  //    jtotal=jinfected;
 
     //start config jgraph
- /*   for (int i=0;i<g.getEdges().size();i++)
-    {
-        json jtemp;
-        for (int j=0;j<g.getEdges().size();j++)
-        {
-            jtemp.push_back(g.getEdges()[i][j]);
-        }
-        jgraph.push_back(jtemp);
-    }
-*/
+ 
 
 }
 
@@ -382,7 +299,7 @@ bool Session::is_ConnectedCopOk() {
     }
 
     for (int v = 0; v < g.getEdges().size(); v++) {
-        if (visited[v] == false) {
+        if (!visited[v]) {
             // print all reachable vertices
             // from v
 

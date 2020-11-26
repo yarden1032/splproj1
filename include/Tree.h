@@ -43,8 +43,6 @@ public:
     MaxRankTree(int rootLabel);
     virtual int traceTree();
 private:
-    int   minDepthHelperIteration(Tree* node);
-    int  minDepthHelper(Tree* node, std::vector<int> maxint);
     std::vector<int> traceTreeIteration(Tree* node,std::vector<int> & maxint,int & max);
 
   void

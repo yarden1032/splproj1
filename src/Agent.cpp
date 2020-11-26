@@ -24,13 +24,6 @@ int Virus::getNodeInd(){
 Virus::Virus(int nodeInd):nodeInd(nodeInd) {
 
 }
-///We need to complete
-
-
-
-
-
-
 
 
 void Virus::act(Session & session){
@@ -108,11 +101,6 @@ if (i!=-1){
     delete tree;
     tree=nullptr;
 }
-
-
-//do trcace =int
-
-//with the int = change the graph
 
 
 
@@ -200,37 +188,7 @@ Virus::~Virus()=default;
 
 Agent::~Agent()=default;
 
-/*
-void Agent::clear()
-{
-    while (head_ != nullptr) {
-        removeFirst();
-    }
-}
 
-class ContactTracer: public Agent{
-public:
-    ContactTracer(int sestempl, int session) : Agent(sestempl) {
-        sestempl=0;
-        session=55;
-    }
-
-    virtual void act();
-};
-}
-
-void printAgent(vector<int> adj[], int V)
-{
-for (int v = 0; v < V; ++v)
-{
-    cout << "\n Adjacency list of vertex "
-         << v << "\n head ";
-    for (auto x : adj[v])
-        cout << "-> " << x;
-    printf("\n");
-}
-}
-*/
 
 
 

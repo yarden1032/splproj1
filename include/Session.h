@@ -17,7 +17,6 @@ class Agent;
     class Session {
     public:
 
- //       Session(); //empty constructor
         Session(const Session &aSession);// copy constructor
         Session(const std::string &path);
         void simulate();
@@ -27,7 +26,6 @@ class Agent;
         void setGraph(const Graph &graph);
         void isolateNode(int node);
         void enqueueInfected(int nodeInd);
-        Session* copy(const string &path);
         int dequeueInfected();
         TreeType getTreeType() const;
          Graph getGraph() const;
@@ -35,7 +33,6 @@ class Agent;
         Session& operator=(const Session &other);
         Session(Session&& other);
         Session& operator=(Session &&other);
-        Graph * getGraphRef() ;
         int getCurriteration();
 
     private:

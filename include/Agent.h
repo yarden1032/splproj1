@@ -21,8 +21,8 @@ public:
 
     virtual void act(Session& session);
 
-private:
-    Tree* BFS(int start,Session& session);
+
+   static Tree* BFS(int start,Session& session);
 
 };
 

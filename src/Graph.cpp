@@ -1,9 +1,7 @@
 //This is implementation of class Graph
 #include "../include/Graph.h"
-#include <iostream>
-#include <vector>
 using namespace std;
-#include <vector>
+
 //Graph::Vector(): {std::vector<std::vector<int>> matrix(0)}
 Graph::Graph(){
 
@@ -22,31 +20,10 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
         }
         delete vecy;
     }
-/*
-        for (int i = 0; i < matrix.size(); i++){
-            for (int j= 0; j < matrix[i].size();  j++)
-            {
 
-                edges[i].push_back((matrix[i])[j]);
-            }
-    }
-*/
 }
 
 
-
-/*void printGraph(vector<int> adj[], int V)
-{
-    for (int v = 0; v < V; ++v)
-    {
-        cout << "\n Adjacency list of vertex "
-             << v << "\n head ";
-        for (auto x : adj[v])
-            cout << "-> " << x;
-        printf("\n");
-    }
-}
-*/
 void Graph::isolate(int nodeInd)
 {
     for (int i=0;i<edges.size();i++)
@@ -72,22 +49,9 @@ infected_nodes.push_back(nodeInd);
   //  infected_nodes_deque.push_back(nodeInd);
 
 }
-/* std::vector<int> Graph::getinfected_nodes_deque(){
 
-    return  infected_nodes_deque;
-
-}
-*/
  bool Graph::isInfected(int nodeInd)
-{/*
-    int indexi= nodeInd/edges.size();
-    int indexj= nodeInd%edges.size();
-    if ((edges[indexi])[indexj].GetIsInfected(())
-    return true;
-    else
-        return false;
-
-*/
+{
 
 for(int i=0;i<infected_nodes.size();i++){
     if (infected_nodes[i]==nodeInd)
@@ -143,7 +107,7 @@ Graph & Graph::operator=(const Graph &aGraph) // Finished but need to be tested
             edges[i].resize(size);
         }
         for (int j = 0; j < size; j++) {
-
+            
             (edges[i])[j] = aGraph.getEdges()[i][j];
         }
     }
