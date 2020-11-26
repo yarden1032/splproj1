@@ -297,168 +297,6 @@ std::vector<int> MaxRankTree::traceTreeIteration(Tree* node,std::vector<int> & m
 
 }
 
-//TODO fix here - important for config4.JSON
-      /*  int MaxRankTree::minDepthHelper(Tree* node, vector<int> maxint,  vector<int> * minintdepth) {
-    if (node == NULL)
-        return 0;
-    else {
-        ///start
-        int i;
-    //    vector<int> minintdepth = *new vector<int>(node->getChildren().size());
-      //  int maxint = -1;
-        for (i = 0; i < node->getChildren().size(); i++) {
-            //call to itself with the children
-
-            (*minintdepth)[i] = minDepthHelper(node->getChildren()[i], maxint,minintdepth) + 1;
-        }
-        int j = -1;
-        int min=-5;
-        for (j=0; j < minintdepth->size(); j++) {
-            if (min < (*minintdepth)[j]||min<0) {
-                min =   (*minintdepth)[j];
-
-            }
-        }
-        for(int k=0;k< node->getChildren().size(); k++) {
-            if (min == (*minintdepth)[k])
-            {
-                delete node->getChildren()[k];
-                return  k;
-
-            }
-
-
-        }
-        return 0;
-
-
-    }
-
-}
-
-*/
-/*here we wrote how to get depth in recursion - it works for sure
- *
- */
-/*
-     int  MaxRankTree::minDepthHelperIteration(Tree* node) {
-
-             if (node->getChildren().size() == 0)
-                 return 1;
-             else
-             {
-                 // compute the depth of each subtree
-                 vector<int> vecy;
-                 for (int i = 0; i < node->getChildren().size(); i++) {
-                     vecy.push_back(minDepthHelperIteration(node->getChildren()[i]));
-
-                 }
-
-          //       int lDepth = maxDepth(node->left);
-       //          int rDepth = maxDepth(node->right);
-
-                 /// use the larger one
-                 int max=-1;
-          for (int i = 0; i < node->getChildren().size(); i++)
-          {
-              if (max<=vecy[i])
-              {
-                  max=vecy[i];
-              }
-          }
-          return max;
-             }
-      }
-
-
-/**
- * we use here the iteration above
- * @param node
- * @param maxint
- * @return min depth
- */
-
-
-/*
-
-         int  MaxRankTree::minDepthHelper(Tree* node, vector<int> maxint) { //we return the index
-
-    vector<int>  vecy; //vector of all the maxint's depth - we will use the iteration to do so
-   int min =-5; int minpos=-1;
-    int counterchecker=0;
-
-    for (int j = 0; j < maxint.size(); j++) {
-
-    for (int i = 0; i < node->getChildren().size(); i++){
-
-        if (i==maxint[j]) {
-            vecy.push_back(minDepthHelperIteration(node->getChildren()[i]));
-            break;
-        }
-                     }
-
-                 }
-
-
-    for (int j = 0; j < maxint.size(); j++){
-   if (vecy[j]==min)
-   {
-       counterchecker++;
-   }
-
-        if (min==-5 ||vecy[j]<min)
-        {
-            min=vecy[j];
-            counterchecker=1;
-            minpos=j;
-        }
-             }
-
-    if (counterchecker>1)
-    {
-        return 0;
-    }
-
-    return minpos;
-         }
-*/
-/*
-    int maxDepth(Tree* node)
-
-    {
-        for (i=0;i<node->getChildren().size();i++) {
-
-            if (node->getChildren()[i]->getChildren().size()>max)
-            {
-                max=getChildren()[i]->getChildren().size();
-                maxintdepth.clear();
-                maxintdepth.push_back(i); //call to itself
-            }
-            if (node->getChildren()[i]->getChildren().size()==max)
-            {
-                maxintdepth.push_back(i); //call to itself
-            }
-
-
-        }
-
-        ////end
-        /* compute the depth of each subtree
-        int lDepth = maxDepth(node->left);
-        int rDepth = maxDepth(node->right);
-
-        /* use the larger one
-        if (lDepth > rDepth)
-            return(lDepth + 1);
-        else return(rDepth + 1);
-    }
-}
-*/
-
-
-
-
-
 
 void CycleTree::setCurrCycle(int currCycle) {
     this->currCycle = currCycle;
@@ -485,14 +323,13 @@ int CycleTree::traceTree() {
     Tree * temp;
     temp=this;
 
-  //  int tempcurrCycle=currCycle;
+
     if(temp->getChildren().size()!=0){
 
         while (temp->getChildren().size()!=0){
-        //for (int i = 1; i <= tempcurrCycle; i++) { // i want that only this node childs will enter the trip vector   this->getChildren()[this->getNode()]->getChildren().size()
-        temp=temp->getChildren()[0];
+       temp=temp->getChildren()[0];
         cycleTrip.push_back(temp->getNode());
-        //tempcurrCycle=this->getCurrCycle();
+
     }
     }
  //   delete temp;
@@ -502,25 +339,6 @@ int CycleTree::traceTree() {
     return cycleTrip[n+1];
  }
  return cycleTrip[cycleTrip.size()-1];
-
-/*
-    int CurrCycle=this->getCurrCycle();
-
-    int lastindex = cycleTrip[cycleTrip.size()-1];
-
-    if (cycleTrip.size()<CurrCycle) {
-      /*  for (int i = 0; i < this->getChildren().size(); i++) {
-            delete this->getChildren()[lastindex];
-        }
-        return (cycleTrip[lastindex]);
-
-    }
-   /* for (int i = 0; i < this->getChildren().size(); i++) {
-        delete this->getChildren()[CurrCycle];
-    }
-    return cycleTrip[CurrCycle];
-
-*/
 
 
 
