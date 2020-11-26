@@ -499,7 +499,7 @@ int CycleTree::traceTree() {
     int n = this->getCurrCycle();
  if(cycleTrip.size()>n+1){
 
-    return cycleTrip[n];
+    return cycleTrip[n+1];
  }
  return cycleTrip[cycleTrip.size()-1];
 
