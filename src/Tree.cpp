@@ -7,9 +7,8 @@
 #include "../include/Graph.h"
 #include "../include/Tree.h"
 #include "../include/Session.h"
-#include <iostream>
 #include <vector>
-#include "../include/Agent.h"
+
 using namespace std;
 
 Tree::Tree() {
@@ -29,13 +28,13 @@ Tree* Tree::createTree(const Session& session, int rootLabel)
     Session& session1 = const_cast< Session&>(session);
     return ContactTracer::BFS(rootLabel, session1);
 
-   // return BFS(rootLabel, session);
+
 }
 void Tree::addChild(const Tree& child)
 {
 
 children.push_back(const_cast<Tree *>(&child));
-//delete tempChild;
+
 }
 std::vector<Tree*> Tree::getChildren() {
 return children;
@@ -198,8 +197,10 @@ int MaxRankTree::traceTree_Leftest(Tree * node, vector<int> maxint,  vector<vect
              step++;
 
          }
+             return  node->getNode();
          }
 
+    return  node->getNode();
 }
 
     void MaxRankTree::traceTree_TripForMax(Tree* node,std::vector<int>  maxint,std::vector<std::vector<int>> & trip_maxint, std::vector<int>  currentPath)
@@ -290,11 +291,11 @@ int CycleTree::traceTree() {
         //tempcurrCycle=this->getCurrCycle();
     }
     }
- //   delete temp;
+
     int n = this->getCurrCycle();
  if(cycleTrip.size()>n+1){
 
-    return cycleTrip[n];
+    return cycleTrip[n+1];
  }
  return cycleTrip[cycleTrip.size()-1];
 
