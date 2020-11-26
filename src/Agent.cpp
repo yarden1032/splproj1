@@ -8,8 +8,12 @@ Agent::Agent() :nodeInd(-1){
 
 }
 
+
+Virus::~Virus () {
+}
+ContactTracer::~ContactTracer() {
+}
 void Agent::act(Session& session){
-///We need to complete
 
     }
 int Agent::getNodeInd(){

@@ -2,15 +2,15 @@
 #define AGENT_H_
 #include "../include/Session.h"
 #include "../include/Tree.h"
-
 #include <vector>
+
 class Session; ////////TODO: important!!!! this line was important - to show to Roni
 class Agent{
 public:
     Agent();
     virtual void act(Session& session)=0;
      virtual int getNodeInd();
-    ~Agent();
+   virtual ~Agent();
 private:
     const int nodeInd;
 
@@ -18,7 +18,7 @@ private:
 class ContactTracer: public Agent{
 public:
     ContactTracer();
-
+    ~ContactTracer();
     virtual void act(Session& session);
 
 
@@ -33,6 +33,7 @@ public:
     int getNodeInd();
     virtual void act(Session& session);
     ~Virus();
+    
 private:
     const int nodeInd;
 
