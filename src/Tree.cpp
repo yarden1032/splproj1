@@ -499,28 +499,11 @@ int CycleTree::traceTree() {
     int n = this->getCurrCycle();
  if(cycleTrip.size()>n+1){
 
-    return cycleTrip[n];
+    return cycleTrip[n+1];
  }
  return cycleTrip[cycleTrip.size()-1];
 
-/*
-    int CurrCycle=this->getCurrCycle();
 
-    int lastindex = cycleTrip[cycleTrip.size()-1];
-
-    if (cycleTrip.size()<CurrCycle) {
-      /*  for (int i = 0; i < this->getChildren().size(); i++) {
-            delete this->getChildren()[lastindex];
-        }
-        return (cycleTrip[lastindex]);
-
-    }
-   /* for (int i = 0; i < this->getChildren().size(); i++) {
-        delete this->getChildren()[CurrCycle];
-    }
-    return cycleTrip[CurrCycle];
-
-*/
 
 
 

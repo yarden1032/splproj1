@@ -329,7 +329,7 @@ while (continue_sim)
     int agentCurrentSize= agents.size();
 for(int i=0;i<agentCurrentSize;i++)
     {
-       // Session& session(*this);
+
        agents[i]->act((Session &) *this); //make sure memory is ok here
 
     }
@@ -348,19 +348,6 @@ void Session::output() {
     jtotal["infected"]=g.getinfected_nodes();
     std::ofstream o("output.json");
     o << std::setw(4) << jtotal ;
- //    jtotal=jinfected;
-
-    //start config jgraph
- /*   for (int i=0;i<g.getEdges().size();i++)
-    {
-        json jtemp;
-        for (int j=0;j<g.getEdges().size();j++)
-        {
-            jtemp.push_back(g.getEdges()[i][j]);
-        }
-        jgraph.push_back(jtemp);
-    }
-*/
 
 }
 
@@ -374,8 +361,6 @@ void Session::memoManage()
 bool Session::is_ConnectedCopOk() {
     std::vector<std::vector<int>> cc;
 
-    //line of something
-    // Mark all the vertices as not visited
     std::vector<bool> visited;
     for (int v = 0; v < g.getEdges().size(); v++) {
         visited.push_back(false);
@@ -383,19 +368,16 @@ bool Session::is_ConnectedCopOk() {
 
     for (int v = 0; v < g.getEdges().size(); v++) {
         if (visited[v] == false) {
-            // print all reachable vertices
-            // from v
 
             //create of first CC
             vector<int> vecy;
             cc.push_back(vecy);
-            //  cc[v] = *new std::vector<int>;
+
             std::vector<std::vector<int>> &cc1 = cc;
             std::vector<bool> &visited1 = visited;
 
             DFS_helper(v, visited1, cc1);
 
-            //  cout << "\n";  //Delete
         }
     }
 
