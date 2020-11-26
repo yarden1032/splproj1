@@ -10,10 +10,10 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
 
 
 
-    for (int i = 0; i <matrix.size(); i++){
+    for (unsigned int i = 0; i <matrix.size(); i++){
         vector <int>* vecy= new vector<int>();
         edges.push_back(*vecy);
-        for (int j= 0; j < matrix[i].size(); j++)
+        for (unsigned int j= 0; j < matrix[i].size(); j++)
         {
 
             edges[i].push_back(((matrix[i])[j]));
@@ -26,7 +26,7 @@ Graph::Graph(std::vector<std::vector<int>> matrix){ //constructor not empty
 
 void Graph::isolate(int nodeInd)
 {
-    for (int i=0;i<edges.size();i++)
+    for ( unsigned int i=0;i<edges.size();i++)
     {
         edges[nodeInd][i]=0;
         edges[i][nodeInd]=0;
@@ -38,7 +38,7 @@ void Graph::isolate(int nodeInd)
 
 void Graph::infectNode(int nodeInd)
 {
-    for (int i= 0;i< infected_nodes.size();i++)
+    for (unsigned int i= 0;i< infected_nodes.size();i++)
     {
         if (infected_nodes[i]==nodeInd)
         {
@@ -53,7 +53,7 @@ infected_nodes.push_back(nodeInd);
  bool Graph::isInfected(int nodeInd)
 {
 
-for(int i=0;i<infected_nodes.size();i++){
+for(unsigned int i=0;i<infected_nodes.size();i++){
     if (infected_nodes[i]==nodeInd)
     {
         return true;

@@ -9,8 +9,7 @@ Agent::Agent() :nodeInd(-1){
 }
 
 
-Virus::~Virus () {
-}
+
 ContactTracer::~ContactTracer() {
 }
 void Agent::act(Session& session){
@@ -44,15 +43,15 @@ void Virus::act(Session & session){
         if (!session.getGraph().isInfected(n)) //if not, don't enqueue it because it already infected
         session.enqueueInfected(n);
 
-for(int i=0;i<session.getGraph().getEdges().size();i++)
+for(unsigned int i=0;i<session.getGraph().getEdges().size();i++)
     if (session.getGraph().getEdges()[getNodeInd()][i]==1)
     {
         if(!session.getGraph().isInfected(i))
         {bool skip=false;
-            for(int j=0;j<session.getAgents().size();j++)
+            for(unsigned int j=0;j<session.getAgents().size();j++)
             {
-
-                if(session.getAgents()[j]->getNodeInd()==i)
+                unsigned int compare= session.getAgents()[j]->getNodeInd();
+                if(compare==i)
                 {
 
                 /////    it means we dont infect a node that already have virus
@@ -148,7 +147,7 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
             }
             queue.pop_front();
 
-            for (int i = 0; i < session.getGraph().getEdges()[currVertex].size(); i++) {
+            for (unsigned int i = 0; i < session.getGraph().getEdges()[currVertex].size(); i++) {
 
                 if (!visited[i]&&session.getGraph().getEdges()[currVertex][i]==1) {
                     visited[i] = true;
