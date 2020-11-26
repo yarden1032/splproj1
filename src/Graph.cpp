@@ -3,10 +3,11 @@
 using namespace std;
 
 
-Graph::Graph():edges(*new std::vector<std::vector<int>>),infected_nodes(* new std::vector<int> ){
-
+Graph::Graph():edges(),infected_nodes( ){
+    edges.clear();
+    infected_nodes.clear();
 } //Constructor empty
-Graph::Graph(std::vector<std::vector<int>> matrix):edges(*new std::vector<std::vector<int>>),infected_nodes(* new std::vector<int> ){ //constructor not empty
+Graph::Graph(std::vector<std::vector<int>> matrix):edges(),infected_nodes( ){ //constructor not empty
 
     for (unsigned int i = 0; i <matrix.size(); i++){
         vector <int>* vecy= new vector<int>();
@@ -46,6 +47,13 @@ infected_nodes.push_back(nodeInd);
 
 
 }
+void Graph::clear() {
+    for (unsigned int i = 0; i < edges.size(); i++) {
+            edges[i].clear();
+        }
+edges.clear();
+    infected_nodes.clear();
+    }
 
  bool Graph::isInfected(int nodeInd)
 {

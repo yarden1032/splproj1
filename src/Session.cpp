@@ -10,7 +10,7 @@ using json = nlohmann::json;
 #include <vector>
 using namespace std;
 //session::Session() { } //Constructor empty
-Session::Session(const string &path):g(* new Graph()),agents(* new std::vector<Agent *>),curriteration(-1),treeType (Cycle),indicator(-1) { //constructor not empty
+Session::Session(const string &path):g(),agents(),curriteration(-1),treeType (Cycle),indicator(-1) { //constructor not empty
 
 
     std::string st=path;
@@ -62,7 +62,7 @@ Session::Session(const string &path):g(* new Graph()),agents(* new std::vector<A
             continue;
         }
     }
-
+ //  g.clear();
         g=(vec);
 
         treeType = Cycle; //Just for default for making sure.
@@ -87,6 +87,7 @@ Session::Session(const string &path):g(* new Graph()),agents(* new std::vector<A
     int interator; //For Agents === the initial place of the Agents
     string ageString ; //For Agents === the type of Agent
     json jAgents =j.at("agents");
+    agents.clear();
     for (json::iterator it =jAgents.begin() ; it !=jAgents.end() ;++it) {
         interator = (it.value())[1];
         ageString=(it.value())[0];

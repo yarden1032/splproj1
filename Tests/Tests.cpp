@@ -146,7 +146,6 @@ TEST_CASE( "Maintest", "[configtest]" ) {
             std::ifstream ik(stout);
             json joutput;
             ik >>joutput;
-        Tree * t= Tree::createTree(sess,4);
             REQUIRE(joutput.at("graph")==joutput.at("graph")) ;
             REQUIRE(joutput.at("infected")==expect.at("infected")) ;
 

@@ -100,7 +100,7 @@ if (i!=-1){
     session.isolateNode(nodeTodelete);
 
 
-
+tree->clear();
     delete tree;
     tree=nullptr;
 }
@@ -168,7 +168,6 @@ Tree* ContactTracer::BFS(int startVertex,Session& session) {
 
                     whereVisisted[i]=tempTree;
                     queue.push_back(childnew);
-
                 }
             }
         }

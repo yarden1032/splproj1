@@ -10,10 +10,11 @@
 #include <vector>
 using namespace std;
 
-Tree::Tree():node(0),children(* new std::vector<Tree*>) {
+Tree::Tree():node(0),children() {
 }
-Tree::Tree(int rootLabel):node(rootLabel),children(* new std::vector<Tree*>)
+Tree::Tree(int rootLabel):node(rootLabel),children()
     {
+
     }
 
 Tree::~Tree() {
